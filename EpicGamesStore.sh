@@ -123,22 +123,22 @@ glxgears -stereo > /dev/null 2>&1
 echo "━━━━━━━━━"
 echo "PlayOnGit"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 40 MINUTOS."
+echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 18 MINUTOS."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/dx_especial/
 cd ~/.jogos/setups/dx_especial/
@@ -155,10 +155,10 @@ tar -xf directx-2010.tar.gz
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 echo "Em progresso ..."
-#~/.jogos/scripts/winetricks -q vcrun2013
-~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
 echo "Em progresso ....."
