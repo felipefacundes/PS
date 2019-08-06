@@ -54,7 +54,7 @@ echo "Terminal=false" >> "$GN".desktop
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
