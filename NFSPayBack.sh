@@ -268,7 +268,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/"
 # "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
+~/.jogos/scripts/winetricks vd=1360x768
 
 pkill -9 .exe
 
