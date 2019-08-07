@@ -10,7 +10,7 @@ clear -T "$TERM"
 WV=wine-4.11-1-x86_64
 GN=NFSPayBack
 SN="Need For Speed PayBack"
-CME="Loja da Steam"
+CME="Need For Speed PayBack"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
