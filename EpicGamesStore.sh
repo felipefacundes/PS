@@ -221,10 +221,11 @@ cd ~/.jogos/setups/
 #wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 #"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
 
-#https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.3.1.msi?launcherfilename=EpicInstaller-10.3.1.msi
+wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.3.1.msi?launcherfilename=EpicInstaller-10.3.1.msi" -O EpicInstaller-10.3.1.msi
+"$W"/bin/msiexec /i EpicInstaller-10.3.1.msi /q
 
-wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-9.13.0.msi?launcherfilename=EpicInstaller-9.13.0.msi" -O EpicInstaller-9.13.0.msi
-"$W"/bin/msiexec /i EpicInstaller-9.13.0.msi /q
+#wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-9.13.0.msi?launcherfilename=EpicInstaller-9.13.0.msi" -O EpicInstaller-9.13.0.msi
+#"$W"/bin/msiexec /i EpicInstaller-9.13.0.msi /q
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
