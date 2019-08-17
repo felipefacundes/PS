@@ -290,6 +290,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
