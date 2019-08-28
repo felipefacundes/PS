@@ -43,6 +43,7 @@ tar -xf "$WV".tar.xz
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
+touch "$GN".desktop
 echo "#!/usr/bin/env xdg-open" > "$GN".desktop
 echo "[Desktop Entry]" >> "$GN".desktop
 echo "Name=$SN" >> "$GN".desktop
@@ -53,6 +54,30 @@ echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
+
+# Desinstalar
+cd ~/.jogos/scripts/run/
+touch remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/$GN.desktop" > remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/wineprefixes/$GN/" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-run.sh" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/remover-$GN.desktop" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".sh
+chmod +x remover-"$GN".sh
+cd ~/.local/share/applications/
+touch remover-"$GN".desktop
+echo "#!/usr/bin/env xdg-open" > remover-"$GN".desktop
+echo "[Desktop Entry]" >> remover-"$GN".desktop
+echo "Name=Remover $SN" >> remover-"$GN".desktop
+echo "Comment=Remover $SN" >> remover-"$GN".desktop
+echo "Categories=Game;" >> remover-"$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".desktop
+echo "Type=Application" >> remover-"$GN".desktop
+echo "StartupNotify=true" >> remover-"$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/remover.png" >> remover-"$GN".desktop
+echo "Terminal=false" >> remover-"$GN".desktop
+cd ~/.jogos/icons/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
