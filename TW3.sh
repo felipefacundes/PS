@@ -26,10 +26,10 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/"$GN"-run.sh > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
@@ -98,13 +98,13 @@ export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export __GL_SYNC_TO_VBLANK=0
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
-export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH="/tmp"
-export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
@@ -278,7 +278,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 pkill -9 .exe
 
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
@@ -300,6 +300,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
 # Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options

@@ -26,10 +26,10 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/"$GN"-run.sh > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
@@ -51,15 +51,15 @@ echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
-#1# Essa é a versão escolhida do Wine
+#A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
-export WINEPATH="$W"/bin:$WINEPATH
+export WINEPATH="$W/bin:$WINEPATH"
 export WINESERVER="$W"/bin/wineserver
 export WINELOADER64="$W"/bin/wine64
 export WINELOADER="$W"/bin/wine
@@ -93,17 +93,25 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export __GL_THREADED_OPTIMIZATIONS=1
-export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
+export KWIN_TRIPLE_BUFFER=1
+export TRIPLE_BUFFER=1
+export XVideoTextureSyncToVBlank=0
+export MESA_NO_ERROR=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-#export PBA=0
+export __GL_YIELD="NOTHING"
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
+
+# Para GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -272,7 +280,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/"
 pkill -9 .exe
 
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
@@ -294,6 +302,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
 # Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options

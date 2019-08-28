@@ -26,10 +26,10 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/"$GN"-run.sh > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
@@ -89,16 +89,16 @@ export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
-export DXVK_SHADER_DUMP_PATH=”/tmp”
-export DXVK_SHADER_READ_PATH=”/tmp”
+export DXVK_SHADER_DUMP_PATH="/tmp"
+export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
 export __GL_THREADED_OPTIMIZATIONS=1
-export __GL_YIELD=NOTHING
+export __GL_YIELD="NOTHING"
 export PULSE_LATENCY_MSEC=60
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH=”/tmp”
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export DXVK_HUD=compiler,fps
 glxinfo -B
@@ -264,7 +264,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/"
 pkill -9 .exe
 
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
@@ -286,6 +286,7 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options

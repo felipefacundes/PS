@@ -52,9 +52,9 @@ echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
-#1# Essa é a versão escolhida do Wine
+#A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -78,7 +78,7 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
-export vblank_mode=0
+#export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
@@ -93,15 +93,26 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export __GL_THREADED_OPTIMIZATIONS=1
-export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
+export KWIN_TRIPLE_BUFFER=1
+export TRIPLE_BUFFER=1
+export XVideoTextureSyncToVBlank=0
+export MESA_NO_ERROR=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_YIELD="NOTHING"
+export vblank_mode=0
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
+export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
+
+# Para GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -287,7 +298,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 pkill -9 .exe
 
 cd ~/.jogos/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/songs/leia.ogg > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
