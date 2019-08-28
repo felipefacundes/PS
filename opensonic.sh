@@ -168,7 +168,7 @@ tar -xf opensnc-win-0.1.4.tar.xz
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/opensnc-win-0.1.4/"
 cp -rf icon.png ~/.jogos/icons/"$GN".png
 
-"$W"/bin/wine
+#"$W"/bin/wine
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
