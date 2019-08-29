@@ -10,32 +10,55 @@ SN="Tibia"
 CME="MMO free-to-play"
 # Criar as pastas
 mkdir -p ~/.local/share/applications/
-#mkdir -p ~/.jogos/nativos/$GN
+#mkdir -p ~/.jogos/nativos/"$GN"
 mkdir -p ~/.jogos/nativos/
 mkdir -p ~/.jogos/icons/
 mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
 
 cd ~/.jogos/scripts/run/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/$GN-run.sh
-chmod +x $GN-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh
+chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/$GN.png
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png
 
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
-echo "#!/usr/bin/env xdg-open" > $GN.desktop
-echo "[Desktop Entry]" >> $GN.desktop
-echo "Name=$SN" >> $GN.desktop
-echo "Comment=$CME" >> $GN.desktop
-echo "Categories=Game;" >> $GN.desktop
-echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> $GN.desktop
-echo "Type=Application" >> $GN.desktop
-echo "StartupNotify=true" >> $GN.desktop
-echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> $GN.desktop
-echo "Terminal=false" >> $GN.desktop
+echo "#!/usr/bin/env xdg-open" > "$GN".desktop
+echo "[Desktop Entry]" >> "$GN".desktop
+echo "Name=$SN" >> "$GN".desktop
+echo "Comment=$CME" >> "$GN".desktop
+echo "Categories=Game;" >> "$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
+echo "Type=Application" >> "$GN".desktop
+echo "StartupNotify=true" >> "$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
+echo "Terminal=false" >> "$GN".desktop
 
+# Desinstalar
+cd ~/.jogos/scripts/run/
+touch remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/$GN.desktop" > remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/wineprefixes/$GN/" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-run.sh" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/remover-$GN.desktop" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".sh
+chmod +x remover-"$GN".sh
+cd ~/.local/share/applications/
+touch remover-"$GN".desktop
+echo "#!/usr/bin/env xdg-open" > remover-"$GN".desktop
+echo "[Desktop Entry]" >> remover-"$GN".desktop
+echo "Name=Remover $SN" >> remover-"$GN".desktop
+echo "Comment=Remover $SN" >> remover-"$GN".desktop
+echo "Categories=Game;" >> remover-"$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".desktop
+echo "Type=Application" >> remover-"$GN".desktop
+echo "StartupNotify=true" >> remover-"$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/remover.png" >> remover-"$GN".desktop
+echo "Terminal=false" >> remover-"$GN".desktop
+cd ~/.jogos/icons/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
 export TERM=xterm
 export ESYNC=0
@@ -80,8 +103,8 @@ cd "/home/$USER/.jogos/nativos/Tibia/"
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 

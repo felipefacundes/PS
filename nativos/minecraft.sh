@@ -14,10 +14,10 @@ mkdir -p ~/.jogos/scripts/run/
 mkdir -p ~/.jogos/setups/
 
 cd ~/.jogos/scripts/run/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/runs/minecraft-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/minecraft-run.sh
 chmod +x minecraft-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/desktop/master/wine-jogos/icons/minecraft.png
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/minecraft.png
 #cd ~/.jogos/scripts/
 #wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 #chmod +x winetricks
@@ -41,6 +41,29 @@ echo "StartupNotify=true" >> minecraft.desktop
 echo "Icon=/home/$USER/.jogos/icons/minecraft.png" >> minecraft.desktop
 echo "Terminal=false" >> minecraft.desktop
 
+# Desinstalar
+cd ~/.jogos/scripts/run/
+touch remover-minecraft.sh
+echo "rm -rf /home/$USER/.local/share/applications/minecraft.desktop" > remover-minecraft.sh
+echo "rm -rf /home/$USER/.jogos/wineprefixes/minecraft/" >> remover-minecraft.sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/minecraft-run.sh" >> remover-minecraft.sh
+echo "rm -rf /home/$USER/.local/share/applications/remover-minecraft.desktop" >> remover-minecraft.sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/remover-minecraft.sh" >> remover-minecraft.sh
+chmod +x remover-minecraft.sh
+cd ~/.local/share/applications/
+touch remover-minecraft.desktop
+echo "#!/usr/bin/env xdg-open" > remover-minecraft.desktop
+echo "[Desktop Entry]" >> remover-minecraft.desktop
+echo "Name=Remover Minecraft" >> remover-minecraft.desktop
+echo "Comment=Remover minecraft" >> remover-minecraft.desktop
+echo "Categories=Game;" >> remover-minecraft.desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/remover-minecraft.sh" >> remover-minecraft.desktop
+echo "Type=Application" >> remover-minecraft.desktop
+echo "StartupNotify=true" >> remover-minecraft.desktop
+echo "Icon=/home/$USER/.jogos/icons/remover.png" >> remover-minecraft.desktop
+echo "Terminal=false" >> remover-minecraft.desktop
+cd ~/.jogos/icons/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
 export TERM=xterm
 export ESYNC=0
