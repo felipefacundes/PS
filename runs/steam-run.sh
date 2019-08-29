@@ -145,7 +145,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 # "$W"/bin/wineconsole mpv-install.bat
 
 
-
+rm -rf ~/.local/share/applications/*wine*
 ################################# Opções extras:
 # Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
