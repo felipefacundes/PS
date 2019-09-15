@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.11-1-x86_64
+WV=wine-staging-4.16-1-x86_64
 GN=Origin
 SN="EA Games Store"
 CME="Loja da EA Games"
@@ -55,8 +55,8 @@ export DXVK_LOG_LEVEL=none
 export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
-export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
+export MESA_NO_ERROR=1
 export __GL_YIELD="NOTHING"
 export __GL_SYNC_TO_VBLANK=0
 export __GL_THREADED_OPTIMIZATIONS=1
