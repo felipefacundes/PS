@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf ~/.local/share/applications/*wine*
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
