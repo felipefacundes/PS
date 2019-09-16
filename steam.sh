@@ -180,8 +180,8 @@ wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
-#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
-# "$W"/bin/wine Firefox*67.0.exe /S
+wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/69.0/win64/pt-BR/Firefox%20Setup%2069.0.exe
+"$W"/bin/wine Firefox*69.0.exe /S
 
 ################################# Microsoft Edge
 #wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
