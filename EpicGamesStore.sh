@@ -7,8 +7,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.11-1-x86_64
-#WV=wine-staging-4.13-1-x86_64
+WV=wine-staging-4.16-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
 CME="Loja da Epic Games"
@@ -148,16 +147,12 @@ glxgears -stereo > /dev/null 2>&1
 echo "━━━━━━━━━"
 echo "PlayOnGit"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 40 MINUTOS."
+echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 15 MINUTOS."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
