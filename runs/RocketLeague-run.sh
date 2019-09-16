@@ -1,18 +1,19 @@
 #!/bin/bash
+rm -rf ~/.local/share/applications/*wine*
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.8-1-x86_64
-GN=RocketLeague
-SN="Rocket League"
-CME="Futebol de carros"
+WV=wine-staging-4.16-1-x86_64
+GN=steam
+SN="Steam Windows"
+CME="Loja da Steam"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -37,7 +38,6 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
 #export ESYNC=0
-export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
@@ -55,15 +55,16 @@ export DXVK_LOG_LEVEL=none
 export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
-export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
-export __GL_YIELD="NOTHING"
-export __GL_SYNC_TO_VBLANK=0
-export __GL_THREADED_OPTIMIZATIONS=1
-export mesa_glthread=true
+export MESA_NO_ERROR=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_YIELD="NOTHING"
+export vblank_mode=0
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
@@ -89,7 +90,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-$W/bin/wine Steam.exe -applaunch 252950
+"$W"/bin/wine Steam.exe -applaunch 252950
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -105,8 +106,8 @@ $W/bin/wine Steam.exe -applaunch 252950
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 
@@ -142,10 +143,12 @@ $W/bin/wine Steam.exe -applaunch 252950
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
+
+
 
 
 ################################# Opções extras:
@@ -229,15 +232,15 @@ $W/bin/wine Steam.exe -applaunch 252950
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#$W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
