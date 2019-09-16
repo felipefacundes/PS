@@ -241,4 +241,4 @@ cd "$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 
 #"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
-d3d10core=native d3d11=native dxgi=native
+#d3d10core=native d3d11=native dxgi=native
