@@ -5,7 +5,10 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-# Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
+WV=wine-staging-4.16-1-x86_64
+GN=TheSims4
+SN="The Sims 4"
+CME="Estilo second life"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
@@ -52,8 +55,8 @@ export DXVK_LOG_LEVEL=none
 export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
-export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
+export MESA_NO_ERROR=1
 export __GL_YIELD="NOTHING"
 export __GL_SYNC_TO_VBLANK=0
 export __GL_THREADED_OPTIMIZATIONS=1
@@ -85,8 +88,8 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/maria/.jogos/wineprefixes/TheSims4/drive_c/The SIMS 4/Game/Bin"
-~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine TS4_x64.exe
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Origin"
+"$W"/bin/wine Origin.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -102,19 +105,57 @@ cd "/home/maria/.jogos/wineprefixes/TheSims4/drive_c/The SIMS 4/Game/Bin"
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/TheSims4/drive_c/
-#xdg-open ~/.jogos/scripts/run/TheSims4-run.sh
+#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
+#xdg-open ~/.jogos/scripts/run/$GN-run.sh
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################# 喇 MPV Player 懶 喇
+#pkill -9 .exe
+#cd ~/.jogos/setups/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+#tar -xf mpv.tar.xz
+#cd ~/.jogos/setups/mpv
+# "$W"/bin/wineconsole mpv-install.bat
+
+################################# Finalização
+#~/.jogos/scripts/winetricks vd=1360x768
+#pkill -9 .exe
 
 ################################# Opções extras:
-# Opções da TheSims4: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da TheSims4
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -188,19 +229,16 @@ cd "/home/maria/.jogos/wineprefixes/TheSims4/drive_c/The SIMS 4/Game/Bin"
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/TheSims4/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-#~/.jogos/wines/wine-staging-4.9-1-x86_64/bin/wine regsvr32 /i /S l3codecx.ax
-#~/.jogos/scripts/winetricks d3d10=native
-#~/.jogos/scripts/winetricks d3d10_1=native
-#~/.jogos/scripts/winetricks d3d10core=native
-#~/.jogos/scripts/winetricks d3d11=native
-#~/.jogos/scripts/winetricks dxgi=native
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
+#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+d3d10core=native d3d11=native dxgi=native
