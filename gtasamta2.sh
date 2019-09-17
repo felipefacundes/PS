@@ -218,6 +218,7 @@ cd ~/.jogos/setups/
 #wget -nc http://files.sa-mp.com/sa-mp-0.3.7-R3-1-install.exe
 #"$W"/bin/wine sa-mp-0.3.7-R3-1-install.exe
 
+#wget -nc https://patches.rockstargames.com/prod/socialclub/Social-Club-v1.2.4.1-Setup.exe
 wget -nc https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe
 "$W"/bin/wine Rockstar-Games-Launcher.exe
 
