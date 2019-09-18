@@ -198,14 +198,14 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.3.4.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.13.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.20.tar.gz
 #tar -xf dxvk-1.3.4.tar.gz
-tar -xf d9vk-0.13.tar.gz
+tar -xf d9vk-0.20.tar.gz
 
-#bash ~/.jogos/libraries/dxvk/d9vk-0.13/setup_dxvk.sh install > /dev/null 2>&1
+#bash ~/.jogos/libraries/dxvk/d9vk-0.20/setup_dxvk.sh install > /dev/null 2>&1
 #bash ~/.jogos/libraries/dxvk/dxvk-1.3.4/setup_dxvk.sh install > /dev/null 2>&1
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.13/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.13/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.20/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.20/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 echo "Em progresso ......"
