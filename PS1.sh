@@ -220,9 +220,10 @@ echo "Em progresso ......"
 cd "/home/$USER/.jogos/wineprefixes/"$GN"/drive_c/"
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ePSXe202-1.tar.xz
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/psx-emulator-1.13.tar.xz
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/EmuCR-Pcsxr-r72232.tar.xz
 tar -xf psx-emulator-1.13.tar.xz
 tar -xf ePSXe202-1.tar.xz
-
+tar -xf EmuCR-Pcsxr-r72232.tar.xz
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
