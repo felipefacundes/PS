@@ -94,6 +94,8 @@ cd "/home/$USER/.jogos/wineprefixes/"$GN"/drive_c/psx-emulator-1.13"
 "$W"/bin/wine psxfin &
 cd "/home/$USER/.jogos/wineprefixes/"$GN"/drive_c/ePSXe202-1"
 "$W"/bin/wine ePSXe &
+cd "/home/$USER/.jogos/wineprefixes/"$GN"/drive_c/EmuCR-Pcsxr-r72232"
+#"$W"/bin/wine pcsxr &
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
