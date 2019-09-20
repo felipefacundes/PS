@@ -5,8 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.11-1-x86_64
-#WV=wine-staging-4.13-1-x86_64
+WV=wine-staging-4.16-1-x86_64
 GN=Crysis3
 SN="Crysis 3"
 CME="Tiro em primeira pessoa"
@@ -38,7 +37,6 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
 #export ESYNC=0
-export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
@@ -56,22 +54,24 @@ export DXVK_LOG_LEVEL=none
 export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
-export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
-export __GL_YIELD="NOTHING"
-export __GL_SYNC_TO_VBLANK=0
-export __GL_THREADED_OPTIMIZATIONS=1
-export mesa_glthread=true
+export MESA_NO_ERROR=1
+#export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_YIELD="NOTHING"
+export vblank_mode=0
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
 # Para GAMEMODE: gamemoderun
-export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
