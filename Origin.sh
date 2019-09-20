@@ -78,7 +78,7 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remove
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -103,7 +103,6 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
 #export ESYNC=0
-export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
@@ -123,13 +122,15 @@ export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
 export MESA_NO_ERROR=1
-export __GL_YIELD="NOTHING"
-export __GL_SYNC_TO_VBLANK=0
-export __GL_THREADED_OPTIMIZATIONS=1
-export mesa_glthread=true
+export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
+export __GL_YIELD="NOTHING"
+export vblank_mode=0
+export __GL_SYNC_TO_VBLANK=0
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
 export PBA_DISABLE=0
 export DXVK_HUD=compiler,fps
 glxinfo -B
