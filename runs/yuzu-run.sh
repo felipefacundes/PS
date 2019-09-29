@@ -6,9 +6,9 @@
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.16-1-x86_64
-GN=steam
-SN="Steam Windows"
-CME="Loja da Steam"
+GN=yuzu
+SN="Yuzu (Nintendo Switch)"
+CME="Yuzu (Emulador de Nintendo Switch)"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
