@@ -7,7 +7,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.16-1-x86_64
+#WV=wine-staging-4.16-1-x86_64
 GN=yuzu
 SN="Yuzu (Nintendo Switch)"
 CME="Yuzu (Emulador de Nintendo Switch)"
@@ -35,8 +35,8 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.jogos/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
-tar -xf "$WV".tar.xz
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
+#tar -xf "$WV".tar.xz
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
