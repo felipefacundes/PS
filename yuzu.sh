@@ -80,20 +80,20 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remove
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/"$WV"
-export WINE64="$W"/bin/wine64
-export WINE="$W"/bin/wine
-export WINEVERPATH="$W"
-export WINEPATH="$W/bin:$WINEPATH"
-export WINESERVER="$W"/bin/wineserver
-export WINELOADER64="$W"/bin/wine64
-export WINELOADER="$W"/bin/wine
-export WINEDLLPATH32="$W"/lib32/wine/fakedlls
-export WINEDLLPATH64="$W"/lib/wine/fakedlls
-export WINEDLLPATH="$W"/lib/wine/fakedlls
-export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
-export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#W=~/.jogos/wines/"$WV"
+#export WINE64="$W"/bin/wine64
+#export WINE="$W"/bin/wine
+#export WINEVERPATH="$W"
+#export WINEPATH="$W/bin:$WINEPATH"
+#export WINESERVER="$W"/bin/wineserver
+#export WINELOADER64="$W"/bin/wine64
+#export WINELOADER="$W"/bin/wine
+#export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+#export WINEDLLPATH64="$W"/lib/wine/fakedlls
+#export WINEDLLPATH="$W"/lib/wine/fakedlls
+#export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
+#export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
+#export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
@@ -108,7 +108,7 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
