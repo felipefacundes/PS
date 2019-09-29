@@ -9,8 +9,8 @@ clear -T "$TERM"
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.16-1-x86_64
 GN=yuzu
-SN="Steam Windows"
-CME="Loja da Steam"
+SN="Yuzu (Nintendo Switch)"
+CME="Yuzu (Emulador de Nintendo Switch)"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
