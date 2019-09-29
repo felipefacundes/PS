@@ -225,7 +225,7 @@ wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/yuzu-file
 tar -xf yuzu-files.tar.xz
 
 YUZUFOLDER="/home/$USER/.jogos/wineprefixes/$GN/drive_c/users/facundes/Application Data/yuzu"
-cp -rf "$YUZUFOLDER"/nand/system/Contents "$YUZUFOLDER"/nand/user/Contents
+cp -rf "$YUZUFOLDER"/nand/system/Contents "$YUZUFOLDER"/nand/user/
 
 #"$W"/bin/wine
 
