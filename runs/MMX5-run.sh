@@ -145,7 +145,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Megaman X5"
 # "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
+~/.jogos/scripts/winetricks vd=1360x768
 
 
 ################################# Opções extras:
