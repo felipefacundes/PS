@@ -7,7 +7,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.16-1-x86_64
+#WV=wine-4.16-1-x86_64
 GN=MMX5
 SN="Mega Man X5"
 CME="Mega Man X5"
@@ -34,9 +34,9 @@ cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.jogos/wines/
-rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
-tar -xf "$WV".tar.xz
+#rm -rf "$WV"
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
+#tar -xf "$WV".tar.xz
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
@@ -80,20 +80,20 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remove
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-W=~/.jogos/wines/"$WV"
-export WINE64="$W"/bin/wine64
-export WINE="$W"/bin/wine
-export WINEVERPATH="$W"
-export WINEPATH="$W/bin:$WINEPATH"
-export WINESERVER="$W"/bin/wineserver
-export WINELOADER64="$W"/bin/wine64
-export WINELOADER="$W"/bin/wine
-export WINEDLLPATH32="$W"/lib32/wine/fakedlls
-export WINEDLLPATH64="$W"/lib/wine/fakedlls
-export WINEDLLPATH="$W"/lib/wine/fakedlls
-export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
-export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#W=~/.jogos/wines/"$WV"
+#export WINE64="$W"/bin/wine64
+#export WINE="$W"/bin/wine
+#export WINEVERPATH="$W"
+#export WINEPATH="$W/bin:$WINEPATH"
+#export WINESERVER="$W"/bin/wineserver
+#export WINELOADER64="$W"/bin/wine64
+#export WINELOADER="$W"/bin/wine
+#export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+#export WINEDLLPATH64="$W"/lib/wine/fakedlls
+#export WINEDLLPATH="$W"/lib/wine/fakedlls
+#export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
+#export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
+#export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
@@ -233,7 +233,7 @@ tar -xf MegamanX5.tar.xz
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Megaman X5"
-#"$W"/bin/wine x5
+#"$W"/bin/wine start /unix x5
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
