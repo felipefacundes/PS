@@ -217,18 +217,18 @@ bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.3.4.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.1.tar.gz
 #wget -nc https://github.com/doitsujin/dxvk/releases/download/v1.3.2/dxvk-1.3.2.tar.gz
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
-tar -xf dxvk-1.3.4.tar.gz
+tar -xf dxvk-1.4.1.tar.gz
 #tar -xf d9vk-0.12.tar.gz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 ~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
@@ -239,11 +239,14 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-#wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-#"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
+rm -rf EpicGamesLauncherInstaller.msi
+wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
 
-wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.3.1.msi?launcherfilename=EpicInstaller-10.3.1.msi" -O EpicInstaller-10.3.1.msi
-"$W"/bin/msiexec /i EpicInstaller-10.3.1.msi /q
+#wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.3.1.msi?launcherfilename=EpicInstaller-10.3.1.msi" -O EpicInstaller-10.3.1.msi
+#"$W"/bin/msiexec /i EpicInstaller-10.3.1.msi /q
+#wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.5.4.msi?launcherfilename=EpicInstaller-10.5.4.msi" -O EpicInstaller-10.5.4.msi
+#"$W"/bin/msiexec /i EpicInstaller-10.5.4.msi /q
 
 #wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-9.13.0.msi?launcherfilename=EpicInstaller-9.13.0.msi" -O EpicInstaller-9.13.0.msi
 #"$W"/bin/msiexec /i EpicInstaller-9.13.0.msi /q
