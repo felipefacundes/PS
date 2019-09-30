@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-#WV=wine-4.16-1-x86_64
+WV=wine-4.16-1-x86_64
 GN=MMX5
 SN="Mega Man X5"
 CME="Mega Man X5"
@@ -14,20 +14,20 @@ CME="Mega Man X5"
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
-#W=~/.jogos/wines/"$WV"
-#export WINE64="$W"/bin/wine64
-#export WINE="$W"/bin/wine
-#export WINEVERPATH="$W"
-#export WINEPATH="$W/bin:$WINEPATH"
-#export WINESERVER="$W"/bin/wineserver
-#export WINELOADER64="$W"/bin/wine64
-#export WINELOADER="$W"/bin/wine
-#export WINEDLLPATH32="$W"/lib32/wine/fakedlls
-#export WINEDLLPATH64="$W"/lib/wine/fakedlls
-#export WINEDLLPATH="$W"/lib/wine/fakedlls
-#export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
-#export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-#export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+W=~/.jogos/wines/"$WV"
+export WINE64="$W"/bin/wine64
+export WINE="$W"/bin/wine
+export WINEVERPATH="$W"
+export WINEPATH="$W/bin:$WINEPATH"
+export WINESERVER="$W"/bin/wineserver
+export WINELOADER64="$W"/bin/wine64
+export WINELOADER="$W"/bin/wine
+export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+export WINEDLLPATH64="$W"/lib/wine/fakedlls
+export WINEDLLPATH="$W"/lib/wine/fakedlls
+export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
+export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
+export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
 export WINEDEBUG=-all
@@ -89,7 +89,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Megaman X5"
-wine x5
+"$W"/bin/wine start /high /unix x5
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
