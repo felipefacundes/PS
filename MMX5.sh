@@ -217,7 +217,7 @@ cd ~/.jogos/libraries/dxvk/
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
-wget -nchttps://www.opencode.net/felipefacundes/free-games/raw/master/MegamanX5.tar.xz
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MegamanX5.tar.xz
 tar -xf MegamanX5.tar.xz
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
