@@ -7,7 +7,7 @@
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 WV=wine-staging-4.10-i386-LoL.exec
-GN=LoL
+GN=LoL2
 SN="League of Legends"
 CME="online battle arena free-to-play"
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
