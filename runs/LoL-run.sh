@@ -90,7 +90,7 @@ export LD_PRELOAD="$LD_PRELOAD:$W\$LIB/libgamemodeauto.so.0"
 
 
 cd "$WINEPREFIX/drive_c/Riot Games/League of Legends"
-"$W"/bin/gamemoderun "$W"/bin/wine LeagueClient.exe
+"$W"/bin/wine LeagueClient.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
