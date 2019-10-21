@@ -241,7 +241,7 @@ wget -nc "https://riotgamespatcher-a.akamaihd.net/releases/live/installer/deploy
 
 
 cd "$WINEPREFIX/drive_c/Riot Games/League of Legends"
-#"$W" wine LeagueClient.exe
+#"$W"/bin/wine LeagueClient.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
