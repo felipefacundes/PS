@@ -8,6 +8,7 @@ clear -T "$TERM"
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-lol-GM-4.18-2-x86_64
+GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
 
@@ -80,7 +81,7 @@ export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
-export WINE64="$W"/bin/wine64
+#export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
 export WINEPATH="$W/bin:$WINEPATH"
@@ -99,7 +100,7 @@ export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
