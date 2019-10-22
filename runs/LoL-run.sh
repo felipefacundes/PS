@@ -6,7 +6,7 @@
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.10-i386-LoL.exec
-GN=LoL2
+GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
 
