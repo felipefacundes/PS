@@ -5,7 +5,7 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.18-1-x86_64
+WV=wine-lol-4.17-2-x86_64
 GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
