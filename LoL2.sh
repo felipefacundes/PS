@@ -27,7 +27,7 @@ rm -rf "$GN"-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/LoL.png
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
@@ -47,7 +47,7 @@ echo "Categories=Game;" >> "$GN".desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
 echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
-echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/LoL.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
 # Desinstalar
