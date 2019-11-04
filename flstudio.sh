@@ -211,14 +211,14 @@ echo "Em progresso ......"
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
 wget -nc http://demodownload.image-line.com/flstudio/flstudio_win_20.5.1.1193.exe
-"$W"/bin/wine flstudio_win_20.5.1.1193.exe
+"$W"/bin/wine flstudio_win_20.5.1.1193.exe /S
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
