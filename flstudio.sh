@@ -299,12 +299,12 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.o
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
-notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
-dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
-"$W"/bin/winecfg
+#notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+#"$W"/bin/winecfg
 dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
-dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
+dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
 
 notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 1
