@@ -45,7 +45,7 @@ echo "#!/usr/bin/env xdg-open" > "$GN".desktop
 echo "[Desktop Entry]" >> "$GN".desktop
 echo "Name=$SN" >> "$GN".desktop
 echo "Comment=$CME" >> "$GN".desktop
-echo "Categories=Game;" >> "$GN".desktop
+echo "Categories=AudioVideo;Audio;Midi;Player;Recorder;" >> "$GN".desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
 echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
@@ -67,7 +67,7 @@ echo "#!/usr/bin/env xdg-open" > remover-"$GN".desktop
 echo "[Desktop Entry]" >> remover-"$GN".desktop
 echo "Name=Remover $SN" >> remover-"$GN".desktop
 echo "Comment=Remover $SN" >> remover-"$GN".desktop
-echo "Categories=Game;" >> remover-"$GN".desktop
+echo "Categories=AudioVideo;Audio;Midi;Player;Recorder;" >> remover-"$GN".desktop
 echo "Exec=/home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".desktop
 echo "Type=Application" >> remover-"$GN".desktop
 echo "StartupNotify=true" >> remover-"$GN".desktop
@@ -302,17 +302,17 @@ paplay "$beep" --volume=76767
 #notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
 #dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
 #"$W"/bin/winecfg
-dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+dialog --msgbox "Instalação concluída com sucesso. Basta acessar o seu Programa, no menu iniciar > multimídia" 10 30
 
 dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
 
 notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 1
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+notify-send "Acesse o seu programa no: Menu iniciar > Multimídia"
 notify-send "Se quiser, pode fechar o terminal."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
-echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
+echo "Acesse o seu programa no: \"Menu iniciar > Multimídia"\"
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
