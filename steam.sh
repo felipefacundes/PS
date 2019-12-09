@@ -128,6 +128,7 @@ export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
 export __GL_SYNC_TO_VBLANK=0
+export __NV_PRIME_RENDER_OFFLOAD=1
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
