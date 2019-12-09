@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.20-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
 CME="Loja da Epic Games"
@@ -131,6 +131,7 @@ export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
 export __GL_SYNC_TO_VBLANK=0
+export __NV_PRIME_RENDER_OFFLOAD=1
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
@@ -235,7 +236,7 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/driv
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -325,16 +326,16 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-pkill -9 .exe
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
-notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
-dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
-"$W"/bin/winecfg
+#notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+#"$W"/bin/winecfg
 dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
 dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
