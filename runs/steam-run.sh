@@ -6,7 +6,7 @@ rm -rf ~/.local/share/applications/*wine*
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.16-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=steam
 SN="Steam Windows"
 CME="Loja da Steam"
@@ -63,6 +63,7 @@ export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
 export __GL_SYNC_TO_VBLANK=0
+export __NV_PRIME_RENDER_OFFLOAD=1
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
