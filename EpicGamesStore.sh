@@ -1,5 +1,7 @@
 #!/bin/bash
-rm -rf ~/.local/share/applications/*wine*
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+clear -T "$TERM"
+rm -rf ~/.local/share/applications/*wine* 
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 clear -T "$TERM"
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
@@ -324,7 +326,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 #~/.jogos/scripts/winetricks vd=1360x768
 
 pkill -9 .exe
-
+rm -rf ~/.local/share/applications/*wine*
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
