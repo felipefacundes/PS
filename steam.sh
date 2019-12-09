@@ -1,4 +1,5 @@
 #!/bin/bash
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 clear -T "$TERM"
