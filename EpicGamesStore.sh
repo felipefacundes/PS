@@ -245,8 +245,11 @@ echo "Em progresso ....."
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
 rm -rf EpicGamesLauncherInstaller.msi
-wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
+cd "$WINEPREFIX/drive_c/Program Files (x86)"
+wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.xz"
+tar -xf Epic_Games.tar.xz
+#wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+#"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
 
 #wget -nc "https://epicgames-download1.akamaized.net/Builds/UnrealEngineLauncher/Installers/Win32/EpicInstaller-10.3.1.msi?launcherfilename=EpicInstaller-10.3.1.msi" -O EpicInstaller-10.3.1.msi
 #"$W"/bin/msiexec /i EpicInstaller-10.3.1.msi /q
