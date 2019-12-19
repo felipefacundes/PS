@@ -5,8 +5,8 @@
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.11-1-x86_64
-#WV=wine-staging-4.13-1-x86_64
+#WV=wine-4.11-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=CEMU
 SN="CEMU emulador de Wii U"
 CME="Rode Jogos do Wii U"
@@ -60,6 +60,9 @@ export MESA_NO_ERROR=1
 export XVideoTextureSyncToVBlank=0
 export __GL_YIELD="NOTHING"
 export __GL_SYNC_TO_VBLANK=0
+export __NV_PRIME_RENDER_OFFLOAD=1
+#export RADV_PERFTEST=aco
+export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export __GL_SHADER_DISK_CACHE=1
@@ -89,7 +92,7 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/cemu_1.15.12"
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/cemu"
 "$W"/bin/wine Cemu.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
