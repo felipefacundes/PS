@@ -7,8 +7,8 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.11-1-x86_64
-#WV=wine-staging-4.13-1-x86_64
+#WV=wine-4.11-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=CEMU
 SN="CEMU emulador de Wii U"
 CME="Rode Jogos do Wii U"
@@ -237,15 +237,15 @@ cd ~/.jogos/libraries/dxvk/
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win81 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/cemu_1.15.12.tar.xz
-tar -xf cemu_1.15.12.tar.xz
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/cemu.tar.xz
+tar -xf cemu.tar.xz
 
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
