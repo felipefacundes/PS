@@ -200,7 +200,7 @@ cd ~/.jogos/libraries/dxvk/
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.30.tar.gz
 tar -xf dxvk-1.2.1.tar.gz
-tar -xf d9vk-0.30.tar.xz
+tar -xf d9vk-0.30.tar.gz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.13/setup_dxvk.sh install > /dev/null 2>&1
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
