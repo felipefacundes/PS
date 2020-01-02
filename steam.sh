@@ -187,6 +187,7 @@ wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
+~/.jogos/scripts/winetricks -q win81 > /dev/null 2>&1
 wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/71.0/win64/pt-BR/Firefox%20Setup%2071.0.exe
 "$W"/bin/wine Firefox*71.0.exe /S
 
