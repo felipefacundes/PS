@@ -7,7 +7,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.11-1-x86_64
+WV=winemodify-4.11
 GN=GTAV
 SN="GTA V"
 CME="Jogo de Ação e Aventura"
@@ -88,11 +88,11 @@ export WINEPATH="$W/bin:$WINEPATH"
 export WINESERVER="$W"/bin/wineserver
 export WINELOADER64="$W"/bin/wine64
 export WINELOADER="$W"/bin/wine
-export WINEDLLPATH32="$W"/lib32/wine/fakedlls
-export WINEDLLPATH64="$W"/lib/wine/fakedlls
+export WINEDLLPATH32="$W"/lib/wine/fakedlls
+export WINEDLLPATH64="$W"/lib64/wine/fakedlls
 export WINEDLLPATH="$W"/lib/wine/fakedlls
-export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
-export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
+export LD_LIBRARY32_PATH="$W/lib:$LD_LIBRARY32_PATH"
+export LD_LIBRARY64_PATH="$W/lib64:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
