@@ -88,11 +88,11 @@ export WINEPATH="$W/bin:$WINEPATH"
 export WINESERVER="$W"/bin/wineserver
 export WINELOADER64="$W"/bin/wine64
 export WINELOADER="$W"/bin/wine
-export WINEDLLPATH32="$W"/lib/wine/fakedlls
-export WINEDLLPATH64="$W"/lib64/wine/fakedlls
+export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+export WINEDLLPATH64="$W"/lib/wine/fakedlls
 export WINEDLLPATH="$W"/lib/wine/fakedlls
-export LD_LIBRARY32_PATH="$W/lib:$LD_LIBRARY32_PATH"
-export LD_LIBRARY64_PATH="$W/lib64:$LD_LIBRARY64_PATH"
+export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
+export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
