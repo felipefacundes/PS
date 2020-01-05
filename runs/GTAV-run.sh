@@ -44,7 +44,7 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=winedbg.exe=d
+export WINEDLLOVERRIDES=winedbg.exe,RockstarService.exe,Launcher.exe,LauncherPatcher.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
