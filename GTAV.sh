@@ -110,7 +110,7 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=winedbg.exe=d
+export WINEDLLOVERRIDES=winedbg.exe,RockstarService.exe,Launcher.exe,LauncherPatcher.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -157,7 +157,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q winedbg.exe=disabled > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q winedbg.exe=disabled RockstarService.exe=disabled Launcher.exe=disabled LauncherPatcher.exe=disabled > /dev/null 2>&1
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
