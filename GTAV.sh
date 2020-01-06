@@ -177,7 +177,8 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-
 wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
 "$W"/bin/wine VC_redist.x64.exe
 "$W"/bin/wine VC_redist.x86.exe
-
+wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
+"$W"/bin/wine Rockstar-Games-Launcher.exe
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
