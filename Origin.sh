@@ -7,7 +7,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.16-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=Origin
 SN="EA Games Store"
 CME="Loja da EA Games"
@@ -172,18 +172,24 @@ tar -xf directx-2010.tar.gz
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
+~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
-#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts > /dev/null 2>&1
+~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
 echo "Em progresso ....."
+cd ~/.jogos/setups/
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+"$W"/bin/wine VC_redist.x64.exe /q
+"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
@@ -218,22 +224,22 @@ cd ~/.jogos/libraries/
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.3.4.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.6.tar.gz
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
-tar -xf dxvk-1.3.4.tar.gz
+tar -xf dxvk-1.4.6.tar.gz
 #tar -xf d9vk-0.12.tar.gz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.3.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 ~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win81 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -245,11 +251,6 @@ cd ~/.jogos/setups/
 #wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
 wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
 "$W"/bin/wine OriginSetup.exe
-cd ~/.jogos/setups/
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-"$W"/bin/wine VC_redist.x64.exe /q
-"$W"/bin/wine VC_redist.x86.exe /q
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
