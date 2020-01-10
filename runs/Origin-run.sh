@@ -44,8 +44,8 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe
-export WINEDLLOVERRIDES=OriginClientService.exe,OriginWebHelperService.exe=d
+#Origin.exe,OriginClientService.exe
+export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
