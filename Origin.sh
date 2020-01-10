@@ -132,7 +132,7 @@ export __GL_SYNC_TO_VBLANK=0
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
