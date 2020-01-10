@@ -108,7 +108,7 @@ export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+export WINEDLLOVERRIDES=Origin.exe,OriginClientService.exe,OriginWebHelperService.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -184,6 +184,7 @@ echo "Em progresso ..."
 ~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
 cd ~/.jogos/setups/
 wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
@@ -213,14 +214,14 @@ wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#echo "instalando libraries necessárias"
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "instalando libraries necessárias"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/libraries/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-#tar -xf mfinstall.tar.xz
-#cd mfinstall
-#bash install-mf.sh > /dev/null 2>&1
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
