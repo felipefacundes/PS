@@ -227,7 +227,7 @@ echo "Em progresso ......"
 ~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
