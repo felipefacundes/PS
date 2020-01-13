@@ -79,10 +79,6 @@ glxgears -stereo > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
-# Executar o instalador e depois o jogo
-cd ~/.jogos/setups/
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-"$W"/bin/wine SteamSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
