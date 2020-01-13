@@ -144,7 +144,7 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 # Primeiro configurar o wine
-#"$W"/bin/winecfghttps://www.xvideohttps://whttps://www.xvideos.com/video29513259/milf_wife_get_s_groped_and_fucked_on_the_way_to_work_on_trainww.xvideos.com/video29513259/milf_wife_get_s_groped_and_fucked_on_the_way_to_work_on_trains.com/video29513259/milf_wife_get_s_groped_and_fucked_on_the_way_to_work_on_train
+#"$W"/bin/winecfg
 
 # Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk
 # ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
