@@ -342,7 +342,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-pkill -9 .exe
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
@@ -350,9 +350,9 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.o
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
-#notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
-#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
-#"$W"/bin/winecfg
+notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+"$W"/bin/winecfg
 dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
 dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
