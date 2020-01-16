@@ -11,9 +11,9 @@ clear -T "$TERM"
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.21-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=Kabounce
+SN="Kabounce"
+CME="Pinball multiplayer diferente"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
