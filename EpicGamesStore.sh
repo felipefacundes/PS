@@ -112,7 +112,7 @@ export WINEESYNC=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe,
-#export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
