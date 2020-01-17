@@ -4,7 +4,6 @@ clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 clear -T "$TERM"
-#!/bin/bash
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
@@ -12,9 +11,9 @@ clear -T "$TERM"
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.21-1-x86_64
-GN=TDKC
-SN="A Tribute a Donkey Kong Country"
-CME="Um remake de Donkey Kong Country (indie game)"
+GN=EpicGamesStore
+SN="Epic Games Store"
+CME="Loja da Epic Games"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
@@ -80,11 +79,10 @@ echo "Terminal=false" >> remover-"$GN".desktop
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
-
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
-#export GALLIUM_HUD="simple,fps"
+#export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
@@ -101,8 +99,8 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
-#export WINEDEBUG=-all,fps
-export WINEDEBUG=-all
+export WINEDEBUG=-all,fps
+#export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
@@ -160,34 +158,60 @@ glxgears -stereo > /dev/null 2>&1
 # Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
 echo "━━━━━━━━━"
 echo "PlayOnGit"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar alguns MINUTOS."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 18 MINUTOS."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q corefonts gdiplus d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
-echo "Em progresso ."
+# vamos instalar o DXSDK
+mkdir -p ~/.jogos/setups/dx_especial/
+cd ~/.jogos/setups/dx_especial/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
+#tar -xf directx-2010.tar.gz
+#"$W"/bin/wine DXSETUP.exe
+
+# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
+#mkdir -p ~/.jogos/setups/DXSDK_Jun10/
+#cd ~/.jogos/setups/DXSDK_Jun10/
+#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#"$W"/bin/wine DXSDK_Jun10.exe
+#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-echo "Em progresso .."
+echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
-echo "Em progresso ..."
+echo "Em progresso .."
 #~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-echo "Em progresso ...."
 #~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
-echo "Em progresso ....."
+echo "Em progresso ..."
+#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
+echo "Em progresso ....."
+cd ~/.jogos/setups/
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+#"$W"/bin/wine VC_redist.x64.exe /q
+#"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#cd ~/.jogos/setups/
-#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-#"$W"/bin/wine vulkan-sdk.exe /S
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+cd ~/.jogos/setups/
+wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+"$W"/bin/wine vulkan-sdk.exe /S
 
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
@@ -201,40 +225,40 @@ echo "Em progresso ....."
 #wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
-# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
-# vamos instalar o DXSDK
-mkdir -p ~/.jogos/setups/DXSDK_Jun10/
-cd ~/.jogos/setups/DXSDK_Jun10/
-#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-# "$W"/bin/wine DXSDK_Jun10.exe
+# Para libraries
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "instalando libraries necessárias"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+cd ~/.jogos/libraries/
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
-#tar -xf dxvk-1.2.1.tar.gz
-tar -xf d9vk-0.40.1.tar.xz
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.6.tar.gz
+# wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
+#tar -xf dxvk-1.4.6.tar.gz
+# tar -xf d9vk-0.40.1.tar.xz
 
-#bash ~/.jogos/libraries/dxvk/d9vk-0.13/setup_dxvk.sh install > /dev/null 2>&1
-#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-echo "Em progresso ......"
-~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-#d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+#bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
+#bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
+# cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+# cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+# ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
+#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 csmt=off > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
-cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/"
-wget -nc https://master.dl.sourceforge.net/project/indie-game/UDK.tar.xz
-tar -xf UDK.tar.xz
-
+cd ~/.jogos/setups/
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -250,7 +274,7 @@ tar -xf UDK.tar.xz
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/UDK/A Tribute To DKC/Binaries/Win32"
-#"$W"/bin/wine UDK.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
+"$W"/bin/wine UDK.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -308,16 +332,17 @@ cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/UDK/A Tribute To DKC/Binaries/W
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-pkill -9 .exe
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
+#~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 export beep=~/.jogos/scripts/leia.ogg
 pactl upload-sample ~/.jogos/scripts/leia.ogg
 paplay "$beep" --volume=76767
-notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
-dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
-"$W"/bin/winecfg
+#notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+#"$W"/bin/winecfg
 dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
 dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
@@ -336,13 +361,13 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
-# Opções da steam: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da steam
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
