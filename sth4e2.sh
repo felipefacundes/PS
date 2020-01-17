@@ -226,6 +226,12 @@ cd sh2oi2/demo
 "$W"/bin/wine setup.exe
 cd dependence
 cp -rf * "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Sonic the Hedgehog 4 - Episode II"
+cd ~/.jogos/libraries/
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/Gamepad2Keyboard_xinput.tar
+tar -xf Gamepad2Keyboard_xinput.tar
+cd Gamepad2Keyboard_xinput
+cp -rf * "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Sonic the Hedgehog 4 - Episode II"
+~/.jogos/scripts/winetricks xinput1_3=native
 cd ~/.jogos/setups/
 rm -rf sh2oi2.tar.xz
 rm -rf sh2oi2
