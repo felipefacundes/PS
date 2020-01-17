@@ -40,8 +40,8 @@ export WINEESYNC=0
 #export ESYNC=0
 export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
-export MESA_GLSL_VERSION_OVERRIDE=450
-export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
+#export MESA_GLSL_VERSION_OVERRIDE=450
+#export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe
