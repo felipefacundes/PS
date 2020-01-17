@@ -8,7 +8,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.8-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=sth4e2
 SN="Sonic The Hedgehog 4 episode 2"
 CME="Jogo de Aventura"
@@ -78,9 +78,9 @@ echo "Terminal=false" >> remover-"$GN".desktop
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
-#1# Essa é a versão escolhida do Wine
+#A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
 #export GALLIUM_HUD="fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -104,13 +104,14 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
 export WINEESYNC=0
-export vblank_mode=0
+#export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 export MESA_GLSL_VERSION_OVERRIDE=450
 export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+#Origin.exe,OriginClientService.exe,
+#export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -119,13 +120,28 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export __GL_THREADED_OPTIMIZATIONS=1
-export __GL_YIELD=NOTHING
 export PULSE_LATENCY_MSEC=60
+export KWIN_TRIPLE_BUFFER=1
+export TRIPLE_BUFFER=1
+export XVideoTextureSyncToVBlank=0
+export MESA_NO_ERROR=1
+#export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export DXVK_HUD=compiler,fps
+export __GL_YIELD="NOTHING"
+export vblank_mode=0
+export __GL_SYNC_TO_VBLANK=0
+export STEAM_RUNTIME_HEAVY=1
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+#export RADV_PERFTEST=aco
+export RADV_PERFTEST=llvm
+export __GL_THREADED_OPTIMIZATIONS=1
+export mesa_glthread=true
+export PBA_DISABLE=0
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
@@ -198,7 +214,7 @@ echo "Em progresso ......"
 #~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
