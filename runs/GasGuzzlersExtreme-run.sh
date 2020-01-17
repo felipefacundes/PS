@@ -40,8 +40,8 @@ export WINEARCH=win64
 export WINEESYNC=0
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
-export MESA_GLSL_VERSION_OVERRIDE=450
-export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
+#export MESA_GLSL_VERSION_OVERRIDE=450
+#export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 export WINEDLLOVERRIDES=winedbg.exe,RockstarService.exe,Launcher.exe,LauncherPatcher.exe=d
@@ -70,7 +70,7 @@ export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
