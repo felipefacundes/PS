@@ -13,7 +13,7 @@ CME="Um remake de Donkey Kong Country (indie game)"
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+#export GALLIUM_HUD="simple,fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
