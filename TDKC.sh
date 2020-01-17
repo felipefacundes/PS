@@ -84,7 +84,7 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remove
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+#export GALLIUM_HUD="simple,fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
@@ -101,6 +101,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
+#export WINEDEBUG=-all,fps
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
@@ -210,9 +211,9 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 #cd ~/.jogos/libraries/dxvk/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.2.1.tar.gz
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.30.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.gz
 #tar -xf dxvk-1.2.1.tar.gz
-#tar -xf d9vk-0.30.tar.gz
+tar -xf d9vk-0.40.1.tar.gz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.13/setup_dxvk.sh install > /dev/null 2>&1
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install > /dev/null 2>&1
@@ -221,7 +222,8 @@ cd ~/.jogos/setups/DXSDK_Jun10/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 echo "Em progresso ......"
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
+#d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 
 # Versão do Windows
 ~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
@@ -248,7 +250,7 @@ tar -xf UDK.tar.xz
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/UDK/A Tribute To DKC/Binaries/Win32"
-#"$W"/bin/wine UDK.exe
+#"$W"/bin/wine UDK.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
