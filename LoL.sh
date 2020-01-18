@@ -112,7 +112,7 @@ export vblank_mode=0
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-export WINEDLLOVERRIDES=mscoree,mshtml,d3d10,d3d11,dxgi=n
+#export WINEDLLOVERRIDES=mscoree,mshtml,d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -134,7 +134,7 @@ export __GL_SYNC_TO_VBLANK=0
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
