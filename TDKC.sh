@@ -34,6 +34,7 @@ chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
+rm -rf winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.jogos/wines/
