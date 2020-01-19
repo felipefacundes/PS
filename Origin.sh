@@ -1,4 +1,7 @@
 #!/bin/bash
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+clear -T "$TERM"
+rm -rf ~/.local/share/applications/*wine* 
 dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 clear -T "$TERM"
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
@@ -31,6 +34,7 @@ chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
+rm -rf winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.jogos/wines/
@@ -79,7 +83,7 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remove
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+#export GALLIUM_HUD="simple,fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
@@ -96,6 +100,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
+#export WINEDEBUG=-all,fps
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
@@ -109,7 +114,7 @@ export WINEESYNC=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe,
-#export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -118,7 +123,7 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export PULSE_LATENCY_MSEC=60
+#export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
@@ -130,6 +135,7 @@ export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
 export __GL_SYNC_TO_VBLANK=0
+export STEAM_RUNTIME_HEAVY=1
 export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export __VK_LAYER_NV_optimus=NVIDIA_only
@@ -169,7 +175,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # vamos instalar o DXSDK
 mkdir -p ~/.jogos/setups/dx_especial/
 cd ~/.jogos/setups/dx_especial/
-wget -nc https://lutris.net/files/tools/directx-2010.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
 tar -xf directx-2010.tar.gz
 "$W"/bin/wine DXSETUP.exe
 
@@ -179,7 +185,9 @@ tar -xf directx-2010.tar.gz
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
 ~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
@@ -189,7 +197,7 @@ echo "Em progresso ..."
 ~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
+~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
 cd ~/.jogos/setups/
@@ -232,21 +240,22 @@ bash install-mf.sh > /dev/null 2>&1
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.6.tar.gz
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.12.tar.gz
+# wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
 tar -xf dxvk-1.4.6.tar.gz
-#tar -xf d9vk-0.12.tar.gz
+# tar -xf d9vk-0.40.1.tar.xz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/d9vk-0.12/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+# cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+# cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+# ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
 ~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
@@ -331,7 +340,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-pkill -9 .exe
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
