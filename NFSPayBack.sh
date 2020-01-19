@@ -173,11 +173,11 @@ echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
 # vamos instalar o DXSDK
-mkdir -p ~/.jogos/setups/dx_especial/
-cd ~/.jogos/setups/dx_especial/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
-tar -xf directx-2010.tar.gz
-"$W"/bin/wine DXSETUP.exe
+#mkdir -p ~/.jogos/setups/dx_especial/
+#cd ~/.jogos/setups/dx_especial/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
+#tar -xf directx-2010.tar.gz
+#"$W"/bin/wine DXSETUP.exe
 
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 #mkdir -p ~/.jogos/setups/DXSDK_Jun10/
