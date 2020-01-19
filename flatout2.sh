@@ -56,6 +56,19 @@ echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
+cd ~/.local/share/applications/
+touch "$GN"-gameranger.desktop
+echo "#!/usr/bin/env xdg-open" > "$GN"-gameranger.desktop
+echo "[Desktop Entry]" >> "$GN"-gameranger.desktop
+echo "Name=FlatOut2 com gameranger" >> "$GN"-gameranger.desktop
+echo "Comment=FlatOut2 com gameranger" >> "$GN"-gameranger.desktop
+echo "Categories=Game;" >> "$GN"-gameranger.desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> "$GN"-gameranger.desktop
+echo "Type=Application" >> "$GN"-gameranger.desktop
+echo "StartupNotify=true" >> "$GN"-gameranger.desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN"-gameranger.desktop
+echo "Terminal=false" >> "$GN"-gameranger.desktop
+
 # Desinstalar
 cd ~/.jogos/scripts/run/
 touch remover-"$GN".sh
@@ -289,7 +302,7 @@ wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/users/$USER/Application Data/GameRanger/GameRanger"
-#"$W"/bin/wine UDK.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
+#"$W"/bin/wine GameRanger.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
