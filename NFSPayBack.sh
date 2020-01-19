@@ -1,4 +1,4 @@
-#!/bin/b#!/bin/bash
+#!/bin/bash
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
@@ -255,7 +255,7 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/driv
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win81 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
