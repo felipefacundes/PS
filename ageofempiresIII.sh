@@ -29,8 +29,11 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
+rm -rf "$GN"-gameranger-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-gameranger-run.sh > /dev/null 2>&1
+chmod +x "$GN"-gameranger-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
@@ -56,12 +59,27 @@ echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
+cd ~/.local/share/applications/
+touch "$GN"-gameranger.desktop
+echo "#!/usr/bin/env xdg-open" > "$GN"-gameranger.desktop
+echo "[Desktop Entry]" >> "$GN"-gameranger.desktop
+echo "Name=Age III com gameranger" >> "$GN"-gameranger.desktop
+echo "Comment=Jogue on-line com seus amigos" >> "$GN"-gameranger.desktop
+echo "Categories=Game;" >> "$GN"-gameranger.desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> "$GN"-gameranger.desktop
+echo "Type=Application" >> "$GN"-gameranger.desktop
+echo "StartupNotify=true" >> "$GN"-gameranger.desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN"-gameranger.desktop
+echo "Terminal=false" >> "$GN"-gameranger.desktop
+
 # Desinstalar
 cd ~/.jogos/scripts/run/
 touch remover-"$GN".sh
 echo "rm -rf /home/$USER/.local/share/applications/$GN.desktop" > remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/$GN-gameranger.desktop" > remover-"$GN".sh
 echo "rm -rf /home/$USER/.jogos/wineprefixes/$GN/" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-run.sh" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-gameranger-run.sh" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.local/share/applications/remover-$GN.desktop" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".sh
 chmod +x remover-"$GN".sh
