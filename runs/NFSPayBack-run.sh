@@ -7,9 +7,9 @@ rm -rf ~/.local/share/applications/*wine*
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.21-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=NFSPayBack
+SN="Need For Speed PayBack"
+CME="Need For Speed PayBack"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
