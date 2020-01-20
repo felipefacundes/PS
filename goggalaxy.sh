@@ -267,6 +267,9 @@ cd ~/.jogos/setups/
 wget -nc https://cdn.gog.com/open/galaxy/client/setup_galaxy_1.2.57.74.exe
 "$W"/bin/wine setup_galaxy_1.2.57.74.exe
 
+#wget -nc https://www.gog.com/download/d3/stable/Setup_Downloader_3.6.0_stable.exe
+#"$W"/bin/wine Setup_Downloader_3.6.0_stable.exe
+
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
