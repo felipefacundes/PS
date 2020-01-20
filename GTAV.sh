@@ -261,6 +261,9 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
+wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
+"$W"/bin/wine Rockstar-Games-Launcher.exe
+
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
