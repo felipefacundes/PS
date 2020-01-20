@@ -11,9 +11,9 @@ clear -T "$TERM"
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-4.21-1-x86_64
-GN=TDKC
-SN="A Tribute a Donkey Kong Country"
-CME="Um remake de Donkey Kong Country (indie game)"
+GN=GuildWars2
+SN="Guild Wars 2"
+CME="MMORPG"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
@@ -191,11 +191,11 @@ cd ~/.jogos/setups/dx_especial/
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
-#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
@@ -260,6 +260,8 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
+
+cd ~/.jogos/setups/
 wget -nc "http://s3.amazonaws.com/gw2cdn/client/branches/Gw2Setup-64.exe"
 
 "$W"/bin/wine Gw2Setup-64.exe
