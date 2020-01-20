@@ -32,7 +32,8 @@ rm -rf "$GN"-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
-wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/steam.png > /dev/null 2>&1
+cp -rf steam.png steam-light.png
 cd ~/.jogos/scripts/
 rm -rf winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
@@ -220,8 +221,9 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
-#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
-# "$W"/bin/wine Firefox*67.0.exe /S
+~/.jogos/scripts/winetricks -q win81 > /dev/null 2>&1
+wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/71.0/win64/pt-BR/Firefox%20Setup%2071.0.exe
+"$W"/bin/wine Firefox*71.0.exe /S
 
 ################################# Microsoft Edge
 #wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
