@@ -33,6 +33,8 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-r
 chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/gtasamta.png > /dev/null 2>&1
+cp -rf gtasamta.png gtasamta2.png
 cd ~/.jogos/scripts/
 rm -rf winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
@@ -261,6 +263,12 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
+#wget -nc https://mirror.mtasa.com/mtasa/main/mtasa-1.5.6.exe
+#"$W"/bin/wine mtasa-1.5.6.exe
+
+#wget -nc http://files.sa-mp.com/sa-mp-0.3.7-R3-1-install.exe
+#"$W"/bin/wine sa-mp-0.3.7-R3-1-install.exe
+
 wget -nc https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe
 "$W"/bin/wine Rockstar-Games-Launcher.exe
 
