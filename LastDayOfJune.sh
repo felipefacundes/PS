@@ -34,6 +34,7 @@ chmod +x "$GN"-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
+rm -rf winetricks
 wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.jogos/wines/
@@ -184,7 +185,9 @@ tar -xf directx-2010.tar.gz
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
 ~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
