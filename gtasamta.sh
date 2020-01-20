@@ -208,9 +208,9 @@ cd ~/.jogos/setups/
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/setups/
 #wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 #"$W"/bin/wine vulkan-sdk.exe /S
