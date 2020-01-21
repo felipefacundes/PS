@@ -13,8 +13,8 @@ CME="Loja da EA Games"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
-# Para ver o FPS na tela, para CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+# Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
+#export GALLIUM_HUD="simple,fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
@@ -31,6 +31,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
+#export WINEDEBUG=-all,fps
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
@@ -38,14 +39,13 @@ export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
 #export ESYNC=0
-export vblank_mode=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 #export MESA_GLSL_VERSION_OVERRIDE=450
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe,OriginClientService.exe
-export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
+#Origin.exe,OriginClientService.exe=d
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -54,21 +54,26 @@ export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
-export PULSE_LATENCY_MSEC=60
+#export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
 export MESA_NO_ERROR=1
+#export AMDVLK_ENABLE_DEVELOPING_EXT="all"
+export __GL_SHADER_DISK_CACHE=1
+export __GL_SHADER_DISK_CACHE_PATH="/tmp"
+export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
+export vblank_mode=0
 export __GL_SYNC_TO_VBLANK=0
+export STEAM_RUNTIME_HEAVY=1
 export __NV_PRIME_RENDER_OFFLOAD=1
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#export __VK_LAYER_NV_optimus=NVIDIA_only
 #export RADV_PERFTEST=aco
 export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
-export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH="/tmp"
-export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export PBA_DISABLE=0
 export DXVK_HUD=fps
 glxinfo -B
@@ -110,8 +115,8 @@ cd "$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 
@@ -151,7 +156,8 @@ cd "$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
-#pkill -9 .exe
+
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
 # Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
@@ -246,3 +252,4 @@ cd "$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 
 #"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+rm -rf ~/.local/share/applications/*wine*
