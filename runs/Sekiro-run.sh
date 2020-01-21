@@ -237,6 +237,15 @@ rm -rf ~/.local/share/applications/*wine*
 
 ################################# Oções descartadas:
 
+#export VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay
+#export VK_LAYER_MESA_OVERLAY_STATS=submit,draw,pipeline-graphics
+#export VK_LAYER_MESA_OVERLAY_POSITION=top-right
+#export vulkanpresentmode=0
+#export VkPresentModeKHR=0
+#export VK_PRESENT_MODE_IMMEDIATE_KHR=0
+#export VK_PRESENT_MODE_MAILBOX_KHR=0
+#export VK_PRESENT_MODE_FIFO_KHR=0
+
 #cd ~/.local/share/applications
 #rm -rf wine*
 
