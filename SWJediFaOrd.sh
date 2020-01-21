@@ -261,10 +261,8 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-rm -rf OriginThinSetup.exe
-wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
-#wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
-"$W"/bin/wine OriginThinSetup.exe
+wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -279,8 +277,8 @@ wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/Ori
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
-#"$W"/bin/wine
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+"$W"/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -337,6 +335,14 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
+
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+cd ~/.jogos/setups/
+rm -rf OriginThinSetup.exe
+wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
+#wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+"$W"/bin/wine OriginThinSetup.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
