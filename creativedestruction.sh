@@ -262,8 +262,10 @@ bash install-mf.sh > /dev/null 2>&1
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://g91na.gdl.netease.com/creative_destruction_3.0.36_20190307.exe
-"$W"/bin/wine creative_destruction_3.0.36_20190307.exe
+#wget -nc https://g91na.gdl.netease.com/creative_destruction_3.0.36_20190307.exe
+#"$W"/bin/wine creative_destruction_3.0.36_20190307.exe
+wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -278,8 +280,8 @@ wget -nc https://g91na.gdl.netease.com/creative_destruction_3.0.36_20190307.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
-#"$W"/bin/wine 
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+"$W"/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
