@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.8-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=cs16
 SN="Counter Strike 1.6"
 CME="Tiro em primeira pessoa"
@@ -184,12 +184,12 @@ cd ~/.jogos/setups/dx_especial/
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
-~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
 #~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
@@ -208,9 +208,9 @@ cd ~/.jogos/setups/
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/setups/
 #wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 #"$W"/bin/wine vulkan-sdk.exe /S
@@ -255,7 +255,7 @@ cd ~/.jogos/libraries/dxvk/
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
