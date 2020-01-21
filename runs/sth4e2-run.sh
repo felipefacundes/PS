@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf ~/.local/share/applications/*wine*
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
@@ -13,7 +14,7 @@ CME="Jogo de Aventura"
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
 # Para ver o FPS na tela e o uso da CPU, inclua cpu,fps
-#export GALLIUM_HUD="fps"
+#export GALLIUM_HUD="simple,fps"
 W=~/.jogos/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
@@ -30,6 +31,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 #"$W"/bin/wineconsole "cmd"
 
+#export WINEDEBUG=-all,fps
 export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
@@ -42,8 +44,8 @@ export WINEESYNC=0
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe,OriginClientService.exe,
-#export WINEDLLOVERRIDES=OriginWebHelperService.exe=d
+#Origin.exe,OriginClientService.exe=d
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -77,10 +79,11 @@ export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
+# Para GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
-# Para configurar o wine
-#$W/bin/winecfg
-
+# Primeiro configurar o wine
+#"$W"/bin/winecfg
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -112,8 +115,8 @@ $W/bin/wine Sonic.exe
 #⛔ Não mexa nas demais linhas, deixa do jeito que está.                                                              ⛔
 
 # Irá abrir a localização e o script de inicialização do jogo:
-#xdg-open ~/.jogos/wineprefixes/$GN/drive_c/
-#xdg-open ~/.jogos/scripts/run/$GN-run.sh
+#xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
+#xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
 
 
@@ -149,19 +152,21 @@ $W/bin/wine Sonic.exe
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
 #tar -xf mpv.tar.xz
 #cd ~/.jogos/setups/mpv
-# $W/bin/wineconsole mpv-install.bat
+# "$W"/bin/wineconsole mpv-install.bat
 
+################################# Finalização
+#~/.jogos/scripts/winetricks vd=1360x768
 
-
+rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
-# Opções da $GN: https://developer.valvesoftware.com/wiki/Command_Line_Options
+# Opções da "$GN": https://developer.valvesoftware.com/wiki/Command_Line_Options
 #-insecure
 #-forcenovsync
 #-nojoy
 #-fullscreen ou -full
 #-applaunch 230410
-# Acima são opções da $GN
+# Acima são opções da "$GN"
 #
 # programa.exe -opengl
 # progrma.exe -dx9
@@ -232,18 +237,31 @@ $W/bin/wine Sonic.exe
 
 ################################# Oções descartadas:
 
+#export VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay
+#export VK_LAYER_MESA_OVERLAY_STATS=submit,draw,pipeline-graphics
+#export VK_LAYER_MESA_OVERLAY_POSITION=top-right
+#export vulkanpresentmode=0
+#export VkPresentModeKHR=0
+#export VK_PRESENT_MODE_IMMEDIATE_KHR=0
+#export VK_PRESENT_MODE_MAILBOX_KHR=0
+#export VK_PRESENT_MODE_FIFO_KHR=0
+
+#export OGL_FORCE_BLIT_ON
+#export OGL_DEFAULT_SWAP_INTERVAL_FORCE_OFF
+
 #cd ~/.local/share/applications
 #rm -rf wine*
 
-#cd ~/.jogos/wineprefixes/$GN/drive_c/windows/system32/
+#cd ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 #rm ntdll.dll
 #wget -nc https://www.dlldump.com/dllfiles/N/ntdll.dll
-# $W/bin/wine regsvr32 /i /S ntdll.dll
+# "$W"/bin/wine regsvr32 /i /S ntdll.dll
 
 # INSTALE O DXVK - Manualmente
 
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x64/* ~/.jogos/wineprefixes/Origin/drive_c/windows/system32/
 #cp -rf ~/.jogos/libraries/dxvk/dxvk-1.2.1/x32/* ~/.jogos/wineprefixes/Origin/drive_c/windows/syswow64/
 
-# $W/bin/wine regsvr32 /i /S l3codecx.ax
+#"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
+rm -rf ~/.local/share/applications/*wine*
