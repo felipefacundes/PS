@@ -256,7 +256,7 @@ bash install-mf.sh > /dev/null 2>&1
 #echo "Em progresso ....."
 
 # Versão do Windows
-#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
