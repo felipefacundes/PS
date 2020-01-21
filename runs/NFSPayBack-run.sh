@@ -44,7 +44,7 @@ export WINEESYNC=0
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe,OriginClientService.exe,
+#Origin.exe,OriginClientService.exe=d
 #export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
