@@ -184,12 +184,12 @@ cd ~/.jogos/setups/dx_especial/
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
-~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
 #~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
@@ -228,14 +228,14 @@ cd ~/.jogos/setups/
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "instalando libraries necessárias"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-cd ~/.jogos/libraries/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "instalando libraries necessárias"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#cd ~/.jogos/libraries/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
@@ -255,7 +255,7 @@ cd ~/.jogos/libraries/dxvk/
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
