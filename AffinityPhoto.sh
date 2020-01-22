@@ -165,22 +165,22 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-mkdir -p ~/.cache/winetricks/dotnet40
-cd ~/.cache/winetricks/dotnet40
-"$W"/bin/wineboot -i
-~/.jogos/scripts/winetricks winxp > /dev/null 2>&1
-~/.jogos/scripts/winetricks remove_mono > /dev/null 2>&1
-wget -nc 'http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe' > /dev/null 2>&1
-"$W"/bin/wine dotNetFx40_Full_x86_x64.exe /q > /dev/null 2>&1
+#mkdir -p ~/.cache/winetricks/dotnet40
+#cd ~/.cache/winetricks/dotnet40
+#"$W"/bin/wineboot -i
+#~/.jogos/scripts/winetricks winxp > /dev/null 2>&1
+#~/.jogos/scripts/winetricks remove_mono > /dev/null 2>&1
+#wget -nc 'http://download.microsoft.com/download/9/5/A/95A9616B-7A37-4AF6-BC36-D6EA96C8DAAE/dotNetFx40_Full_x86_x64.exe' > /dev/null 2>&1
+#"$W"/bin/wine dotNetFx40_Full_x86_x64.exe /q > /dev/null 2>&1
 
-mkdir -p ~/.cache/winetricks/dotnet472
-cd ~/.cache/winetricks/dotnet472
-~/.jogos/scripts/winetricks win7 > /dev/null 2>&1
-wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
-"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
+#mkdir -p ~/.cache/winetricks/dotnet472
+#cd ~/.cache/winetricks/dotnet472
+#~/.jogos/scripts/winetricks win7 > /dev/null 2>&1
+#wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
+#"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
 
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
