@@ -339,7 +339,7 @@ cd "$WINEPREFIX/drive_c/MK Defenders of the Earth v3.3.7"
 # "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
-#~/.jogos/scripts/winetricks vd=1360x768
+~/.jogos/scripts/winetricks vd=1280x720
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
