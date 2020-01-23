@@ -100,7 +100,7 @@ glxgears -stereo > /dev/null 2>&1
 
 #cd "/home/$USER/.jogos/wineprefixes/flatout2/drive_c/GOG Games/FlatOut 2"
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/flatout2_demo"
-$W/bin/wine FlatOut2.exe
+"$W"/bin/wine FlatOut2.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
