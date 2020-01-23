@@ -268,6 +268,8 @@ echo "Em progresso ....."
 cd "$WINEPREFIX/drive_c/"
 wget -nc https://ufpr.dl.sourceforge.net/project/mkdfe/Rel_1/MK-Defenders-of-the-Earth-v3.3.7.tar
 tar -xf MK-Defenders-of-the-Earth-v3.3.7.tar
+sleep 1
+rm MK-Defenders-of-the-Earth-v3.3.7.tar
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -339,7 +341,7 @@ cd "$WINEPREFIX/drive_c/MK Defenders of the Earth v3.3.7"
 # "$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
-~/.jogos/scripts/winetricks vd=1280x720
+#~/.jogos/scripts/winetricks vd=1280x720
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
