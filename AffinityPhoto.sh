@@ -293,7 +293,7 @@ wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/affinity-
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/AffinityPhoto/drive_c/Program Files/Affinity/Photo/"
-#$W/bin/wine Photo.exe
+#"$W"/bin/wine Photo.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
