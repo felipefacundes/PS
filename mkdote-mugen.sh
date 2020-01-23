@@ -271,6 +271,10 @@ tar -xf MK-Defenders-of-the-Earth-v3.3.7.tar
 sleep 1
 rm MK-Defenders-of-the-Earth-v3.3.7.tar
 
+cd "$WINEPREFIX/drive_c/MK Defenders of the Earth v3.3.7/data/"
+rm mugen.cfg
+wget -nc "https://www.opencode.net/felipefacundes/wine-bins/raw/master/configs/MortalKMugen-DFE/mugen.cfg?inline=false" -O mugen.cfg
+
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
