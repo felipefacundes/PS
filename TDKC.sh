@@ -39,8 +39,8 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.jogos/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
-tar -xf "$WV".tar.xz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+tar -xf "$WV".tar.zst
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
@@ -339,6 +339,7 @@ cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/UDK/A Tribute To DKC/Binaries/W
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
+rm -rf ~/.local/share/applications/*wine*
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
