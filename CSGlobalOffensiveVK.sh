@@ -266,9 +266,9 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc "https://ufpr.dl.sourceforge.net/project/utili/Gamers%20Club%20Anti-Cheat%20Setup%203.0.98.exe"
-"$W"/bin/wine "Gamers Club Anti-Cheat Setup 3.0.98.exe"
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+#wget -nc "https://ufpr.dl.sourceforge.net/project/utili/Gamers%20Club%20Anti-Cheat%20Setup%203.0.98.exe"
+#"$W"/bin/wine "Gamers Club Anti-Cheat Setup 3.0.98.exe"
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
