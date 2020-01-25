@@ -6,9 +6,9 @@ rm -rf ~/.local/share/applications/*wine*
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
-GN=ShenmueIII
-SN="Shenmue III"
+WV=wine-staging-5.0-1-x86_64 
+GN=ShenmueIII 
+SN="Shenmue III" 
 CME="Artes marciais e aventura"
 
 #A# Essa é a versão escolhida do Wine
@@ -44,7 +44,7 @@ export WINEESYNC=0
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe,OriginClientService.exe,
+#Origin.exe,OriginClientService.exe=d
 #export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
@@ -60,11 +60,6 @@ export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
 export MESA_NO_ERROR=1
 #export AMDVLK_ENABLE_DEVELOPING_EXT="all"
-export GPU_FORCE_64BIT_PTR=1
-export GPU_MAX_HEAP_SIZE=100
-export GPU_USE_SYNC_OBJECTS=1
-export GPU_MAX_ALLOC_PERCENT=100
-export GPU_SINGLE_ALLOC_PERCENT=100
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="/tmp"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
@@ -103,8 +98,8 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -gl -applaunch 1108560
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+"$W"/bin/wine EpicGamesLauncher.exe -SkipBuildPatchPrereq -opengl
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -241,6 +236,18 @@ rm -rf ~/.local/share/applications/*wine*
 
 
 ################################# Oções descartadas:
+
+#export VK_INSTANCE_LAYERS=VK_LAYER_MESA_overlay
+#export VK_LAYER_MESA_OVERLAY_STATS=submit,draw,pipeline-graphics
+#export VK_LAYER_MESA_OVERLAY_POSITION=top-right
+#export vulkanpresentmode=0
+#export VkPresentModeKHR=0
+#export VK_PRESENT_MODE_IMMEDIATE_KHR=0
+#export VK_PRESENT_MODE_MAILBOX_KHR=0
+#export VK_PRESENT_MODE_FIFO_KHR=0
+
+#export OGL_FORCE_BLIT_ON
+#export OGL_DEFAULT_SWAP_INTERVAL_FORCE_OFF
 
 #cd ~/.local/share/applications
 #rm -rf wine*
