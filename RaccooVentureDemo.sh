@@ -266,7 +266,7 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd "$WINEPREFIX/drive_c/"
-wget -nc https://ufpr.dl.sourceforge.net/project/gj-others/RaccV.tar.zst
+wget -nc https://tenet.dl.sourceforge.net/project/gj-others/all/RaccV.tar.zst
 tar -xf RaccV.tar.zst
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
