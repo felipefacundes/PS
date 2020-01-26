@@ -13,7 +13,7 @@ clear -T "$TERM"
 WV=wine-staging-5.0-1-x86_64
 GN=RacooVentureDemo
 SN="Racoo Venture (Demo)"
-CME="Jogo brasileiro de avenutra"
+CME="Jogo brasileiro de avenutra (by Diego Ras)"
 
 # Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
 mkdir -p ~/.local/share/applications/
