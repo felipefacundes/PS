@@ -123,7 +123,7 @@ export WINEDEBUG=-all
 # Prefix do wine, destino do prefix individual para cada jogo é melhor e evita futuras falhas
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
@@ -185,8 +185,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q quartz faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q wmp10 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q quartz faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -204,17 +204,17 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
 ~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
-~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
@@ -247,14 +247,14 @@ cd ~/.jogos/setups/
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "instalando libraries necessárias"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-cd ~/.jogos/libraries/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "instalando libraries necessárias"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#cd ~/.jogos/libraries/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 #cd ~/.jogos/libraries/dxvk/
@@ -350,15 +350,15 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ################################# 喇 MPV Player 懶 喇
 #pkill -9 .exe
-cd ~/.jogos/setups/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
-tar -xf mpv.tar.xz
-cd ~/.jogos/setups/mpv
-"$W"/bin/wineconsole mpv-install.bat
+#cd ~/.jogos/setups/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+#tar -xf mpv.tar.xz
+#cd ~/.jogos/setups/mpv
+#"$W"/bin/wineconsole mpv-install.bat
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
-
+sleep 120
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
