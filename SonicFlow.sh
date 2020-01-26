@@ -266,8 +266,8 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd "$WINEPREFIX/drive_c/"
-wget -nc https://ufpr.dl.sourceforge.net/project/gj-others/RaccV.tar.zst
-tar -xf RaccV.tar.zst
+wget -nc https://ufpr.dl.sourceforge.net/project/gj-others/all/SocFlow-Demo-1.tar
+tar -xf SocFlow-Demo-1.tar
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -282,8 +282,8 @@ tar -xf RaccV.tar.zst
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "$WINEPREFIX/drive_c/RaccV"
-#"$W"/bin/wine RaccooVenture_v1.0.295.exe
+cd "$WINEPREFIX/drive_c/Soc Flow - Demo 1"
+#"$W"/bin/wine MugenEngine.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
