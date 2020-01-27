@@ -6,7 +6,7 @@ rm -rf ~/.local/share/applications/*wine*
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.7-1-x86_64
+WV=wine-staging-5.0-1-x86_64
 GN=ageofempiresIII
 SN="Age Of Empires III"
 CME="Jogo de estratégia em tempo real"
@@ -98,8 +98,8 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Steam/"
-"$W"/bin/wine Steam.exe -applaunch 105450
+cd "$WINEPREFIX/drive_c/Age-of-Empires-III"
+"$W"/bin/wine age3.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -118,7 +118,8 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Steam/"
 #xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
 #xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
 
-
+#cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Steam/"
+#"$W"/bin/wine Steam.exe -applaunch 105450
 
 
 
