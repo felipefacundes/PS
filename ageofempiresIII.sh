@@ -260,8 +260,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #bash install-mf.sh > /dev/null 2>&1
 
 cd "$WINEPREFIX/drive_c/windows/system32/"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/l3codecx.ax
-~/.jogos/scripts/winetricks l3codecx.ax=native
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/l3codecx.ax > /dev/null 2>&1
+~/.jogos/scripts/winetricks l3codecx.ax=native > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 #cd ~/.jogos/libraries/dxvk/
