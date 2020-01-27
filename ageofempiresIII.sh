@@ -185,9 +185,9 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q wmp10 > /dev/null 2>&1 
 ~/.jogos/scripts/winetricks -q l3codecx > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q wmp10 > /dev/null 2>&1 
 ~/.jogos/scripts/winetricks -q quartz faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -237,9 +237,9 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine vulkan-sdk.exe /S
 
 ################################# CODECs
-~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
-"$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
+#~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
+#"$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
 #wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
