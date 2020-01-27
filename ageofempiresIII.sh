@@ -281,18 +281,22 @@ wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q winxp csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-"$W"/bin/wine SteamSetup.exe
+#wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+#"$W"/bin/wine SteamSetup.exe
 
 #rm -rf GameRangerSetup.exe
 wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 "$W"/bin/wine GameRangerSetup.exe
+
+cd "$WINEPREFIX/drive_c/"
+wget -nc https://phoenixnap.dl.sourceforge.net/project/gapx/a5-2.tar.zst
+tar -xf a5-2.tar.zst
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
@@ -307,8 +311,8 @@ wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe
+cd "$WINEPREFIX/drive_c/Age-of-Empires-III"
+# "$W"/bin/wine age3.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -326,6 +330,9 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 # Irá abrir a localização e o script de inicialização do jogo:
 #xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
 #xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
+
+#cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+#"$W"/bin/wine Steam.exe
 
 
 
