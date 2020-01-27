@@ -237,6 +237,7 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine vulkan-sdk.exe /S
 
 ################################# CODECs
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
 "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
