@@ -250,14 +250,18 @@ cd ~/.jogos/setups/
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#echo "instalando libraries necessárias"
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "instalando libraries necessárias"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #cd ~/.jogos/libraries/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
 #tar -xf mfinstall.tar.xz
 #cd mfinstall
 #bash install-mf.sh > /dev/null 2>&1
+
+cd "$WINEPREFIX/drive_c/windows/system32/"
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/l3codecx.ax
+~/.jogos/scripts/winetricks l3codecx.ax=native
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 #cd ~/.jogos/libraries/dxvk/
