@@ -10,8 +10,8 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-4.7-1-x86_64
-#WV=wine-staging-5.0-1-x86_64
+#WV=wine-4.7-1-x86_64
+WV=wine-staging-5.0-1-x86_64
 GN=ageofempiresIII
 SN="Age Of Empires III"
 CME="Jogo de estratégia em tempo real"
