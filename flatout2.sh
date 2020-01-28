@@ -273,7 +273,7 @@ cd ~/.jogos/libraries/dxvk/
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q winxp csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
