@@ -29,9 +29,11 @@ rm -rf "$GN"
 
 cd ~/.jogos/scripts/run/
 rm -rf "$GN"-run.sh
+rm -rf "$GN"-gameranger-run.sh
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-gameranger-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
+chmod +x "$GN"-gameranger-run.sh
 cd ~/.jogos/icons/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.jogos/scripts/
