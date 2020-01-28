@@ -296,7 +296,7 @@ rm F5-3.tar.zst
 cd ~/.jogos/setups/
 #rm -rf GameRangerSetup.exe
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "A instalação do GameRanger é necessária para dar suporte multiplayer
+echo "A instalação do GameRanger é necessária para dar suporte multiplayer"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 "$W"/bin/wine GameRangerSetup.exe
