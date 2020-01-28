@@ -279,17 +279,25 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 #cd ~/.jogos/setups/
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
+cd "$WINEPREFIX/drive_c/"
 #wget -nc "https://files.downloadnow.com/s/software/10/61/38/51/flatout2_demo.zip?token=1560262705_11bc528def482477609644d64d62fcd0&fileName=flatout2_demo.zip" -O flatout2_demo.zip
 #file-roller -h flatout2_demo.zip
 #wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/fo2_demo.tar.xz"
 #tar -xf fo2_demo.tar.xz
 wget -nc https://cfhcable.dl.sourceforge.net/project/gapx/F5-3.tar.zst
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Aguarde a extração do arquivo.."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 tar -xf F5-3.tar.zst
+sleep 1 
+rm F5-3.tar.zst
 
 cd ~/.jogos/setups/
 #rm -rf GameRangerSetup.exe
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "A instalação do GameRanger é necessária para dar suporte multiplayer
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 "$W"/bin/wine GameRangerSetup.exe
 
@@ -306,7 +314,7 @@ wget -nc https://www.gameranger.com/download/GameRangerSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/users/$USER/Application Data/GameRanger/GameRanger"
+cd "$WINEPREFIX/drive_c/users/$USER/Application Data/GameRanger/GameRanger"
 #"$W"/bin/wine GameRanger.exe 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
@@ -364,7 +372,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/users/$USER/Application Data/Gam
 
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
-
+sleep 40
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
