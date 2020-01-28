@@ -268,11 +268,18 @@ echo "Em progresso ....."
 cd "$WINEPREFIX/drive_c"
 wget -nc https://ufpr.dl.sourceforge.net/project/gapx/C.tar.zst.aa
 wget -nc https://ufpr.dl.sourceforge.net/project/gapx/C.tar.zst.ab
-echo "Aguarde a extração do arquivo..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Aguarde a unificação dos arquivos. Esse processo poderá demorar 8 mins. Aguarde..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cat C.tar.zst.aa C.tar.zst.ab > C.tar.zst
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Agora, aguarde a extração do arquivo mesclado..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 tar -xf C.tar.zst
 sleep 1
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Arquivo extraído com sucesso"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 rm C.tar.zs*
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
