@@ -42,8 +42,8 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.jogos/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.xz
-tar -xf "$WV".tar.xz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+tar -xf "$WV".tar.zst
 
 # Criando o atalho .desktop
 cd ~/.local/share/applications/
