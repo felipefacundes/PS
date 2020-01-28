@@ -283,8 +283,10 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/"
 
 #wget -nc "https://files.downloadnow.com/s/software/10/61/38/51/flatout2_demo.zip?token=1560262705_11bc528def482477609644d64d62fcd0&fileName=flatout2_demo.zip" -O flatout2_demo.zip
 #file-roller -h flatout2_demo.zip
-wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/fo2_demo.tar.xz"
-tar -xf fo2_demo.tar.xz
+#wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/fo2_demo.tar.xz"
+#tar -xf fo2_demo.tar.xz
+wget -nc https://cfhcable.dl.sourceforge.net/project/gapx/F5-3.tar.zst
+tar -xf F5-3.tar.zst
 
 cd ~/.jogos/setups/
 #rm -rf GameRangerSetup.exe
