@@ -241,13 +241,13 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 #ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 ################################# Microsoft Edge
-~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
-cd ~/.jogos/setups/
-rm -rf MicrosoftEdgeSetup.exe
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
-"$W"/bin/wine MicrosoftEdgeSetup.exe /S
-sleep 5
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#rm -rf MicrosoftEdgeSetup.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
+#"$W"/bin/wine MicrosoftEdgeSetup.exe /S
+#sleep 5
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 # Para libraries
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
