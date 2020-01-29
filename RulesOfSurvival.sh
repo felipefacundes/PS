@@ -277,6 +277,9 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine SteamSetup.exe
 
 wget -nc https://ufpr.dl.sourceforge.net/project/gapx/RulOfS.tar.zst
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Agora, aguarde a extração do arquivo. Poderá demorar um pouco..."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 tar -xf RulOfS.tar.zst
 cd RulesOfSurvival
 "$W"/bin/wine *.exe
@@ -298,8 +301,8 @@ rm RulOfS.tar.zst
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-#cd "$WINEPREFIX/drive_c"
-#"$W"/bin/wine 
+#cd "$WINEPREFIX/drive_c/ros"
+#"$W"/bin/wine ros.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
