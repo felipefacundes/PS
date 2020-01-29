@@ -172,7 +172,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q ie8_kb2936068 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q ie8_kb2936068 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -230,7 +230,8 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
 "$W"/bin/wine Firefox*72*.exe /S
 
-wget -nc "https://dl.google.com/tag/s/appguid%3D%7B8A69D345-D564-463C-AFF1-A69D9E530F96%7D%26iid%3D%7B88A7FF24-7536-F8A5-7FA6-7EE4ACD0A71E%7D%26lang%3Dpt-BR%26browser%3D3%26usagestats%3D0%26appname%3DGoogle%2520Chrome%26needsadmin%3Dprefers%26ap%3Dx64-stable-statsdef_1%26installdataindex%3Dempty/update2/installers/ChromeSetup.exe"
+rm -rf ChromeSetup.exe
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
 "$W"/bin/wine ChromeSetup.exe
 
 ################################# Microsoft Edge
