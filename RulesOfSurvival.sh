@@ -226,22 +226,27 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
-~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
-wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
-"$W"/bin/wine Firefox*72*.exe /S
+#cd ~/.jogos/setups/
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
+#"$W"/bin/wine Firefox*72*.exe /S
 
-rm -rf ChromeSetup.exe
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
-"$W"/bin/wine ChromeSetup.exe
-sleep 5
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
-
-################################# Microsoft Edge
-#~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
-#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
-#"$W"/bin/wine MicrosoftEdgeSetup.exe /S
+################################# Chrome
+#cd ~/.jogos/setups/
+#rm -rf ChromeSetup.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
+#"$W"/bin/wine ChromeSetup.exe
 #sleep 5
 #ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+################################# Microsoft Edge
+cd ~/.jogos/setups/
+rm -rf MicrosoftEdgeSetup.exe
+~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
+"$W"/bin/wine MicrosoftEdgeSetup.exe /S
+sleep 5
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 # Para libraries
 #echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
