@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=CyberHunter
 SN="Cyber Hunter"
 CME="Cyber Hunter Battle Royale"
@@ -289,19 +289,21 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine SteamSetup.exe
 
 cd ~/.jogos/setups/
-rm -f cy_hu.tar.zst
-rm -f cyber_hunter_20191030.exe
-wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
+#rm -f cy_hu.tar.zst
+#rm -f cyber_hunter_20191030.exe
+#wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
+wget -nc https://ufpr.dl.sourceforge.net/project/gapx/CyH.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Agora, aguarde a extração do arquivo. Poderá demorar um pouco..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-tar -xf cy_hu.tar.zst
-"$W"/bin/wine cyber_hunter_20191030.exe
+tar -xf CyH.tar.zst
+#"$W"/bin/wine cyber_hunter_20191030.exe
 
 sleep 3
-cd ~/.jogos/setups/
-rm -f cy_hu.tar.zst
-rm -f cyber_hunter_20191030.exe
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+rm -rf CyH.tar.zst
+#rm -f cy_hu.tar.zst
+#rm -f cyber_hunter_20191030.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
