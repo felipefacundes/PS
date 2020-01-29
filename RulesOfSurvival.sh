@@ -226,6 +226,7 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
+~/.jogos/scripts/winetricks -q win7 > /dev/null 2>&1
 wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
 "$W"/bin/wine Firefox*72*.exe /S
 
