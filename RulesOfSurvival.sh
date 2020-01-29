@@ -282,6 +282,9 @@ cd ~/.jogos/setups/
 #wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 #"$W"/bin/wine SteamSetup.exe
 
+cd ~/.jogos/setups/
+rm -rf RulOfS.tar.zst
+rm -rf RulesOfSurvival
 wget -nc https://ufpr.dl.sourceforge.net/project/gapx/RulOfS.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Agora, aguarde a extração do arquivo. Poderá demorar um pouco..."
