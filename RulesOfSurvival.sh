@@ -291,8 +291,9 @@ cd RulesOfSurvival
 "$W"/bin/wine *.exe
 
 sleep 3
-cd ..
-rm RulOfS.tar.zst
+cd ~/.jogos/setups/
+rm -rf RulOfS.tar.zst
+rm -rf RulesOfSurvival
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
