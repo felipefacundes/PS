@@ -219,14 +219,29 @@ wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
-################################# Firefox
-~/.jogos/scripts/winetricks -q win81 > /dev/null 2>&1
-wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/71.0/win64/pt-BR/Firefox%20Setup%2071.0.exe
-"$W"/bin/wine Firefox*71.0.exe /S
+################################# firefox
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+cd ~/.jogos/setups/
+wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
+"$W"/bin/wine Firefox*72*.exe /S
+
+################################# Chrome
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+cd ~/.jogos/setups/
+rm -rf ChromeSetup.exe
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
+"$W"/bin/wine ChromeSetup.exe
+sleep 5
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 ################################# Microsoft Edge
-#wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
-# "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#rm -rf MicrosoftEdgeSetup.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
+#"$W"/bin/wine MicrosoftEdgeSetup.exe /S
+#sleep 5
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 # Para libraries
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
