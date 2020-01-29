@@ -289,7 +289,7 @@ cd ~/.jogos/setups/
 #wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 #"$W"/bin/wine SteamSetup.exe
 
-cd ~/.jogos/setups/
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
 #rm -f cy_hu.tar.zst
 #rm -f cyber_hunter_20191030.exe
 #wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
