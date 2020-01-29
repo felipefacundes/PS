@@ -285,7 +285,8 @@ cd "$WINEPREFIX/drive_c/"
 #file-roller -h flatout2_demo.zip
 #wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/fo2_demo.tar.xz"
 #tar -xf fo2_demo.tar.xz
-wget -nc https://cfhcable.dl.sourceforge.net/project/gapx/F5-3.tar.zst
+#wget -nc https://cfhcable.dl.sourceforge.net/project/gapx/F5-3.tar.zst
+wget -nc https://ufpr.dl.sourceforge.net/project/gapx/F5-3.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Aguarde a extração do arquivo.."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
