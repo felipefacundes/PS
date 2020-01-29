@@ -234,6 +234,7 @@ rm -rf ChromeSetup.exe
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
 "$W"/bin/wine ChromeSetup.exe
 
+sleep 5
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 ################################# Microsoft Edge
