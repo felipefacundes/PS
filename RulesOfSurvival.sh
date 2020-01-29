@@ -244,7 +244,6 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 ~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 cd ~/.jogos/setups/
 rm -rf MicrosoftEdgeSetup.exe
-~/.jogos/scripts/winetricks -q win10 > /dev/null 2>&1
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
 "$W"/bin/wine MicrosoftEdgeSetup.exe /S
 sleep 5
