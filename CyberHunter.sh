@@ -290,7 +290,7 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine SteamSetup.exe
 
 ~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
-#cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
 #rm -f cy_hu.tar.zst
 #rm -f cyber_hunter_20191030.exe
 #wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
