@@ -298,14 +298,15 @@ wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Agora, aguarde a extração do arquivo. Poderá demorar um pouco..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-tar -xf CyH.tar.zst
+# tar -xf CyH.tar.zst
+tar -xf cy_hu.tar.zst
 "$W"/bin/wine cyber_hunter_20191030.exe
 
 sleep 3
 #cd "$WINEPREFIX/drive_c/Program Files (x86)/"
 #rm -rf CyH.tar.zst
-#rm -f cy_hu.tar.zst
-#rm -f cyber_hunter_20191030.exe
+rm -f cy_hu.tar.zst
+rm -f cyber_hunter_20191030.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
