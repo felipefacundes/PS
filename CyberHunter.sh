@@ -54,7 +54,7 @@ echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
 echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
-echo "Terminal=false" >> "$GN".desktop
+echo "Terminal=true" >> "$GN".desktop
 
 # Desinstalar
 cd ~/.jogos/scripts/run/
@@ -291,22 +291,22 @@ cd ~/.jogos/setups/
 
 ~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 #cd "$WINEPREFIX/drive_c/Program Files (x86)/"
-rm -f cy_hu.tar.zst
-rm -f cyber_hunter_20191030.exe
-wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
-#wget -nc https://ufpr.dl.sourceforge.net/project/gapx/CyH.tar.zst
+#rm -f cy_hu.tar.zst
+#rm -f cyber_hunter_20191030.exe
+#wget -nc https://ufpr.dl.sourceforge.net/project/gapx/cy_hu.tar.zst
+wget -nc https://ufpr.dl.sourceforge.net/project/gapx/CyH.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Agora, aguarde a extração do arquivo. Poderá demorar um pouco..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-# tar -xf CyH.tar.zst
-tar -xf cy_hu.tar.zst
-"$W"/bin/wine cyber_hunter_20191030.exe
+tar -xf CyH.tar.zst
+#tar -xf cy_hu.tar.zst
+#"$W"/bin/wine cyber_hunter_20191030.exe
 
 sleep 3
-#cd "$WINEPREFIX/drive_c/Program Files (x86)/"
-#rm -rf CyH.tar.zst
-rm -f cy_hu.tar.zst
-rm -f cyber_hunter_20191030.exe
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+rm -rf CyH.tar.zst
+#rm -f cy_hu.tar.zst
+#rm -f cyber_hunter_20191030.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
