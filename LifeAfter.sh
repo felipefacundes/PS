@@ -297,7 +297,7 @@ wget -nc https://ufpr.dl.sourceforge.net/project/gapx/LiAf.tar.zst.ab
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Aguarde a unificação dos arquivos. Esse processo poderá demorar 8 mins. Aguarde..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-cat LiAf.tar.zst.aa LiAf.tar.zst.aa > LiAf.tar.zst
+cat LiAf.tar.zst.aa LiAf.tar.zst.ab > LiAf.tar.zst
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Agora, aguarde a extração do arquivo mesclado..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
