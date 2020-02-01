@@ -169,8 +169,9 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
