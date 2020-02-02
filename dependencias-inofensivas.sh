@@ -1,6 +1,6 @@
 Dependências que não afeta o wine de forma crítica.
 #winetricks -q msacm32 msasn1 msctf msls31 filever
-#winetricks -q oleaut32 mf richtx32 winhttp msftedit mshflxgd msflxgrd msdxmocx msdelta
+#winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta
 
 Demais dependências (winetricks dlls list):
 
