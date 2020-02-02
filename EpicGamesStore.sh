@@ -289,8 +289,10 @@ echo "Em progresso ....."
 cd ~/.jogos/setups/
 rm -rf EpicGamesLauncherInstaller.msi
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
-wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.xz"
-tar -xf Epic_Games.tar.xz
+#wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.xz"
+wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.zst"
+#tar -xf Epic_Games.tar.xz
+tar -xf Epic_Games.tar.zst
 
 #wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 #"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
