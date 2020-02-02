@@ -7,9 +7,9 @@ rm -rf ~/.local/share/applications/*wine*
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 WV=wine-staging-5.0-1-x86_64
-GN=FrenzyRetribution
-SN="Frenzy Retribution"
-CME="Ação em terceira pessoa free to play"
+GN=MagicTheGatheringArena
+SN="Magic The Gathering Arena"
+CME="Jogo de Cartas colecionaveis (Free)"
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
