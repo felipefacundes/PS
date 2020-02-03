@@ -168,13 +168,13 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 40 MINUTOS."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
@@ -290,12 +290,12 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
-#cd ~/.jogos/setups/
-cd "$WINEPREFIX/drive_c/Program Files (x86)/"
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
-tar -xf Wizards_of_the_Coast.tar
-#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
-#"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
+cd ~/.jogos/setups/
+#cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
+#tar -xf Wizards_of_the_Coast.tar
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
+"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
