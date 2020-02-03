@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.21-1-x86_64
+WV=wine-staging-5.0-1-x86_64
 GN=MagicTheGatheringArena
 SN="Magic The Gathering Arena"
 CME="Jogo de Cartas colecionaveis (Free)"
@@ -173,6 +173,7 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
@@ -290,12 +291,12 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
-cd ~/.jogos/setups/
-#cd "$WINEPREFIX/drive_c/Program Files (x86)/"
-#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
-#tar -xf Wizards_of_the_Coast.tar
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
-"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
+#cd ~/.jogos/setups/
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
+tar -xf Wizards_of_the_Coast.tar
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
+#"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
