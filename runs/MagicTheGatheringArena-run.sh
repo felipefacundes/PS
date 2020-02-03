@@ -103,8 +103,10 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Wizards of the Coast/MTGA/MTGALauncher/"
-"$W"/bin/wine MTGALauncher.exe
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Wizards of the Coast/MTGA/"
+#MTGALauncher/"
+"$W"/bin/wine MTGA.exe
+#MTGALauncher.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
