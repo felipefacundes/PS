@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=MagicTheGatheringArena
 SN="Magic The Gathering Arena"
 CME="Jogo de Cartas colecionaveis (Free)"
@@ -169,13 +169,17 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-#echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
-#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "O .NET Framework será instalado e dependendo do processador poderá demorar 40min, ou mais."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -193,10 +197,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
-#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
@@ -210,10 +214,10 @@ echo "Em progresso ...."
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
 cd ~/.jogos/setups/
-#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-#"$W"/bin/wine VC_redist.x64.exe /q
-#"$W"/bin/wine VC_redist.x86.exe /q
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+"$W"/bin/wine VC_redist.x64.exe /q
+"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
@@ -286,12 +290,12 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
-cd ~/.jogos/setups/
-#cd "$WINEPREFIX/drive_c/Program Files (x86)/"
-#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
-#tar -xf Wizards_of_the_Coast.tar
-wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
-"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
+#cd ~/.jogos/setups/
+cd "$WINEPREFIX/drive_c/Program Files (x86)/"
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Wizards_of_the_Coast.tar
+tar -xf Wizards_of_the_Coast.tar
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MTGAInstaller_0.1.2088.756640.msi
+#"$W"/bin/msiexec /i MTGAInstaller_0.1.2088.756640.msi
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
