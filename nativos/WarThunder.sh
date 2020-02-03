@@ -49,7 +49,7 @@ echo "Terminal=false" >> "$GN".desktop
 cd ~/.jogos/scripts/run/
 touch remover-"$GN".sh
 echo "rm -rf /home/$USER/.local/share/applications/$GN.desktop" > remover-"$GN".sh
-echo "rm -rf /home/$USER/.jogos/wineprefixes/$GN/" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/nativos/$GN/" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-run.sh" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.local/share/applications/remover-$GN.desktop" >> remover-"$GN".sh
 echo "rm -rf /home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".sh
