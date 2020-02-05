@@ -192,10 +192,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #"$W"/bin/wine DXSDK_Jun10.exe
 #~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
 #~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
@@ -234,14 +234,14 @@ echo "Em progresso ....."
 # "$W"/bin/wine MicrosoftEdgeSetupDev.exe /S
 
 # Para libraries
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "instalando libraries necessárias"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-cd ~/.jogos/libraries/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "instalando libraries necessárias"
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#cd ~/.jogos/libraries/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
