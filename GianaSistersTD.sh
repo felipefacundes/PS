@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
+WV=wine-staging-4.21-1-x86_64
 GN=GianaSistersTD
 SN="Giana Sisters: Twisted Dreams"
 CME="Ação e aventura"
@@ -173,8 +173,8 @@ echo "O .NET Framework será instalado e dependendo do processador poderá demor
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
