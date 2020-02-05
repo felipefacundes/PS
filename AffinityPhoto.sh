@@ -179,8 +179,15 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
 #"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
 
+~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -199,7 +206,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
-#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
