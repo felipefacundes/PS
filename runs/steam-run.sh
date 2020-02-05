@@ -99,7 +99,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -gl &
+"$W"/bin/wine Steam.exe -vulkan &
 
 cd "/home/$USER/.jogos/wineprefixes/steam/drive_c/Program Files/Mozilla Firefox"
 "$W"/bin/wine firefox.exe https://store.steampowered.com/?l=portuguese
