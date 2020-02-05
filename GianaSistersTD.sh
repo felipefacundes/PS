@@ -173,6 +173,7 @@ echo "O .NET Framework será instalado e dependendo do processador poderá demor
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Então vai dar uma volta. Beba um café. Pode ficar TRANQUILO(A). Que você será alertado(a) quando terminar."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
