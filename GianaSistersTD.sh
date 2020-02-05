@@ -283,8 +283,8 @@ wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe
+cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files/Steam/"
+"$W"/bin/wine Steam.exe -vulkan
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
