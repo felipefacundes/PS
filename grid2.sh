@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.21-1-x86_64
+WV=wine-staging-5.0-1-x86_64
 GN=grid2
 SN="Grid 2"
 CME="Jogo de Corrida"
@@ -205,20 +205,20 @@ echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
-cd ~/.jogos/setups/
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-"$W"/bin/wine VC_redist.x64.exe /q
-"$W"/bin/wine VC_redist.x86.exe /q
+#cd ~/.jogos/setups/
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+#"$W"/bin/wine VC_redist.x64.exe /q
+#"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-cd ~/.jogos/setups/
-wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-"$W"/bin/wine vulkan-sdk.exe /S
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#cd ~/.jogos/setups/
+#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+#"$W"/bin/wine vulkan-sdk.exe /S
 
 ################################# CODECs
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
@@ -244,19 +244,19 @@ bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.6.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.5.3.tar.gz
 # wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
-tar -xf dxvk-1.4.6.tar.gz
+tar -xf dxvk-1.5.3.tar.gz
 # tar -xf d9vk-0.40.1.tar.xz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 # ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
 # Versão do Windows
