@@ -365,6 +365,7 @@ cd "/home/$USER/.jogos/wineprefixes/AffinityPhoto/drive_c/Program Files/Affinity
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
+rm -rf ~/.local/share/applications/*wine*
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
