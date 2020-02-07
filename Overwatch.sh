@@ -312,7 +312,7 @@ wget -nc "https://us.battle.net/download/getInstaller?os=win&installer=Battle.ne
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "$WINEPREFIX/drive_c/Program Files (x86)/Battle.net"
-#$W/bin/wine Battle.net.exe
+#"$W"/bin/wine Battle.net.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
