@@ -191,8 +191,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
-wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-"$W"/bin/wine DXSDK_Jun10.exe
+#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#"$W"/bin/wine DXSDK_Jun10.exe
 
 ~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
@@ -287,16 +287,14 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd ~/.jogos/setups/
-rm -rf EpicGamesLauncherInstaller.msi
+rm -rf Battle.net-Setup.exe
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
-#wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.xz"
-wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.zst"
-#tar -xf Epic_Games.tar.xz
-tar -xf Epic_Games.tar.zst
+wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Battle.net.tar.zst"
+tar -xf Battle.net.tar.zst
 
-cd ~/.jogos/setups/
-wget -nc "https://us.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe" -O Battle.net-Setup.exe
-"$W"/bin/wine Battle.net-Setup.exe
+#cd ~/.jogos/setups/
+#wget -nc "https://us.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe" -O Battle.net-Setup.exe
+#"$W"/bin/wine Battle.net-Setup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
