@@ -7,7 +7,7 @@ rm -rf ~/.local/share/applications/*wine*
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
  # Referência: https://appdb.winehq.org/objectManager.php?sClass=version&iId=26558
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-4.21-1-x86_64
+WV=wine-staging-5.1-1-x86_64
 GN=GuildWars2
 SN="Guild Wars 2"
 CME="MMORPG"
