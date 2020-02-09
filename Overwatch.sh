@@ -270,19 +270,19 @@ bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-0.94.tar.gz
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-0.94.tar.gz
 # wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
-tar -xf dxvk-0.94.tar.gz
+#tar -xf dxvk-0.94.tar.gz
 # tar -xf d9vk-0.40.1.tar.xz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-0.94/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.jogos/libraries/dxvk/dxvk-0.94/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-0.94/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-0.94/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 #~/.jogos/scripts/winetricks d3d12=disabled > /dev/null 2>&1
-~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
 # Versão do Windows
@@ -296,7 +296,8 @@ rm -rf Battle.net-Setup.exe
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
 wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Battle.net.tar.zst"
 tar -xf Battle.net.tar.zst
-
+sleep 3
+rm Battle.net.tar.zst
 #cd ~/.jogos/setups/
 #wget -nc "https://us.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe" -O Battle.net-Setup.exe
 #"$W"/bin/wine Battle.net-Setup.exe
