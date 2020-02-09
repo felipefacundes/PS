@@ -149,6 +149,10 @@ export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
+export WINE_LARGE_ADDRESS_AWARE=1
+export DXVK_FAKE_DX10_SUPPORT=1
+export STAGING_SHARED_MEMORY=1
+export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
@@ -277,9 +281,8 @@ tar -xf dxvk-1.5.3.tar.gz
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-# ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
 ~/.jogos/scripts/winetricks d3d11=native > /dev/null 2>&1
-#d3d10=native d3d10_1=native d3d10core=native dxgi=native
+#d3d9=native d3d10=native d3d10_1=native d3d10core=native dxgi=native
 echo "Em progresso ....."
 
 # Versão do Windows
