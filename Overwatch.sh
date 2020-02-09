@@ -277,8 +277,8 @@ tar -xf dxvk-1.5.3.tar.gz
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 # ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
-#dxgi=native
+~/.jogos/scripts/winetricks d3d11=native > /dev/null 2>&1
+#d3d10=native d3d10_1=native d3d10core=native dxgi=native
 echo "Em progresso ....."
 
 # Versão do Windows
