@@ -46,6 +46,7 @@ export WINEESYNC=0
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe=d
 #export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+export WINEDLLOVERRIDES=Helper.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -80,6 +81,10 @@ export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
+export WINE_LARGE_ADDRESS_AWARE=1
+export DXVK_FAKE_DX10_SUPPORT=1
+export STAGING_SHARED_MEMORY=1
+export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
