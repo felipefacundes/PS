@@ -291,6 +291,8 @@ cd ~/.jogos/setups/
 #"$W"/bin/wine creative_destruction_3.0.36_20190307.exe
 #wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 #"$W"/bin/wine SteamSetup.exe
+cd "$WINEPREFIX"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/CyberHunter/dxvk.conf
 
 cd "$WINEPREFIX/drive_c/Program Files (x86)/"
 #rm -f cy_hu.tar.zst
