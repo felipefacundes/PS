@@ -1,15 +1,84 @@
 #!/bin/bash
-rm -rf ~/.local/share/applications/*wine*
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+clear -T "$TERM"
+rm -rf ~/.local/share/applications/*wine* 
+dialog --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
+clear -T "$TERM"
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar, sem precisar de PlayOnLinux, Proton ou Lutris, e com um desempenho muito melhor e superior.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
-GN=CSGlobalOffensiveVK
-SN="Counter-Strike: Global Offensive"
-CME="Tiro em primeira pessoa"
+WV=wine-staging-5.1-1-x86_64
+GN=FrenzyRetribution
+SN="Frenzy Retribution"
+CME="Ação em terceira pessoa free to play"
+
+# Criar as pastas de estrutura para o binário isolado do wine - técnica para manipular diversos tipos de wine
+mkdir -p ~/.local/share/applications/
+mkdir -p ~/.jogos/wines/
+mkdir -p ~/.jogos/icons/
+mkdir -p ~/.jogos/libraries/dxvk/
+mkdir -p ~/.jogos/scripts/run/
+mkdir -p ~/.jogos/setups/
+mkdir -p ~/.jogos/wineprefixes/
+cd ~/.jogos/wineprefixes/
+rm -rf "$GN"
+#mkdir -p ~/.jogos/wineprefixes/"$GN"
+
+cd ~/.jogos/scripts/run/
+rm -rf "$GN"-run.sh
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+chmod +x "$GN"-run.sh
+cd ~/.jogos/icons/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+cd ~/.jogos/scripts/
+rm -rf winetricks
+wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
+chmod +x winetricks
+cd ~/.jogos/wines/
+rm -rf "$WV"
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+tar -xf "$WV".tar.zst
+
+# Criando o atalho .desktop
+cd ~/.local/share/applications/
+touch "$GN".desktop
+echo "#!/usr/bin/env xdg-open" > "$GN".desktop
+echo "[Desktop Entry]" >> "$GN".desktop
+echo "Name=$SN" >> "$GN".desktop
+echo "Comment=$CME" >> "$GN".desktop
+echo "Categories=Game;" >> "$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
+echo "Type=Application" >> "$GN".desktop
+echo "StartupNotify=true" >> "$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
+echo "Terminal=false" >> "$GN".desktop
+
+# Desinstalar
+cd ~/.jogos/scripts/run/
+touch remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/$GN.desktop" > remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/wineprefixes/$GN/" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/$GN-run.sh" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.local/share/applications/remover-$GN.desktop" >> remover-"$GN".sh
+echo "rm -rf /home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".sh
+chmod +x remover-"$GN".sh
+cd ~/.local/share/applications/
+touch remover-"$GN".desktop
+echo "#!/usr/bin/env xdg-open" > remover-"$GN".desktop
+echo "[Desktop Entry]" >> remover-"$GN".desktop
+echo "Name=Remover $SN" >> remover-"$GN".desktop
+echo "Comment=Remover $SN" >> remover-"$GN".desktop
+echo "Categories=Game;" >> remover-"$GN".desktop
+echo "Exec=/home/$USER/.jogos/scripts/run/remover-$GN.sh" >> remover-"$GN".desktop
+echo "Type=Application" >> remover-"$GN".desktop
+echo "StartupNotify=true" >> remover-"$GN".desktop
+echo "Icon=/home/$USER/.jogos/icons/remover.png" >> remover-"$GN".desktop
+echo "Terminal=false" >> remover-"$GN".desktop
+cd ~/.jogos/icons/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/remover.png > /dev/null 2>&1
 
 #A# Essa é a versão escolhida do Wine
 export TERM=xterm
@@ -90,6 +159,130 @@ glxgears -stereo > /dev/null 2>&1
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 
+# Opção para winetricks:   vd=1360x768 nvapi=disabled nvapi64=disabled dwrite=disabled galliumnine vulkansdk
+# ⛁ Observação: vcrun2015 CONFLITA com vcrun2017
+# Aqui prepara o Wine para o jogo poder rodar:      # Não use -> l3codecx     # Opção para winetricks: dlls list   settings list
+echo "━━━━━━━━━"
+echo "PlayOnGit"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso poderá levar 18 MINUTOS."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#~/.jogos/scripts/winetricks -q vcrun2005 > /dev/null 2>&1
+# vamos instalar o DXSDK
+#mkdir -p ~/.jogos/setups/dx_especial/
+#cd ~/.jogos/setups/dx_especial/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/directx-2010.tar.gz
+#tar -xf directx-2010.tar.gz
+#"$W"/bin/wine DXSETUP.exe
+
+# Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
+#mkdir -p ~/.jogos/setups/DXSDK_Jun10/
+#cd ~/.jogos/setups/DXSDK_Jun10/
+#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#"$W"/bin/wine DXSDK_Jun10.exe
+~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+echo "Em progresso ."
+~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+echo "Em progresso .."
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+echo "Em progresso ..."
+~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+echo "Em progresso ...."
+~/.jogos/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
+echo "Em progresso ....."
+cd ~/.jogos/setups/
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+"$W"/bin/wine VC_redist.x64.exe /q
+"$W"/bin/wine VC_redist.x86.exe /q
+#~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
+
+################################# Vulkan SDK
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#echo "Tenha PACIÊNCIA, essa é a vez do VULKAN.."
+#echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+#cd ~/.jogos/setups/
+#wget -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+#"$W"/bin/wine vulkan-sdk.exe /S
+
+################################# CODECs
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/K-Lite_Codec_Pack_1494_Mega.exe
+# "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
+
+################################# firefox
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
+#"$W"/bin/wine Firefox*72*.exe /S
+
+################################# Chrome
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#rm -rf ChromeSetup.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/ChromeSetup.exe
+#"$W"/bin/wine ChromeSetup.exe
+#sleep 5
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+################################# Microsoft Edge
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#rm -rf MicrosoftEdgeSetup.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/MicrosoftEdgeSetup.exe
+#"$W"/bin/wine MicrosoftEdgeSetup.exe /S
+#sleep 5
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+# Para libraries
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "instalando libraries necessárias"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+cd ~/.jogos/libraries/
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
+
+# Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
+cd ~/.jogos/libraries/dxvk/
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.5.4.tar.gz
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
+#tar -xf dxvk-1.5.4.tar.gz
+tar -xf d9vk-0.40.1.tar.xz
+
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
+#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+echo "Em progresso ....."
+
+# Versão do Windows
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+
+# Primeiro configurar o wine
+#"$W"/bin/winecfg
+# Executar o instalador e depois o jogo
+cd ~/.jogos/setups/
+wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
+
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
@@ -104,7 +297,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -novid -high -nojoy -noforcemaccel -noforcemparms -noforcemspd -nod3d9ex -processheap -lv -tickrate 128 -refresh 120 -applaunch 730
+"$W"/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -162,6 +355,33 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+rm -rf ~/.local/share/applications/*wine*
+#~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
+cd ~/.jogos/scripts/
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
+export beep=~/.jogos/scripts/leia.ogg
+pactl upload-sample ~/.jogos/scripts/leia.ogg
+paplay "$beep" --volume=76767
+#notify-send "Na Guia Gráficos habilite o desktop virtual, se preferir"
+#dialog --msgbox "Na Guia Gráficos habilite o desktop virtual, se preferir" 10 25
+#"$W"/bin/winecfg
+dialog --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
+
+dialog --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
+
+notify-send "Instalação FINALIZADA com SUCESSO."
+sleep 1
+notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+notify-send "Se quiser, pode fechar o terminal."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Instalação FINALIZADA com SUCESSO"
+echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
+echo "Criação de Felipe Facundes"
+echo "Acesse nosso grupo do Telegram:"
+echo "https://t.me/winehq_linux"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 rm -rf ~/.local/share/applications/*wine*
 
 ################################# Opções extras:
@@ -257,4 +477,3 @@ rm -rf ~/.local/share/applications/*wine*
 
 #"$W"/bin/wine regsvr32 /i /S l3codecx.ax
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native
-rm -rf ~/.local/share/applications/*wine*
