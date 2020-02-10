@@ -267,6 +267,9 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 #cd ~/.jogos/setups/
+cd "$WINEPREFIX"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/TDKC/dxvk.conf
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/UDK.dxvk-cache?raw=true" -O UDK.dxvk-cache
 cd "/home/$USER/.jogos/wineprefixes/TDKC/drive_c/"
 wget -nc https://master.dl.sourceforge.net/project/indie-game/UDK.tar.xz
 tar -xf UDK.tar.xz
