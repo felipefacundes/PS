@@ -37,7 +37,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-export WINEESYNC=0
+export WINEESYNC=1
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 #export MESA_GLSL_VERSION_OVERRIDE=450
@@ -60,7 +60,7 @@ export DXVK_LOG_LEVEL=none
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
-export MESA_NO_ERROR=1
+#export MESA_NO_ERROR=1
 #export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export GPU_FORCE_64BIT_PTR=1
 export GPU_MAX_HEAP_SIZE=100
@@ -86,7 +86,7 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 export STAGING_WRITECOPY=1
-export DXVK_HUD=fps
+export DXVK_HUD=compiler,fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
@@ -97,12 +97,12 @@ glxgears -stereo > /dev/null 2>&1
 #"$W"/bin/winecfg
 
 #
-# ____   ____    .__   __                   
-# \   \ /   /_ __|  | |  | _______    ____  
-#  \   Y   /  |  \  | |  |/ /\__  \  /    \ 
+# ____   ____    .__   __
+# \   \ /   /_ __|  | |  | _______    ____
+#  \   Y   /  |  \  | |  |/ /\__  \  /    \
 #   \     /|  |  /  |_|    <  / __ \|   |  \
 #    \___/ |____/|____/__|_ \(____  /___|  /
-#                         \/     \/     \/ 
+#                         \/     \/     \/
 #
 # Para aqueles que querem maximizar a experiência do Jogo usando Vulkan, descomente às 6 linhas abaixo:
 
