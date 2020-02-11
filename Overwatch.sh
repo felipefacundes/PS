@@ -296,6 +296,9 @@ cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Overwatch/dxvk.conf
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/DXVK_SHADER_CACHE/Overwatch.dxvk-cache
 cp Overwatch.dxvk-cache Battle.net.dxvk-cache 
+mkdir -p "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
+cd "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Overwatch/Battle.net.config
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
 wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Battle.net.tar.zst"
 tar -xf Battle.net.tar.zst
