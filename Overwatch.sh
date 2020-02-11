@@ -294,8 +294,8 @@ cd ~/.jogos/setups/
 rm -rf Battle.net-Setup.exe
 cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Overwatch/dxvk.conf
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/DXVK_SHADER_CACHE/Overwatch.dxvk-cache
-cp Overwatch.dxvk-cache Battle.net.dxvk-cache 
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/Battle.net.dxvk-cache?raw=true" -O Battle.net.dxvk-cache
+cp Battle.net.dxvk-cache Overwatch.dxvk-cache
 mkdir -p "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
 cd "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Overwatch/Battle.net.config
