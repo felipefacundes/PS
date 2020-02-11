@@ -96,25 +96,6 @@ glxgears -stereo > /dev/null 2>&1
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 
-#
-# ____   ____    .__   __
-# \   \ /   /_ __|  | |  | _______    ____
-#  \   Y   /  |  \  | |  |/ /\__  \  /    \
-#   \     /|  |  /  |_|    <  / __ \|   |  \
-#    \___/ |____/|____/__|_ \(____  /___|  /
-#                         \/     \/     \/
-#
-# Para aqueles que querem maximizar a experiência do Jogo usando Vulkan, descomente às 6 linhas abaixo:
-
-
-#cd ~/.jogos/libraries/dxvk/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.5.4.tar.gz
-#tar -xf dxvk-1.5.4.tar.gz
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
-
-
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
