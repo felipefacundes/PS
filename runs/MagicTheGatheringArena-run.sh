@@ -6,7 +6,7 @@ rm -rf ~/.local/share/applications/*wine*
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.0-1-x86_64
+WV=wine-staging-5.1-1-x86_64
 GN=MagicTheGatheringArena
 SN="Magic The Gathering Arena"
 CME="Jogo de Cartas colecionaveis (Free)"
@@ -45,7 +45,8 @@ export WINEESYNC=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe,
-#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
+#MTGA.exe 
+#export WINEDLLOVERRIDES=mscorsvw.exe,rundll32.exe,UnityCrashHandler32.exe=d
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
