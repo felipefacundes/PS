@@ -286,9 +286,12 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
+cd "$WINEPREFIX"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Origin/dxvk.conf
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/Battle.net.dxvk-cache?raw=true" -O Origin.dxvk-cache
+
 cd ~/.jogos/setups/
 rm -rf OriginSetup.exe
-
 #wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
 wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
 "$W"/bin/wine OriginSetup.exe
