@@ -60,7 +60,7 @@ export DXVK_LOG_LEVEL=none
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
-#export MESA_NO_ERROR=1
+export MESA_NO_ERROR=1
 #export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export GPU_FORCE_64BIT_PTR=1
 export GPU_MAX_HEAP_SIZE=100
@@ -86,7 +86,7 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 export STAGING_WRITECOPY=1
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
