@@ -277,8 +277,9 @@ tar -xf dxvk-1.5.4.tar.gz
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.4/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 # ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-#~/.jogos/scripts/winetricks d3d12=disabled > /dev/null 2>&1
-~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d12=disabled > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+#dxgi=native
 echo "Em progresso ....."
 
 # Versão do Windows
@@ -290,7 +291,8 @@ echo "Em progresso ....."
 cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Origin/dxvk.conf
 wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/Battle.net.dxvk-cache?raw=true" -O Origin.dxvk-cache
-
+cp Origin.dxvk-cache IGOProxy64.dxvk-cache
+cp Origin.dxvk-cache igoproxy.dxvk-cache
 cd ~/.jogos/setups/
 rm -rf OriginSetup.exe
 #wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
