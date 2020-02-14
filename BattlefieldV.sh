@@ -195,7 +195,7 @@ wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-A
 "$W"/bin/wine DXSDK_Jun10.exe /U
 
 ~/.jogos/scripts/winetricks -q vcrun6sp6 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
