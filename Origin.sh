@@ -196,10 +196,10 @@ wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-A
 
 ~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
-#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
 ~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
