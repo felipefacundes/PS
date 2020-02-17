@@ -187,8 +187,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet48 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet48 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
@@ -265,24 +265,23 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 #bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
-#cd ~/.jogos/libraries/dxvk/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.4.6.tar.gz
+cd ~/.jogos/libraries/dxvk/
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/dxvk-1.5.3.tar.gz
 # wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/dxvk/d9vk/d9vk-0.40.1.tar.xz
-#tar -xf dxvk-1.4.6.tar.gz
+tar -xf dxvk-1.5.3.tar.gz
 # tar -xf d9vk-0.40.1.tar.xz
 
 #bash ~/.jogos/libraries/dxvk/d9vk-0.12/setup_dxvk.sh install
 #bash ~/.jogos/libraries/dxvk/dxvk-1.2.1/setup_dxvk.sh install
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 # cp -rf ~/.jogos/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
-#cp -rf ~/.jogos/libraries/dxvk/dxvk-1.4.6/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
-# ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-#~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.jogos/libraries/dxvk/dxvk-1.5.3/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win81 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
