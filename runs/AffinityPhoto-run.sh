@@ -37,20 +37,22 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-export WINEESYNC=0
+export WINEESYNC=1
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 #export MESA_GLSL_VERSION_OVERRIDE=450
 #export MESA_GL_VERSION_OVERRIDE=4.5COMPAT
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
-#Origin.exe,OriginClientService.exe=d
+#Origin.exe,OriginClientService.exe,
 #export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
 export DXVK_SHADER_DUMP_PATH="/tmp"
-export DXVK_SHADER_READ_PATH="/tmp"
+export DXVK_STATE_CACHE_PATH="$WINEPREFIX"
+export DXVK_SHADER_READ_PATH="$WINEPREFIX"
+export DXVK_CONFIG_FILE="$WINEPREFIX"/dxvk.conf
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
@@ -58,10 +60,16 @@ export DXVK_LOG_LEVEL=none
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
-export MESA_NO_ERROR=1
+#export MESA_NO_ERROR=1
 #export AMDVLK_ENABLE_DEVELOPING_EXT="all"
+export GPU_FORCE_64BIT_PTR=1
+export GPU_MAX_HEAP_SIZE=100
+export GPU_USE_SYNC_OBJECTS=1
+export GPU_MAX_ALLOC_PERCENT=100
+export GPU_SINGLE_ALLOC_PERCENT=100
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH="/tmp"
+export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
+export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
@@ -75,7 +83,10 @@ export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
-export DXVK_HUD=fps
+export WINE_LARGE_ADDRESS_AWARE=1
+export STAGING_SHARED_MEMORY=1
+export STAGING_WRITECOPY=1
+export DXVK_HUD=compiler
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
