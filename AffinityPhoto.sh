@@ -182,7 +182,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks win7 > /dev/null 2>&1
 #wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
 #"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
-~/.jogos/scripts/winetricks --unattended dotnet35sp1
+~/.jogos/scripts/winetricks --unattended dotnet35sp1 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
