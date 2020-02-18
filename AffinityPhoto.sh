@@ -183,6 +183,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
 #"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
 ~/.jogos/scripts/winetricks --unattended dotnet35sp1 > /dev/null 2>&1
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 #~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
@@ -371,8 +372,8 @@ ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkil
 ################################# firefox
 ~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 cd ~/.jogos/setups/
-wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
-"$W"/bin/wine Firefox*72*.exe
+wget -nc https://dl.google.com/release2/chrome/AMvTpHhVXHb3_74.0.3729.108/74.0.3729.108_chrome_installer.exe
+"$W"/bin/wine 74.0.3729.108_chrome_installer.exe
 
 rm -rf ~/.local/share/applications/*wine*
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
