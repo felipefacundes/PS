@@ -362,7 +362,7 @@ cd "/home/$USER/.jogos/wineprefixes/AffinityPhoto/drive_c/Program Files/Affinity
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 rm -rf ~/.local/share/applications/*wine*
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
