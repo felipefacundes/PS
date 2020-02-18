@@ -248,8 +248,10 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 # "$W"/bin/wine K-Lite_Codec_Pack_1494_Mega.exe /S
 
 ################################# firefox
-#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/67.0/win64/pt-BR/Firefox%20Setup%2067.0.exe
-# "$W"/bin/wine Firefox*67.0.exe /S
+#~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+#cd ~/.jogos/setups/
+#wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
+#"$W"/bin/wine Firefox*72*.exe /S
 
 ################################# Microsoft Edge
 #wget -nc https://c2rsetup.officeapps.live.com/c2r/downloadEdge.aspx?ProductreleaseID=Edge&platform=Default&version=Edge&Channel=Dev&language=en-us&Consent=0&IID=8ca34c01-3483-5135-933f-027f341bd5d1 -O MicrosoftEdgeSetupDev.exe
@@ -364,7 +366,13 @@ cd "/home/$USER/.jogos/wineprefixes/AffinityPhoto/drive_c/Program Files/Affinity
 ################################# Finalização
 #~/.jogos/scripts/winetricks vd=1360x768
 
-#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+################################# firefox
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+cd ~/.jogos/setups/
+wget -nc https://download-installer.cdn.mozilla.net/pub/firefox/releases/72.0.2/win64/pt-BR/Firefox%20Setup%2072.0.2.exe
+"$W"/bin/wine Firefox*72*.exe
 
 rm -rf ~/.local/share/applications/*wine*
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
