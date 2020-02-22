@@ -54,7 +54,7 @@ echo "Exec=/home/$USER/.jogos/scripts/run/$GN-run.sh" >> "$GN".desktop
 echo "Type=Application" >> "$GN".desktop
 echo "StartupNotify=true" >> "$GN".desktop
 echo "Icon=/home/$USER/.jogos/icons/$GN.png" >> "$GN".desktop
-echo "Terminal=true" >> "$GN".desktop
+echo "Terminal=false" >> "$GN".desktop
 
 # Desinstalar
 cd ~/.jogos/scripts/run/
