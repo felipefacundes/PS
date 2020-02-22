@@ -266,6 +266,10 @@ echo "Em progresso ....."
 # Versão do Windows
 ~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
+cd "$WINEPREFIX"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Grid2/dxvk.conf
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/grid2_avx.dxvk-cache?raw=true" -O grid2_avx.dxvk-cache
+
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
@@ -286,7 +290,7 @@ wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 "$W"/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
