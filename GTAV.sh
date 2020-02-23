@@ -268,8 +268,7 @@ echo "Em progresso ....."
 cd ~/.jogos/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
-#wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
-#"$W"/bin/wine Rockstar-Games-Launcher.exe
+wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
 
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
@@ -334,7 +333,6 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 
 
-
 ################################# 喇 MPV Player 懶 喇
 #pkill -9 .exe
 #cd ~/.jogos/setups/
@@ -347,6 +345,11 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 #~/.jogos/scripts/winetricks vd=1360x768
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+
+cd ~/.jogos/setups/
+WINEDEBUG=+heap "$W"/bin/wine Rockstar-Games-Launcher.exe
+
+ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
