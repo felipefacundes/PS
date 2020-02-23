@@ -350,10 +350,9 @@ ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkil
 
 cd ~/.jogos/setups/
 export WINEDEBUG=+heap 
-#watch -g
-"$W"/bin/wine start /unix Rockstar-Games-Launcher.exe
+watch -g "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe > /dev/null 2>&1
 
-#ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
