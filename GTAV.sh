@@ -347,14 +347,14 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Por padrão, a instalação será rápida. Logo após concluir, o instalador reabrirá"
+echo "Combine às teclas: ”Control C”, no terminal, para cancelar uma reinstalação acidental"
+echo "Por favor, instale o Rockstar Launcher: apenas uma vez, e ignore os BUGs."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/setups/
 export WINEDEBUG=+heap 
 watch -e "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe > /dev/null 2>&1
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Por padrão será rápida a instalação, após terminar"
-echo "Combine às teclas: ”Control C” , para cancelar uma reinstalação acidental"
-echo "Por favor, instale o Rockstar Launcher, apenas uma vez e ignore os BUGs"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #sleep 8m
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
