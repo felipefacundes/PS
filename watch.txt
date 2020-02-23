@@ -1,0 +1,21 @@
+watch --help
+
+Uso:
+ watch [opções] comando
+
+Opções:
+  -b, --beep             apita se comando tiver uma saída anormal
+  -c, --color            interpreta sequências de estilo e cor ANSI
+  -d, --differences[=<permanente>]
+                         realça alterações entre atualizações
+  -e, --errexit          sai se comando tiver uma saída anormal
+  -g, --chgexit          sai quando a saída do comando mudar
+  -n, --interval <seg>   segundos para esperar entre atualizações
+  -p, --precise          tenta executar comando em intervalos precisos
+  -t, --no-title         desativa o cabeçalho
+  -x, --exec             passa comando para o exec em vez de "sh -c"
+
+ -h, --help     exibe esta ajuda e sai
+ -v, --version  mostra informações da versão e sai
+
+Para mais detalhes, veja watch(1).
