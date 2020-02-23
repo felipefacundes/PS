@@ -348,7 +348,7 @@ ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkil
 
 cd ~/.jogos/setups/
 export WINEDEBUG=+heap 
-watch "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe
+watch -e "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe
 
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
