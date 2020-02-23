@@ -346,7 +346,7 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 #~/.jogos/scripts/winetricks vd=1360x768
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
-
+clear
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Por padrão, a instalação será rápida. Logo após concluir, o instalador reabrirá"
 echo "Combine às teclas: ”Control C”, no terminal, para cancelar uma reinstalação acidental"
