@@ -268,7 +268,9 @@ echo "Em progresso ....."
 cd ~/.jogos/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
-wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
+rm -f Rockstar-Games-Launcher.exe
+#wget -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
+wget -nc https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe
 
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
