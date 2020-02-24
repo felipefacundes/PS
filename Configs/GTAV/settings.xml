@@ -24,14 +24,14 @@
     <ShaderQuality value="0" />
     <Shadow_SoftShadows value="0" />
     <UltraShadows_Enabled value="false" />
-    <Shadow_ParticleShadows value="true" />
+    <Shadow_ParticleShadows value="false" />
     <Shadow_Distance value="1.000000" />
     <Shadow_LongShadows value="false" />
     <Shadow_SplitZStart value="0.930000" />
     <Shadow_SplitZEnd value="0.890000" />
     <Shadow_aircraftExpWeight value="0.990000" />
     <Shadow_DisableScreenSizeCheck value="false" />
-    <Reflection_MipBlur value="true" />
+    <Reflection_MipBlur value="false" />
     <FXAA_Enabled value="false" />
     <TXAA_Enabled value="false" />
     <Lighting_FogVolumes value="false" />
