@@ -363,6 +363,7 @@ export WINEDEBUG=+heap
 watch -e "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe > /dev/null 2>&1
 #sleep 8m
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+rm -rf ~/.local/share/applications/*wine*
 
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
