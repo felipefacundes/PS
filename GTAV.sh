@@ -265,6 +265,10 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
+cd "$WINEPREFIX"
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/Launcher.dxvk-cache?raw=true" -O Launcher.dxvk-cache
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
+
 cd ~/.jogos/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
@@ -289,7 +293,7 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 "$W"/bin/wine Steam.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
