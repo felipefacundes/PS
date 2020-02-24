@@ -9,7 +9,7 @@
     <PedLodBias value="0.000000" />
     <VehicleLodBias value="0.000000" />
     <ShadowQuality value="1" />
-    <ReflectionQuality value="0" />
+    <ReflectionQuality value="1" />
     <ReflectionMSAA value="0" />
     <SSAO value="0" />
     <AnisotropicFiltering value="0" />
@@ -24,22 +24,22 @@
     <ShaderQuality value="0" />
     <Shadow_SoftShadows value="0" />
     <UltraShadows_Enabled value="false" />
-    <Shadow_ParticleShadows value="false" />
+    <Shadow_ParticleShadows value="true" />
     <Shadow_Distance value="1.000000" />
     <Shadow_LongShadows value="false" />
     <Shadow_SplitZStart value="0.930000" />
     <Shadow_SplitZEnd value="0.890000" />
     <Shadow_aircraftExpWeight value="0.990000" />
     <Shadow_DisableScreenSizeCheck value="false" />
-    <Reflection_MipBlur value="false" />
+    <Reflection_MipBlur value="true" />
     <FXAA_Enabled value="false" />
     <TXAA_Enabled value="false" />
     <Lighting_FogVolumes value="false" />
     <Shader_SSA value="false" />
     <DX_Version value="0" />
     <CityDensity value="0.000000" />
-    <PedVarietyMultiplier value="0.000000" />
-    <VehicleVarietyMultiplier value="0.000000" />
+    <PedVarietyMultiplier value="1.000000" />
+    <VehicleVarietyMultiplier value="1.000000" />
     <PostFX value="0" />
     <DoF value="false" />
     <HdStreamingInFlight value="false" />
@@ -60,14 +60,14 @@
     <OutputIndex value="0" />
     <ScreenWidth value="1280" />
     <ScreenHeight value="720" />
-    <RefreshRate value="60" />
+    <RefreshRate value="120" />
     <Windowed value="0" />
     <VSync value="0" />
     <Stereo value="0" />
-    <Convergence value="0.001000" />
+    <Convergence value="0.100000" />
     <Separation value="1.000000" />
-    <PauseOnFocusLoss value="0" />
+    <PauseOnFocusLoss value="1" />
     <AspectRatio value="5" />
   </video>
-  <VideoCardDescription></VideoCardDescription>
+  <VideoCardDescription>GeForce GTX 1050 Ti</VideoCardDescription>
 </Settings>
