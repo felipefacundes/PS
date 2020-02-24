@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Settings>
+  <version value="27" />
+  <configSource>SMC_AUTO</configSource>
+  <graphics>
+    <Tessellation value="0" />
+    <LodScale value="0.000000" />
+    <PedLodBias value="0.000000" />
+    <VehicleLodBias value="0.000000" />
+    <ShadowQuality value="1" />
+    <ReflectionQuality value="0" />
+    <ReflectionMSAA value="0" />
+    <SSAO value="0" />
+    <AnisotropicFiltering value="0" />
+    <MSAA value="0" />
+    <MSAAFragments value="0" />
+    <MSAAQuality value="0" />
+    <SamplingMode value="0" />
+    <TextureQuality value="0" />
+    <ParticleQuality value="0" />
+    <WaterQuality value="0" />
+    <GrassQuality value="0" />
+    <ShaderQuality value="0" />
+    <Shadow_SoftShadows value="0" />
+    <UltraShadows_Enabled value="false" />
+    <Shadow_ParticleShadows value="false" />
+    <Shadow_Distance value="1.000000" />
+    <Shadow_LongShadows value="false" />
+    <Shadow_SplitZStart value="0.930000" />
+    <Shadow_SplitZEnd value="0.890000" />
+    <Shadow_aircraftExpWeight value="0.990000" />
+    <Shadow_DisableScreenSizeCheck value="false" />
+    <Reflection_MipBlur value="false" />
+    <FXAA_Enabled value="false" />
+    <TXAA_Enabled value="false" />
+    <Lighting_FogVolumes value="false" />
+    <Shader_SSA value="false" />
+    <DX_Version value="0" />
+    <CityDensity value="0.000000" />
+    <PedVarietyMultiplier value="0.000000" />
+    <VehicleVarietyMultiplier value="0.000000" />
+    <PostFX value="0" />
+    <DoF value="false" />
+    <HdStreamingInFlight value="false" />
+    <MaxLodScale value="0.000000" />
+    <MotionBlurStrength value="0.000000" />
+  </graphics>
+  <system>
+    <numBytesPerReplayBlock value="9000000" />
+    <numReplayBlocks value="36" />
+    <maxSizeOfStreamingReplay value="1024" />
+    <maxFileStoreSize value="65536" />
+  </system>
+  <audio>
+    <Audio3d value="false" />
+  </audio>
+  <video>
+    <AdapterIndex value="0" />
+    <OutputIndex value="0" />
+    <ScreenWidth value="1280" />
+    <ScreenHeight value="720" />
+    <RefreshRate value="60" />
+    <Windowed value="0" />
+    <VSync value="0" />
+    <Stereo value="0" />
+    <Convergence value="0.001000" />
+    <Separation value="1.000000" />
+    <PauseOnFocusLoss value="0" />
+    <AspectRatio value="5" />
+  </video>
+  <VideoCardDescription></VideoCardDescription>
+</Settings>
