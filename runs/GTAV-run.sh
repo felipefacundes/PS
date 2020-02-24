@@ -90,6 +90,8 @@ glxgears -stereo > /dev/null 2>&1
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 
+wmic="$WINEPREFIX/drive_c/windows/system32/wbem"
+mv "$wmic"/wmic.exe "$wmic"/wmic.exe.bkp
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
 # | |        (_)                   | (_)     | |                     | |         (_)              ▏▏
@@ -103,8 +105,8 @@ glxgears -stereo > /dev/null 2>&1
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -applaunch 271590
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+"$W"/bin/wine Steam.exe -applaunch 271590 &
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
@@ -122,6 +124,17 @@ cd "/home/$USER/.jogos/wineprefixes/$GN/drive_c/Program Files (x86)/Steam/"
 # Irá abrir a localização e o script de inicialização do jogo:
 #xdg-open ~/.jogos/wineprefixes/"$GN"/drive_c/
 #xdg-open ~/.jogos/scripts/run/"$GN"-run.sh
+
+cd "$WINEPREFIX"/drive_c/Program\ Files\ \(x86\)/Steam/steamapps/common/Grand\ Theft\ Auto\ V
+while :; do
+	sleep 1
+
+	if pidof GTA5.exe; then
+		sleep 2
+		mv "$wmic"/wmic.exe.bkp "$wmic"/wmic.exe
+		exit
+	fi
+done
 
 
 
