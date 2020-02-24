@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=Wine-PlayOnGit-st-5.2
+WV=wine-staging-5.1-1-x86_64
 GN=GTAV
 SN="GTA V"
 CME="Jogo de Ação e Aventura"
