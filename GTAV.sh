@@ -270,6 +270,14 @@ wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTA
 cp GTA5.dxvk-cache Launcher.dxvk-cache
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
 
+mkdir -p "$HOME/Documentos/Rockstar Games/GTA V"
+cd "$HOME/Documentos/Rockstar Games/GTA V"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+
+mkdir -p "$HOME/Documents/Rockstar Games/GTA V"
+cd "$HOME/Documents/Rockstar Games/GTA V"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+
 cd ~/.jogos/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
