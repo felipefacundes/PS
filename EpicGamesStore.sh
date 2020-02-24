@@ -98,7 +98,7 @@ export WINEDLLPATH="$W"/lib/wine/fakedlls
 export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
 export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
-#"$W"/bin/wineconsole "cmd"https://github.com/felipefacundes/ps
+#"$W"/bin/wineconsole "cmd"
 
 #export WINEDEBUG=-all,fps
 export WINEDEBUG=-all
@@ -170,7 +170,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1https://github.com/felipefacundes/ps
+#~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
