@@ -287,6 +287,9 @@ echo "Em progresso ....."
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
+cd "$WINEPREFIX"
+wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
+
 cd ~/.jogos/setups/
 rm -rf EpicGamesLauncherInstaller.msi
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
