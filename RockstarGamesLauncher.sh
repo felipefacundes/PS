@@ -267,8 +267,7 @@ echo "Em progresso ....."
 #"$W"/bin/winecfg
 # Executar o instalador e depois o jogo
 cd "$WINEPREFIX"
-wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O GTA5.dxvk-cache
-cp GTA5.dxvk-cache Launcher.dxvk-cache
+wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O  Launcher.dxvk-cache
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/RockstarLauncher/dxvk.conf
 
 cd ~/.jogos/setups/
