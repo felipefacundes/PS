@@ -297,6 +297,8 @@ cd "$WINEPREFIX/drive_c/Program Files (x86)"
 wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Epic_Games.tar.zst"
 #tar -xf Epic_Games.tar.xz
 tar -xf Epic_Games.tar.zst
+sleep 1
+rm Epic_Games.tar.zst
 
 cd ~/.jogos/setups/
 #wget -nc https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UplayInstaller.exe
