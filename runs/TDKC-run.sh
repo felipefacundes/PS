@@ -36,7 +36,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.jogos/wineprefixes/"$GN"
 # Para tornar a prefix do wine preparada para 32bits ou 64bits. Opção necessária para alguns jogos:
 export WINEARCH=win64
-export WINEESYNC=0
+export WINEESYNC=1
 #export ESYNC=0
 # Esta é uma opção que às vezes é necessária para alguns jogos   MESA_GL_VERSION_OVERRIDE=version
 #export MESA_GLSL_VERSION_OVERRIDE=450
@@ -85,7 +85,7 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 export STAGING_WRITECOPY=1
-export DXVK_HUD=compiler,fps
+export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
