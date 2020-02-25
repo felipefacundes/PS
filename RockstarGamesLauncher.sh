@@ -366,6 +366,19 @@ watch -e "$W"/bin/wine start /unix Rockstar-Games-Launcher.exe > /dev/null 2>&1
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Espere o Download da Atualização do Rockstar Games Launcher"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+cd "$WINEPREFIX/drive_c/Program Files/"
+rm -rf "Rockstar Games"
+wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/Rockstar_Games.tar.zst
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Aguarde a extração da Atualização"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+tar -xf Rockstar*.tar.zst
+sleep 1
+rm Rockstar*.tar.zst
+
 #~/.jogos/scripts/winetricks -q winxp > /dev/null 2>&1
 cd ~/.jogos/scripts/
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
