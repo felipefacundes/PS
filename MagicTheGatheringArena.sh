@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=Wine-PlayOnGit-5.2
+WV=Wine-PlayOnGit-5.3
 GN=MagicTheGatheringArena
 SN="Magic The Gathering Arena"
 CME="Jogo de Cartas colecionaveis (Free)"
@@ -182,7 +182,7 @@ ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkil
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
-~/.jogos/scripts/winetricks --unattended corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
