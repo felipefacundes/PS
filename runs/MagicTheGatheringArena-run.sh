@@ -45,13 +45,14 @@ export WINEESYNC=0
 # Para placas gráficas híbridas use o DRI_PRIME=1
 #export DRI_PRIME=1
 #Origin.exe,OriginClientService.exe,
-#MTGA.exe 
-#export WINEDLLOVERRIDES=mscorsvw.exe,rundll32.exe,UnityCrashHandler32.exe=d
+#export WINEDLLOVERRIDES=d3d10,d3d11,dxgi=n
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
 export DXVK_SHADER_DUMP_PATH="/tmp"
-export DXVK_SHADER_READ_PATH="/tmp"
+export DXVK_STATE_CACHE_PATH="$WINEPREFIX"
+export DXVK_SHADER_READ_PATH="$WINEPREFIX"
+export DXVK_CONFIG_FILE="$WINEPREFIX"/dxvk.conf
 export DXVK_LOG_LEVEL=none
 #export DXVK_HUD=fps,version,compiler
 #LD_PRELOAD=”libpthread.so.0 libGL.so.1″
@@ -67,7 +68,8 @@ export GPU_USE_SYNC_OBJECTS=1
 export GPU_MAX_ALLOC_PERCENT=100
 export GPU_SINGLE_ALLOC_PERCENT=100
 export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH="/tmp"
+export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
+export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
 export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
 export __GL_YIELD="NOTHING"
 export vblank_mode=0
@@ -81,6 +83,9 @@ export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
+export WINE_LARGE_ADDRESS_AWARE=1
+export STAGING_SHARED_MEMORY=1
+export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
