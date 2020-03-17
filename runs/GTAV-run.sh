@@ -7,7 +7,7 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=Wine-PlayOnGit-5.4
+WV=Wine-PlayOnGit-5.3
 GN=GTAV
 SN="GTA V"
 CME="Jogo de Ação e Aventura"
