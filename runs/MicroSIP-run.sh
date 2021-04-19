@@ -104,7 +104,7 @@ glxgears -stereo > /dev/null 2>&1
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
 cd "$WINEPREFIX/drive_c/users/$USER/Local Settings/Application Data/MicroSIP"
-"$W"/bin/wine MicroSIP.exe
+"$W"/bin/wine microsip.exe
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
