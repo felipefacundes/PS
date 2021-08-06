@@ -294,11 +294,11 @@ wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/Bat
 cp Origin.dxvk-cache IGOProxy64.dxvk-cache
 cp Origin.dxvk-cache igoproxy.dxvk-cache
 cd ~/.jogos/setups/
-rm -rf OriginSetup.exe
+rm -rf OriginThinSetup.exe OriginSetup.exe
 #wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
 #wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
 wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
-"$W"/bin/wine OriginSetup.exe
+"$W"/bin/wine OriginThinSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
