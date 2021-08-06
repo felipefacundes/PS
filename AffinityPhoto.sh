@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=Wine-PlayOnGit-st-5.2
+WV=wine-staging-6.14-1-x86_64
 GN=AffinityPhoto
 SN="Affinity Photo"
 CME="Edição profissional de imagens"
@@ -182,14 +182,14 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks win7 > /dev/null 2>&1
 #wget 'http://download.microsoft.com/download/D/D/3/DD35CC25-6E9C-484B-A746-C5BE0C923290/NDP47-KB3186497-x86-x64-AllOS-ENU.exe' > /dev/null 2>&1
 #"$W"/bin/wine NDP47-KB3186497-x86-x64-AllOS-ENU.exe /q > /dev/null 2>&1
-~/.jogos/scripts/winetricks --unattended dotnet35sp1 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks --unattended dotnet35sp1 > /dev/null 2>&1
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 #~/.jogos/scripts/winetricks -q dotnet35sp1 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet40 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet452 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q dotnet48 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q dotnet48 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
