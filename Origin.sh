@@ -296,7 +296,8 @@ cp Origin.dxvk-cache igoproxy.dxvk-cache
 cd ~/.jogos/setups/
 rm -rf OriginSetup.exe
 #wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
-wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+#wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
 "$W"/bin/wine OriginSetup.exe
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
