@@ -279,7 +279,7 @@ cp -rf ~/.jogos/libraries/dxvk/dxvk-1.9.1/x64/* ~/.jogos/wineprefixes/"$GN"/driv
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.9.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 # ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
 ~/.jogos/scripts/winetricks d3d12=disabled > /dev/null 2>&1
-#~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
 #dxgi=native
 echo "Em progresso ....."
 
