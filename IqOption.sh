@@ -293,7 +293,7 @@ cd "$WINEPREFIX"
 
 cd ~/.jogos/setups/
 rm -f IQOption.msi
-https://www.opencode.net/felipefacundes/free-games/-/raw/master/IQOption.msi
+wget -nc https://www.opencode.net/felipefacundes/free-games/-/raw/master/IQOption.msi
 "$W"/bin/msiexec /i IQOption.msi
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
