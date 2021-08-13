@@ -304,7 +304,7 @@ cd ~/.jogos/setups/
 cd ~/.jogos/setups/
 rm -f IQOption.msi
 https://www.opencode.net/felipefacundes/free-games/-/raw/master/IQOption.msi
-"$W"/bin/msiexec /i IQOption.msi /q
+"$W"/bin/msiexec /i IQOption.msi
 
 #⛔⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⧩⛔
 #  _          _                     _ _       _                       _           _
