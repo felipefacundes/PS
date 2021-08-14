@@ -177,7 +177,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
 # gdiplus
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -192,8 +192,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 # Faça uma instalação manual do dxsdk_jun2010    # https://www.microsoft.com/en-us/download/details.aspx?id=6812
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
-wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-"$W"/bin/wine DXSDK_Jun10.exe /U
+#wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#"$W"/bin/wine DXSDK_Jun10.exe /U
 
 #~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
@@ -260,10 +260,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "instalando libraries necessárias"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 cd ~/.jogos/libraries/
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # Para DXVK - SOMENTE IRÁ FUNCIONAR SE O VULKAN DA SUA PLACA ESTIVER HABILITADO
 cd ~/.jogos/libraries/dxvk/
