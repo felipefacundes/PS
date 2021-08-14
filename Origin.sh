@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-6.14-1-x86_64
+WV=wine-staging-6.15-1-x86_64
 GN=Origin
 SN="EA Games Store"
 CME="Loja da EA Games"
@@ -173,9 +173,9 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -201,20 +201,20 @@ wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-A
 echo "Em progresso ."
 ~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
-~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
 cd ~/.jogos/setups/
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-"$W"/bin/wine VC_redist.x64.exe /q
-"$W"/bin/wine VC_redist.x86.exe /q
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+#"$W"/bin/wine VC_redist.x64.exe /q
+#"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
