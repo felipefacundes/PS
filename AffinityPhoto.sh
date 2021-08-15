@@ -190,13 +190,14 @@ ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkil
 #~/.jogos/scripts/winetricks -q dotnet462 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet472 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q dotnet48 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q comctl32 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q comctl32 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts gdiplus > /dev/null 2>&1
+# d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -213,27 +214,28 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #cd ~/.jogos/setups/DXSDK_Jun10/
 #wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 #"$W"/bin/wine DXSDK_Jun10.exe
-~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
 echo "Em progresso ."
-~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Em progresso .."
-~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
-~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
-~/.jogos/scripts/winetricks autostart_winedbg=disable nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+~/.jogos/scripts/winetricks autostart_winedbg=disable csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+# nvapi=disabled nvapi64=disabled 
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
 cd ~/.jogos/setups/
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-"$W"/bin/wine VC_redist.x64.exe /q
-"$W"/bin/wine VC_redist.x86.exe /q
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+#"$W"/bin/wine VC_redist.x64.exe /q
+#"$W"/bin/wine VC_redist.x86.exe /q
 #~/.jogos/scripts/winetricks xaudio2_0=native xaudio2_1=native xaudio2_2=native xaudio2_3=native xaudio2_4=native xaudio2_5=native xaudio2_6=native xaudio2_7=native xaudio2_8=native xaudio2_9=native > /dev/null 2>&1
 
 ################################# Vulkan SDK
@@ -286,7 +288,7 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-
 echo "Em progresso ....."
 
 # Versão do Windows
-~/.jogos/scripts/winetricks -q win81 csmt=off grabfullscreen=y > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 # Primeiro configurar o wine
 #"$W"/bin/winecfg
