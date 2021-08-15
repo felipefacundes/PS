@@ -6,7 +6,7 @@ rm -rf ~/.local/share/applications/*wine*
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-5.1-1-x86_64
+WV=wine-staging-6.14-1-x86_64
 GN=BattlefieldV
 SN="Battlefield V"
 CME="FPS com muita ação"
@@ -85,7 +85,7 @@ export mesa_glthread=true
 export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
-export STAGING_WRITECOPY=1
+#export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
