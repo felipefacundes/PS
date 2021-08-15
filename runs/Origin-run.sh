@@ -85,7 +85,7 @@ export mesa_glthread=true
 export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
-export STAGING_WRITECOPY=1
+#export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
