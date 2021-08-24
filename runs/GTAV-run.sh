@@ -112,8 +112,11 @@ mv "$wmic"/wmic.exe "$wmic"/wmic.exe.bkp
 # Respeitando as Letras MAÍUSCULAS e minúsculas. Exemplo: Setup.exe
 #⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬⏬
 
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
-"$W"/bin/wine Steam.exe -applaunch 271590 &
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+"$W"/bin/wine EpicGamesLauncher.exe -SkipBuildPatchPrereq -opengl &
+
+#cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+#"$W"/bin/wine Steam.exe -applaunch 271590 &
 
 #⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫⏫
 ### Só altere essas DUAS linhas ACIMA, como já explicado.
