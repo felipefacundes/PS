@@ -204,18 +204,24 @@ echo "Em progresso .."
 ~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 echo "Em progresso ..."
 ~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Em progresso ...."
 # nvapi=disabled nvapi64=disabled 
 ~/.jogos/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 echo "Em progresso ....."
+mkdir -p ~/.jogos/setups/vcrun2015_19/old
+cd ~/.jogos/setups/vcrun2015_19/old
+rm -f VC_redist.x64.exe
+rm -f VC_redist.x86.exe
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+"$W"/bin/wine VC_redist.x64.exe /q
+"$W"/bin/wine VC_redist.x86.exe /q
 mkdir -p ~/.jogos/setups/vcrun2015_19
 cd ~/.jogos/setups/vcrun2015_19
 rm -f VC_redist.x64.exe
 rm -f VC_redist.x86.exe
-#wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-#wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
 wget -nc https://download.visualstudio.microsoft.com/download/pr/7239cdc3-bd73-4f27-9943-22de059a6267/003063723B2131DA23F40E2063FB79867BAE275F7B5C099DBD1792E25845872B/VC_redist.x64.exe
 wget -nc https://download.visualstudio.microsoft.com/download/pr/221ed2ae-1269-497b-a962-e113045001fa/1ACD8D5EA1CDC3EB2EB4C87BE3AB28722D0825C15449E5C9CEEF95D897DE52FA/VC_redist.x86.exe
 "$W"/bin/wine VC_redist.x64.exe /q
