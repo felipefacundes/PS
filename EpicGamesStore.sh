@@ -10,7 +10,7 @@ clear -T "$TERM"
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
-WV=wine-staging-6.14-1-x86_64
+WV=wine-staging-5.1-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
 CME="Loja da Epic Games"
@@ -175,7 +175,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta gdiplus > /dev/null 2>&1
 
-~/.jogos/scripts/winetricks -q d3dcompiler_43 d3dcompiler_47 d3dx9 corefonts > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43> /dev/null 2>&1
 #corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -205,7 +205,7 @@ echo "Em progresso ."
 #~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
 #echo "Em progresso ..."
 #~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 #echo "Em progresso ...."
 # nvapi=disabled nvapi64=disabled 
 ~/.jogos/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
