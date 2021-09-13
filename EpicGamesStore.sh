@@ -174,8 +174,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #~/.jogos/scripts/winetricks -q comctl32ocx > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q comdlg32ocx > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta gdiplus > /dev/null 2>&1
-
-~/.jogos/scripts/winetricks -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43> /dev/null 2>&1
+~/.jogos/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 #corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
@@ -290,7 +289,8 @@ tar -xf dxvk-1.9.1.tar.gz
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.9.1/x64/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.jogos/libraries/dxvk/dxvk-1.9.1/x32/* ~/.jogos/wineprefixes/"$GN"/drive_c/windows/syswow64/
 # ~/.jogos/scripts/winetricks d3d9=native > /dev/null 2>&1
-~/.jogos/scripts/winetricks d3d11=native > /dev/null 2>&1
+~/.jogos/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+# dxgi=native 
 #~/.jogos/scripts/winetricks d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 echo "Em progresso ....."
 
