@@ -195,18 +195,17 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 #~/.jogos/scripts/winetricks -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q vb6run > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q mfc40 mfc42 > /dev/null 2>&1
-echo "Em progresso ."
-#~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
-#echo "Em progresso .."
-#~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-#~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
-#echo "Em progresso ..."
-#~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
+echo "Progress ."
+~/.jogos/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+echo "Progress .."
+~/.jogos/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
+~/.jogos/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+echo "Progress ..."
+~/.jogos/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
 ~/.jogos/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
-#echo "Em progresso ...."
-# nvapi=disabled nvapi64=disabled 
+echo "Progress ...."
 ~/.jogos/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 #~/.jogos/scripts/winetricks -q Origin.exe=disabled OriginClientService.exe=disabled OriginWebHelperService.exe=disabled > /dev/null 2>&1
 #echo "Em progresso ....."
