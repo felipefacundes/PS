@@ -224,7 +224,7 @@ cd ~/.PlayOnGit/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/UplayInstaller.exe
 "$W"/bin/wine UplayInstaller.exe /S
 wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q
+"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q 2> /dev/null
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
