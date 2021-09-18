@@ -121,7 +121,7 @@ if [ "$Game_Actions" = "Edit Script" ] ; then
 fi
 if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performance" ] ; then
     cd ~/.PlayOnGit/scripts/functions
-    ./Toggle_Nvidia.sh
+    ./"$GN"-Toggle_Nvidia.sh
 fi
 if [ "$Game_Actions" = "Set your favorite terminal" ] ; then
     Set_Terminal=`zenity --entry --text "Set your favorite terminal. Example: kitty, xterm, etc..." --title "Set your favorite terminal"`
@@ -138,10 +138,10 @@ fi
 if [ "$Game_Actions" = "Remove All Wineprefix ${GN}" ] ; then
     Del_Prefix=`zenity --width=750 --height=200 --title="Remove All Wineprefix ${GN}?" --list --text "Remove All Wineprefix ${GN}?" --radiolist --column 'Choice' --column 'Action' TRUE No FALSE Yes`
    if [ "$Del_Prefix" = "Yes" ] ; then
-    rm -f /home/$USER/.local/share/applications/$GN.desktop
-    rm -rf /home/$USER/.PlayOnGit/wineprefixes/$GN/
-    rm -f /home/$USER/.PlayOnGit/scripts/run/$GN-run.sh
-    rm -f /home/$USER/.PlayOnGit/scripts/run/$GN-Toggle_Nvidia.sh
+    rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
+    rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
+    rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
+    rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
    fi
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
