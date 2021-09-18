@@ -210,7 +210,10 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.PlayOnGit/winepre
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 ~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
 #~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+tput bold
+tput setaf 3
 echo "Progress ....."
+tput sgr0
 
 # Windows Version
 ~/.PlayOnGit/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
