@@ -22,6 +22,7 @@ mkdir -p ~/.PlayOnGit/wines/
 mkdir -p ~/.PlayOnGit/icons/
 mkdir -p ~/.PlayOnGit/libraries/dxvk/
 mkdir -p ~/.PlayOnGit/scripts/run/
+mkdir -p ~/.PlayOnGit/scripts/functions/
 mkdir -p ~/.PlayOnGit/setups/
 mkdir -p ~/.PlayOnGit/wineprefixes/
 cd ~/.PlayOnGit/wineprefixes/
@@ -57,6 +58,31 @@ echo "Icon=/home/$USER/.PlayOnGit/icons/$GN.png" >> "$GN".desktop
 echo "Terminal=false" >> "$GN".desktop
 
 # Toggle Nvidia
+cd ~/.PlayOnGit/scripts/functions/
+touch "$GN"-Toggle_Nvidia.sh
+echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
+echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
+echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
+echo 'Intel=`glxinfo -B  2> /dev/null | grep 'Vendor: Intel' | cut -c 13-17`' >> "$GN"-Toggle_Nvidia.sh
+echo 'Script="/home/$USER/.jogos/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
+echo 'if [ "$Intel" = Intel ] ; then' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '   sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo 'else' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo 'fi' >> "$GN"-Toggle_Nvidia.sh
+echo '}' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia=`lspci -k | grep 'VGA compatible controller:' | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
+echo 'if [ "$Nvidia" = "NVIDIA" ] ; then' >> "$GN"-Toggle_Nvidia.sh
+echo '    Toggle_Nvidia' >> "$GN"-Toggle_Nvidia.sh
+echo 'fi' >> "$GN"-Toggle_Nvidia.sh
+echo '}' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia' >> "$GN"-Toggle_Nvidia.sh
+chmod +x ~/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -111,7 +137,7 @@ export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
 export DXVK_HUD=fps
-glxinfo -B
+glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
 
 # GAMEMODE: gamemoderun
@@ -206,9 +232,7 @@ cd ~/.PlayOnGit/scripts/
 #pactl upload-sample ~/.PlayOnGit/scripts/leia.ogg
 #paplay "$beep" --volume=76767
 whiptail --msgbox "Installation completed successfully. Just go to your games, go to start menu > games" 10 30
-whiptail --msgbox "If YOU PREFER. You can install a version of the GAME already available on your hard drive, just change the script. READ! On the PlaOnGit website that tells you how to proceed." 15 30
 whiptail --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
-whiptail --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
 
 notify-send "Installation SUCCESSFUL."
 sleep 1
