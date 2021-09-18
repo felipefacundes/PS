@@ -84,8 +84,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE=Control_DX11.exe
-cd "$WINEPREFIX/drive_c/Program Files/Epic Games/Control"
+EXE="EpicGamesLauncher.exe -SkipBuildPatchPrereq -opengl"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity --width=800 --height=550 --title='PlayOnGit Game Launcher and Settings' --list --text 'What do you want to do?' --radiolist --column 'Choice' --column 'Action' TRUE "Run ${GN}" FALSE WineConfig FALSE Winetricks FALSE 'Custom Wine executable (.exe)' FALSE 'Wine Uninstaller' FALSE 'Wine Regedit' FALSE 'Wineconsole (Wine CMD)' FALSE 'Kill all wine processes' FALSE 'Edit Script' FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' FALSE 'Set your favorite terminal' FALSE 'Start your terminal' FALSE "Remove All Wineprefix ${GN}" FALSE Credits`
