@@ -66,14 +66,14 @@ echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
 echo 'Intel=`glxinfo -B  2> /dev/null | grep "Vendor: Intel" | cut -c 13-17`' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
-echo 'if [ "$Intel" = Intel ] ; then' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo 'if [ "$Intel" = "Intel" ] ; then' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'else' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
-echo '    sed -i '/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
 echo '}' >> "$GN"-Toggle_Nvidia.sh
 echo 'Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
