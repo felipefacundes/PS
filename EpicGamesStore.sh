@@ -59,15 +59,16 @@ echo "Terminal=false" >> "$GN".desktop
 
 # Toggle Nvidia
 cd ~/.PlayOnGit/scripts/functions/
+rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
 echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
 echo 'Intel=`glxinfo -B  2> /dev/null | grep 'Vendor: Intel' | cut -c 13-17`' >> "$GN"-Toggle_Nvidia.sh
-echo 'Script="/home/$USER/.jogos/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ "$Intel" = Intel ] ; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
-echo '   sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
+echo '    sed -i '/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i '/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'else' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i '/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g' "$Script"' >> "$GN"-Toggle_Nvidia.sh
@@ -143,6 +144,8 @@ glxgears -stereo > /dev/null 2>&1
 # GAMEMODE: gamemoderun
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
+tput bold
+tput setaf 3
 echo "━━━━━━━━━"
 echo "PlayOnGit"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -184,7 +187,7 @@ echo "Progress ..."
 ~/.PlayOnGit/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
 echo "Progress ...."
 ~/.PlayOnGit/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
-
+tput sgr0
 #cd ~/.PlayOnGit/libraries/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
 #tar -xf mfinstall.tar.xz
@@ -238,9 +241,9 @@ whiptail --msgbox "Instalação concluída com sucesso. Basta acessar os seus jo
 
 notify-send "Installation SUCCESSFUL."
 sleep 1
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 1
 notify-send "Access your program from: Start menu > Games"
+sleep 1
+notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 1
 notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
 sleep 1
@@ -248,6 +251,8 @@ notify-send "If you like, you can close the terminal."
 sleep 1
 notify-send "Se quiser, pode fechar o terminal."
 clear
+tput bold
+tput setaf 3
 echo "━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Installation SUCCESSFULLY COMPLETED"
@@ -264,4 +269,5 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+tput sgr0
 rm -rf ~/.local/share/applications/*wine*
