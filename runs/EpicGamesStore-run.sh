@@ -77,7 +77,7 @@ export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 #export STAGING_WRITECOPY=1
 export DXVK_HUD=fps
-glxinfo -B
+glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
@@ -114,7 +114,6 @@ if [ "$Game_Actions" = "Kill all wine processes" ] ; then
     ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
-    #xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
     xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
 fi
 if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performance" ] ; then
