@@ -80,6 +80,9 @@ export DXVK_HUD=fps
 glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
 
+# GAMEMODE: gamemoderun
+#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
+
 ## Game dir and executable
 EXE=Control_DX11.exe
 cd "$WINEPREFIX/drive_c/Program Files/Epic Games/Control"
