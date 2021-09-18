@@ -1,14 +1,16 @@
 #!/bin/bash
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
-clear -T "$TERM"
-rm -rf ~/.local/share/applications/*wine* 
-whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 # PlayOnGit - Inicie seus Jogos direto do menu iniciar.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
 # Faça o seu pedido de tutorial e GamePlay no nosso:
 # 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
+ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+clear -T "$TERM"
+rm -rf ~/.local/share/applications/*wine* 
+whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
+whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
+
 WV=wine-staging-6.16-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
@@ -135,9 +137,16 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 
 ~/.PlayOnGit/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 
+echo
+echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo
+echo
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "COME ON. YOU CAN DO IT. Wait just a little while longer." 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 ~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
@@ -195,18 +204,33 @@ wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/i
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 cd ~/.PlayOnGit/scripts/
-wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
-export beep=~/.PlayOnGit/scripts/leia.ogg
-pactl upload-sample ~/.PlayOnGit/scripts/leia.ogg
-paplay "$beep" --volume=76767
+#wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
+#export beep=~/.PlayOnGit/scripts/leia.ogg
+#pactl upload-sample ~/.PlayOnGit/scripts/leia.ogg
+#paplay "$beep" --volume=76767
+whiptail --msgbox "Installation completed successfully. Just go to your games, go to start menu > games" 10 30
+whiptail --msgbox "If YOU PREFER. You can install a version of the GAME already available on your hard drive, just change the script. READ! On the PlaOnGit website that tells you how to proceed." 15 30
 whiptail --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
-
 whiptail --msgbox "Se PREFERIR. Você poderá instalar uma versão do JOGO já disponível no seu HD, basta alterar o script. LEIA! No site do PlaOnGit que ensina como proceder." 15 30
 
+notify-send "Installation SUCCESSFUL."
+sleep 1
 notify-send "Instalação FINALIZADA com SUCESSO."
 sleep 1
+notify-send "Access your program from: Start menu > Games"
+sleep 1
 notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
+sleep 1
+notify-send "If you like, you can close the terminal."
+sleep 1
 notify-send "Se quiser, pode fechar o terminal."
+echo "━━━━━━━━━━━━━━━━━━━━━━━━English━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Installation SUCCESSFULLY COMPLETED"
+echo "Access your program at: \"Start menu > Games"\"
+echo "Creation by Felipe Facundes" 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo
+echo
 echo "━━━━━━━━━━━━━━━━━━━━━━Portuguese━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
