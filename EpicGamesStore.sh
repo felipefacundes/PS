@@ -1,9 +1,10 @@
 #!/bin/bash
-# PlayOnGit - Inicie seus Jogos direto do menu iniciar.
+# PlayOnGit - Launch your Games directly from the start menu.
 # Licença: GPLv3
 # Mantenedor: Felipe Facundes
-# Faça o seu pedido de tutorial e GamePlay no nosso:
-# 既 Grupo 調 Gamer do 切 Telegram 切: https://t.me/winehq_linux
+# Email: playongit@gmail.com
+# 切 Telegram: https://t.me/winehq_linux
+########### This script will use custom wine. But, you can use a wine in the version and location of your choice. 
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
