@@ -86,14 +86,11 @@ export DXVK_DEBUG_LAYERS=0
 export DXVK_SHADER_DUMP_PATH="/tmp"
 export DXVK_SHADER_READ_PATH="/tmp"
 export DXVK_LOG_LEVEL=none
-#export DXVK_HUD=fps,version,compiler
-#LD_PRELOAD=”libpthread.so.0 libGL.so.1″
 #export PULSE_LATENCY_MSEC=60
 export KWIN_TRIPLE_BUFFER=1
 export TRIPLE_BUFFER=1
 export XVideoTextureSyncToVBlank=0
 export MESA_NO_ERROR=1
-#export AMDVLK_ENABLE_DEVELOPING_EXT="all"
 export GPU_FORCE_64BIT_PTR=1
 export GPU_MAX_HEAP_SIZE=100
 export GPU_USE_SYNC_OBJECTS=1
@@ -110,7 +107,6 @@ export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export __VK_LAYER_NV_optimus=NVIDIA_only
 #export RADV_PERFTEST=aco
-#export RADV_PERFTEST=llvm
 export __GL_THREADED_OPTIMIZATIONS=1
 export mesa_glthread=true
 export PBA_DISABLE=0
@@ -118,7 +114,7 @@ export DXVK_HUD=fps
 glxinfo -B
 glxgears -stereo > /dev/null 2>&1
 
-# Para GAMEMODE: gamemoderun
+# GAMEMODE: gamemoderun
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 echo "━━━━━━━━━"
