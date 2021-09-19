@@ -210,11 +210,10 @@ rm -f Battle.net-Setup.exe
 mkdir -p "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
 cd "$WINEPREFIX/drive_c/users/$USER/Application Data/Battle.net"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Overwatch/Battle.net.config
-cd "$WINEPREFIX/drive_c/Program Files (x86)"
-wget -nc "https://www.opencode.net/felipefacundes/free-games/raw/master/Battle.net.tar.zst"
-tar -xf Battle.net.tar.zst
-sleep 3
-rm Battle.net.tar.zst
+cd ~/.PlayOnGit/setups/
+rm -f Battle.net-Setup-enUS.exe
+wget -nc - setup: http://dist.blizzard.com/downloads/bna-installers/322d5bb9ae0318de3d4cde7641c96425/retail.1/Battle.net-Setup-enUS.exe
+"$W"/bin/wine Battle.net-Setup-enUS.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
