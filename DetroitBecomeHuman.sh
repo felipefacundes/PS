@@ -13,9 +13,9 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 WV=wine-staging-6.16-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=DetroitBecomeHuman
+SN="Detroit Become Human"
+CME="Ação e aventura"
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
