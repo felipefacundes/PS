@@ -260,17 +260,29 @@ echo "━━━━━━━━━━━━━━━━━━━━━━ English
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Installation SUCCESSFULLY COMPLETED"
 echo "Access your program at: \"Start menu > Games"\"
+tput bold
+tput setaf 2
+echo "To run the startup script, you must have zenity installed"
+tput bold
+tput setaf 3
 echo "Creation by Felipe Facundes" 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+notify-send "To run the startup script, you must have zenity installed"
 echo
 echo
 echo "━━━━━━━━━━━━━━━━━━━━ Portuguese: ━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
+tput bold
+tput setaf 2
+echo "Para executar o script de inicialização, é necessário ter zenity inslado"
+tput bold
+tput setaf 3
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+notify-send "Para executar o script de inicialização, é necessário ter zenity inslado"
 tput sgr0
 rm -rf ~/.local/share/applications/*wine*
