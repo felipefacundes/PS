@@ -192,7 +192,7 @@ wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/affinity-
 "$W"/bin/wine affinity-photo-1.7.3.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
-rm -f ~/.local/share/applications/*wine*
+rm -rf ~/.local/share/applications/*wine*
 cd ~/.PlayOnGit/scripts/
 #wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 #export beep=~/.PlayOnGit/scripts/leia.ogg
@@ -244,4 +244,4 @@ echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 notify-send "Para executar o script de inicialização, é necessário ter zenity instalado"
 tput sgr0
-rm -f ~/.local/share/applications/*wine*
+rm -rf ~/.local/share/applications/*wine*
