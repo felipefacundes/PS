@@ -176,7 +176,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-#~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
 ~/.PlayOnGit/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
@@ -230,7 +230,7 @@ cd ~/.PlayOnGit/setups/
 wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/UplayInstaller.exe
 "$W"/bin/wine UplayInstaller.exe /S
 wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q 2> /dev/null
+"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
@@ -261,7 +261,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "Installation SUCCESSFULLY COMPLETED"
 echo "Access your program at: \"Start menu > Games"\"
 tput bold
-tput setaf 2
+tput setaf 1
 echo "To run the startup script, you must have zenity installed"
 tput bold
 tput setaf 3
@@ -275,7 +275,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
 tput bold
-tput setaf 2
+tput setaf 1
 echo "Para executar o script de inicialização, é necessário ter zenity inslado"
 tput bold
 tput setaf 3
