@@ -104,45 +104,6 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
-# MESA_GL_VERSION_OVERRIDE=version
-#export MESA_GLSL_VERSION_OVERRIDE=440
-#export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
-export DXVK_SPIRV_OPT=ON
-export DXVK_SHADER_OPTIMIZE=1
-export DXVK_DEBUG_LAYERS=0
-export DXVK_SHADER_DUMP_PATH="/tmp"
-export DXVK_SHADER_READ_PATH="/tmp"
-export DXVK_LOG_LEVEL=none
-#export PULSE_LATENCY_MSEC=60
-export KWIN_TRIPLE_BUFFER=1
-export TRIPLE_BUFFER=1
-export XVideoTextureSyncToVBlank=0
-export MESA_NO_ERROR=1
-export GPU_FORCE_64BIT_PTR=1
-export GPU_MAX_HEAP_SIZE=100
-export GPU_USE_SYNC_OBJECTS=1
-export GPU_MAX_ALLOC_PERCENT=100
-export GPU_SINGLE_ALLOC_PERCENT=100
-export __GL_SHADER_DISK_CACHE=1
-export __GL_SHADER_DISK_CACHE_PATH="/tmp"
-export __GL_SHADER_DISK_CACHE_SKIP_CLEANUP=1
-export __GL_YIELD="NOTHING"
-export vblank_mode=0
-export __GL_SYNC_TO_VBLANK=0
-export STEAM_RUNTIME_HEAVY=1
-export __NV_PRIME_RENDER_OFFLOAD=1
-#export __GLX_VENDOR_LIBRARY_NAME=nvidia
-#export __VK_LAYER_NV_optimus=NVIDIA_only
-#export RADV_PERFTEST=aco
-export __GL_THREADED_OPTIMIZATIONS=1
-export mesa_glthread=true
-export PBA_DISABLE=0
-export DXVK_HUD=fps
-glxinfo -B 2> /dev/null
-glxgears -stereo > /dev/null 2>&1
-
-# GAMEMODE: gamemoderun
-#export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 tput bold
 tput setaf 3
