@@ -6,8 +6,7 @@
 #  Telegram Group: t.me/winehq_linux
 rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
-clear
-Wtricks=~/.PlayOnGit/scripts/winetricks
+clear -T "$TERM"
 
 WV=wine-staging-6.16-1-x86_64
 GN=EpicGamesStore
@@ -33,6 +32,7 @@ export WINEDEBUG=-all,fps
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
+Wtricks=~/.PlayOnGit/scripts/winetricks
 #export MESA_GLSL_VERSION_OVERRIDE=440
 #export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
 
