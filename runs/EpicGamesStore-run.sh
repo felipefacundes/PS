@@ -103,10 +103,13 @@ Game_Actions=`zenity \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
-    --column 'Action' TRUE "Run ${SN}" \
-    FALSE WineConfig FALSE Winetricks \
+    --column 'Action' \
+    TRUE "Run ${SN}" \
+    FALSE WineConfig \
+    FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
-    FALSE 'Wine Uninstaller' FALSE 'Wine Regedit' \
+    FALSE 'Wine Uninstaller' \
+    FALSE 'Wine Regedit' \
     FALSE 'Wineconsole (Wine CMD)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
@@ -118,7 +121,10 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
+    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "WineConfig" ] ; then
     "$W"/bin/winecfg
@@ -127,7 +133,8 @@ if [ "$Game_Actions" = "Winetricks" ] ; then
     "$Wtricks"
 fi
 if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
+    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "$Cust_EXE"
 fi
 if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
@@ -154,7 +161,8 @@ if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performan
     ./"$GN"-Toggle_Nvidia.sh
 fi
 if [ "$Game_Actions" = "Set your favorite terminal" ] ; then
-    Set_Terminal=`zenity --entry --text "Set your favorite terminal. Example: kitty, xterm, etc..." \
+    Set_Terminal=`zenity --entry --text \
+    "Set your favorite terminal. Example: kitty, xterm, etc..." \
     --title "Set your favorite terminal"`
     touch ~/.PlayOnGit/scripts/run/TERM.conf
     echo "$Set_Terminal" > ~/.PlayOnGit/scripts/run/TERM.conf
