@@ -99,7 +99,7 @@ Pr6="-dx11"
 Game_Actions=`zenity --width=800 --height=550 --title='PlayOnGit Game Launcher and Settings' --list --text 'What do you want to do?' --radiolist --column 'Choice' --column 'Action' TRUE "Run ${SN}" FALSE WineConfig FALSE Winetricks FALSE 'Custom Wine executable (.exe)' FALSE 'Wine Uninstaller' FALSE 'Wine Regedit' FALSE 'Wineconsole (Wine CMD)' FALSE 'Kill all wine processes' FALSE 'Edit Script' FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' FALSE 'Set your favorite terminal' FALSE 'Start your terminal' FALSE "Remove All Wineprefix ${GN}" FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
+    "$W"/bin/wine "$EXE" 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "WineConfig" ] ; then
     "$W"/bin/winecfg
