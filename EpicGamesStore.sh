@@ -237,13 +237,13 @@ echo "Instalação FINALIZADA com SUCESSO"
 echo "Acesse o seu programa no: \"Menu iniciar > Jogos"\"
 tput bold
 tput setaf 1
-echo "Para executar o script de inicialização, é necessário ter zenity inslado"
+echo "Para executar o script de inicialização, é necessário ter zenity instalado"
 tput bold
 tput setaf 3
 echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-notify-send "Para executar o script de inicialização, é necessário ter zenity inslado"
+notify-send "Para executar o script de inicialização, é necessário ter zenity instalado"
 tput sgr0
 rm -rf ~/.local/share/applications/*wine*
