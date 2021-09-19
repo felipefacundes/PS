@@ -104,6 +104,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
+Wtricks=~/.PlayOnGit/scripts/winetricks
 
 tput bold
 tput setaf 3
@@ -124,7 +125,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-~/.PlayOnGit/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 
 echo
 echo
@@ -137,17 +138,17 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+"$Wtricks" -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
-~/.PlayOnGit/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+"$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
-~/.PlayOnGit/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.PlayOnGit/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+"$Wtricks" -q vcrun2012 > /dev/null 2>&1
+"$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
-~/.PlayOnGit/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-~/.PlayOnGit/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+"$Wtricks" -q vcrun2015 > /dev/null 2>&1
+"$Wtricks" -q vcrun2017 --force > /dev/null 2>&1
 echo "Progress ...."
-~/.PlayOnGit/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 #cd ~/.PlayOnGit/libraries/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
@@ -169,15 +170,15 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.1/x32/* ~/.PlayOnGit/wineprefixes/"$
 # D9vk 0.40.1 prevents glitches in DarkSiders2 and other games that use dx9 
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
-~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
-#~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+# "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
 tput sgr0
 
 # Windows Version
-~/.PlayOnGit/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
