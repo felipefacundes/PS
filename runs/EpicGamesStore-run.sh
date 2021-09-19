@@ -12,7 +12,6 @@ WV=wine-staging-6.16-1-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
 CME="Loja da Epic Games"
-Wtricks=~/.PlayOnGit/scripts/winetricks
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -97,6 +96,7 @@ Pr6="-dx11"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity --width=800 --height=550 --title='PlayOnGit Game Launcher and Settings' --list --text 'What do you want to do?' --radiolist --column 'Choice' --column 'Action' TRUE "Run ${SN}" FALSE WineConfig FALSE Winetricks FALSE 'Custom Wine executable (.exe)' FALSE 'Wine Uninstaller' FALSE 'Wine Regedit' FALSE 'Wineconsole (Wine CMD)' FALSE 'Kill all wine processes' FALSE 'Edit Script' FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' FALSE 'Set your favorite terminal' FALSE 'Start your terminal' FALSE "Remove All Wineprefix ${GN}" FALSE Credits`
+Wtricks=~/.PlayOnGit/scripts/winetricks
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
     "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
