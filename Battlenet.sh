@@ -148,6 +148,8 @@ cd ~/.PlayOnGit/setups/DXSDK_Jun10/
 wget -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
 "$W"/bin/wine DXSDK_Jun10.exe /U
 
+tput bold
+tput setaf 3
 "$Wtricks" -q vcrun2005 > /dev/null 2>&1
 "$Wtricks" -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
@@ -159,6 +161,7 @@ echo "Progress ..."
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 "$Wtricks" -q vcrun2017 --force > /dev/null 2>&1
 echo "Progress ...."
+tput sgr0
 cd ~/.PlayOnGit/setups/
 wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
 wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
@@ -215,7 +218,7 @@ rm -f Battle.net-Setup-enUS.exe
 wget -nc - setup: http://dist.blizzard.com/downloads/bna-installers/322d5bb9ae0318de3d4cde7641c96425/retail.1/Battle.net-Setup-enUS.exe
 "$W"/bin/wine Battle.net-Setup-enUS.exe
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 cd ~/.PlayOnGit/scripts/
 #wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
