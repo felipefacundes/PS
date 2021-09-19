@@ -13,9 +13,9 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 WV=wine-staging-6.16-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=AKnightsQuest
+SN="A Knights Quest"
+CME="Aventura em terceira pessoa"
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
@@ -150,11 +150,11 @@ echo "Progress ..."
 echo "Progress ...."
 "$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
-#cd ~/.PlayOnGit/libraries/
-#wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-#tar -xf mfinstall.tar.xz
-#cd mfinstall
-#bash install-mf.sh > /dev/null 2>&1
+cd ~/.PlayOnGit/libraries/
+wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
