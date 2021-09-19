@@ -176,7 +176,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+#~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
 ~/.PlayOnGit/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
