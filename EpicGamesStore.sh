@@ -1,7 +1,7 @@
 #!/bin/bash
 # PlayOnGit - Launch your Games directly from the start menu.
-# Licença: GPLv3
-# Mantenedor: Felipe Facundes
+# License: GPLv3
+# Manteiner: Felipe Facundes
 # Email: playongit@gmail.com
 # 切 Telegram: https://t.me/winehq_linux
 ########### This script will use custom wine. But, you can use a wine in the version and location of your choice. 
@@ -43,7 +43,7 @@ rm -rf "$WV"
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
-# Criando o atalho .desktop
+# Create .desktop
 cd ~/.local/share/applications/
 touch "$GN".desktop
 echo "#!/usr/bin/env xdg-open" > "$GN".desktop
