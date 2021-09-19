@@ -184,10 +184,6 @@ cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
 cd ~/.PlayOnGit/setups/
-rm -f EpicGamesLauncherInstaller.msi
-rm -f UplayInstaller.exe
-
-cd ~/.PlayOnGit/setups/
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
