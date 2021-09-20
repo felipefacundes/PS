@@ -13,9 +13,9 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 WV=wine-staging-6.16-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=Borderlands.The.Pre.Sequel
+SN="Borderlands The Pre Sequel"
+CME="Jogo de ação em primeira pessoa"
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
@@ -125,7 +125,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
 echo
@@ -137,10 +137,12 @@ echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
+"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+"$Wtricks" -q vb6run > /dev/null 2>&1
 "$Wtricks" -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
 "$Wtricks" -q vcrun2010 > /dev/null 2>&1
+"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress .."
 "$Wtricks" -q vcrun2012 > /dev/null 2>&1
 "$Wtricks" -q vcrun2013 > /dev/null 2>&1
