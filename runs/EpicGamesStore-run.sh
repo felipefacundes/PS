@@ -110,6 +110,7 @@ Game_Actions=`zenity \
     FALSE 'Custom Wine executable (.exe)' \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Wineconsole (Wine CMD)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
@@ -142,6 +143,19 @@ if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
 fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
+fi
+if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
+    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+    if [ ! -e "$toggle_dxvk_check" ] ; then
+        touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+    else
+        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+    fi
 fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
     cd "$WINEPREFIX"/drive_c/
