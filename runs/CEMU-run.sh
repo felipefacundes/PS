@@ -9,9 +9,9 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 clear -T "$TERM"
 
 WV=wine-staging-6.16-1-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=CEMU
+SN="CEMU emulador de Wii U"
+CME="Rode Jogos do Wii U"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
