@@ -77,7 +77,7 @@ echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g" "$Script"' >
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
 echo '}' >> "$GN"-Toggle_Nvidia.sh
 echo 'Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Nvidia=`lspci -k | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia=`lspci | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ "$Nvidia" = "NVIDIA" ] ; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    Toggle_Nvidia' >> "$GN"-Toggle_Nvidia.sh
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
