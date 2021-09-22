@@ -146,7 +146,7 @@ echo "Progress .."
 "$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
-"$Wtricks" -q vcrun2017 --force > /dev/null 2>&1
+"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
 "$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
