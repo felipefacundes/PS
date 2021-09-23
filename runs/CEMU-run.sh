@@ -8,7 +8,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=CEMU
 SN="CEMU emulador de Wii U"
 CME="Rode Jogos do Wii U"
