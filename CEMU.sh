@@ -45,7 +45,7 @@ rm -rf "$WV"
 # wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
 # Server 02
 wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
-wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV2".tar.zst
+#wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV2".tar.zst
 tar -xf "$WV".tar.zst
 tar -xf "$WV2".tar.zst
 
