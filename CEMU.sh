@@ -47,7 +47,7 @@ rm -rf "$WV"
 wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 #wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV2".tar.zst
 tar -xf "$WV".tar.zst
-tar -xf "$WV2".tar.zst
+#tar -xf "$WV2".tar.zst
 
 # Create .desktop
 cd ~/.local/share/applications/
