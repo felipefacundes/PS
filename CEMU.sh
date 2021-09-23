@@ -12,7 +12,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=CEMU
 SN="CEMU emulador de Wii U"
 CME="Rode Jogos do Wii U"
@@ -40,7 +40,10 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.PlayOnGit/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 01
+# wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 02
+wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
 # Create .desktop
