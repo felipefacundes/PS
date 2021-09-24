@@ -40,7 +40,10 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.PlayOnGit/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 01
+# wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 02
+wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
 # Create .desktop
