@@ -1,7 +1,7 @@
 #!/bin/bash
 # PlayOnGit - Launch your Games directly from the start menu.
-# Licença: GPLv3
-# Mantenedor: Felipe Facundes
+# License: GPLv3
+# Manteiner: Felipe Facundes
 # Email: playongit@gmail.com
 # 切 Telegram: https://t.me/winehq_linux
 ########### This script will use custom wine. But, you can use a wine in the version and location of your choice. 
@@ -12,7 +12,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=control
 SN="Control"
 CME="Ação-Aventura e tiro em terceira pessoa"
@@ -40,10 +40,13 @@ wget -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/wine
 chmod +x winetricks
 cd ~/.PlayOnGit/wines/
 rm -rf "$WV"
-wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 01
+# wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Server 02
+wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
-# Criando o atalho .desktop
+# Create .desktop
 cd ~/.local/share/applications/
 touch "$GN".desktop
 echo "#!/usr/bin/env xdg-open" > "$GN".desktop
@@ -77,7 +80,7 @@ echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g" "$Script"' >
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
 echo '}' >> "$GN"-Toggle_Nvidia.sh
 echo 'Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Nvidia=`lspci -k | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia=`lspci | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ "$Nvidia" = "NVIDIA" ] ; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    Toggle_Nvidia' >> "$GN"-Toggle_Nvidia.sh
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
@@ -104,6 +107,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
+Wtricks=~/.PlayOnGit/scripts/winetricks
 
 tput bold
 tput setaf 3
@@ -124,7 +128,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-~/.PlayOnGit/scripts/winetricks -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 
 echo
 echo
@@ -137,17 +141,17 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-~/.PlayOnGit/scripts/winetricks -q vcrun2008 > /dev/null 2>&1
+"$Wtricks" -q vcrun2008 > /dev/null 2>&1
 echo "Progress ."
-~/.PlayOnGit/scripts/winetricks -q vcrun2010 > /dev/null 2>&1
+"$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
-~/.PlayOnGit/scripts/winetricks -q vcrun2012 > /dev/null 2>&1
-~/.PlayOnGit/scripts/winetricks -q vcrun2013 > /dev/null 2>&1
+"$Wtricks" -q vcrun2012 > /dev/null 2>&1
+"$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
-~/.PlayOnGit/scripts/winetricks -q vcrun2015 > /dev/null 2>&1
-~/.PlayOnGit/scripts/winetricks -q vcrun2017 --force > /dev/null 2>&1
+"$Wtricks" -q vcrun2015 > /dev/null 2>&1
+"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
-~/.PlayOnGit/scripts/winetricks autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 #cd ~/.PlayOnGit/libraries/
 #wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
@@ -169,24 +173,27 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.1/x32/* ~/.PlayOnGit/wineprefixes/"$
 # D9vk 0.40.1 prevents glitches in DarkSiders2 and other games that use dx9 
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
-~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
-#~/.PlayOnGit/scripts/winetricks d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+# "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
 tput sgr0
 
 # Windows Version
-~/.PlayOnGit/scripts/winetricks -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
-rm -f UplayInstaller.exe
+rm -f UbisoftConnectInstaller.exe
 
 cd ~/.PlayOnGit/setups/
+wget -nc https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/UplayInstaller.exe
+"$W"/bin/wine UbisoftConnectInstaller.exe /S
 wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 
