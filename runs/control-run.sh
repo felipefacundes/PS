@@ -8,7 +8,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=control
 SN="Control"
 CME="Ação-Aventura e tiro em terceira pessoa"
@@ -53,7 +53,7 @@ export GPU_MAX_HEAP_SIZE=100
 export GPU_USE_SYNC_OBJECTS=1
 export GPU_MAX_ALLOC_PERCENT=100
 export GPU_SINGLE_ALLOC_PERCENT=100
-export __GL_DXVK_OPTIMIZATIONS=1
+#export __GL_DXVK_OPTIMIZATIONS=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
 export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
@@ -64,9 +64,9 @@ export __GL_SYNC_TO_VBLANK=0
 export STEAM_RUNTIME_HEAVY=1
 
 # Nvidia Hybrid Card
-export __NV_PRIME_RENDER_OFFLOAD=1
-export __GLX_VENDOR_LIBRARY_NAME=nvidia
-export __VK_LAYER_NV_optimus=NVIDIA_only
+#export __NV_PRIME_RENDER_OFFLOAD=1
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+#export __VK_LAYER_NV_optimus=NVIDIA_only
 
 # AMD Radeon Graphics Card
 #export RADV_PERFTEST=aco
@@ -105,12 +105,12 @@ Game_Actions=`zenity \
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "Run ${SN}" \
-    FALSE "Run ${SN} DX11" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Wineconsole (Wine CMD)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
@@ -123,13 +123,6 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
     "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
-fi
-if [ "$Game_Actions" = "Run ${SN} DX11" ] ; then
-    cd "$WINEPREFIX/drive_c/Program Files/Epic Games/Control"
-    "$W"/bin/wine Control_DX11.exe \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -150,6 +143,19 @@ if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
 fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
+fi
+if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
+    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+    if [ ! -e "$toggle_dxvk_check" ] ; then
+        touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+    else
+        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+    fi
 fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
     cd "$WINEPREFIX"/drive_c/
