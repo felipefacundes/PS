@@ -191,9 +191,6 @@ rm -f EpicGamesLauncherInstaller.msi
 rm -f UbisoftConnectInstaller.exe
 
 cd ~/.PlayOnGit/setups/
-wget -nc https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-#wget -nc https://www.opencode.net/felipefacundes/free-games/raw/master/UplayInstaller.exe
-"$W"/bin/wine UbisoftConnectInstaller.exe /S
 wget -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 
