@@ -8,7 +8,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=Crysis
 SN="Crysis"
 CME="Ação, aventura e tiro em primeira pessoa"
@@ -53,7 +53,7 @@ export GPU_MAX_HEAP_SIZE=100
 export GPU_USE_SYNC_OBJECTS=1
 export GPU_MAX_ALLOC_PERCENT=100
 export GPU_SINGLE_ALLOC_PERCENT=100
-export __GL_DXVK_OPTIMIZATIONS=1
+#export __GL_DXVK_OPTIMIZATIONS=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
 export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
