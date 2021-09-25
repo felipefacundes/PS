@@ -96,7 +96,10 @@ Pr4="-dx9"
 Pr5="-dx10"
 Pr6="-dx11"
 Pr7="-force-d3d11"
-Pr8="-vulkan"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
