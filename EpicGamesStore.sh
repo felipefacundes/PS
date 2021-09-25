@@ -173,8 +173,7 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.1/x32/* ~/.PlayOnGit/wineprefixes/"$
 # D9vk 0.40.1 prevents glitches in DarkSiders2 and other games that use dx9 
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x64/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.PlayOnGit/libraries/dxvk/d9vk-0.40.1/x32/d3d9.dll ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
-"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
-# "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
