@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=BattlefieldV
 SN="Battlefield V"
-CME="FPS com muita ação"
+CME="Battlefield V is a first-person shooter video game"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
