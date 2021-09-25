@@ -86,8 +86,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="Battle.net.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Battle.net"
+EXE="Crysis.exe"
+cd "$WINEPREFIX/drive_c/Crysis/Crysis/Bin32"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
