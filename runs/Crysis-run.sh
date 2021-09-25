@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=Crysis
 SN="Crysis"
-CME="Ação, aventura e tiro em primeira pessoa"
+CME="Crysis - Adapt to Survive — An epic story thrusts players into an ever-changing environment"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -86,8 +86,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="Crysis.exe"
-cd "$WINEPREFIX/drive_c/Crysis/Crysis/Bin32"
+EXE="Battle.net.exe"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Battle.net"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -95,6 +95,11 @@ Pr3="-gl"
 Pr4="-dx9"
 Pr5="-dx10"
 Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
@@ -148,13 +153,13 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+        echo "DXVK Enable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
     fi
 fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
