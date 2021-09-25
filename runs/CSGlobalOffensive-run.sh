@@ -10,7 +10,7 @@ clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=CSGlobalOffensive
-SN="Counter-Strike: Global Offensive"
+SN="Counter-Strike: Global Offensive - OpenGL"
 CME="Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay."
 
 export TERM=xterm
@@ -153,13 +153,13 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
-    else
-        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        echo "DXVK Enable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+    else
+        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
     fi
 fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
