@@ -10,7 +10,7 @@ clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=PCSX2
-SN="PCSX2 1.4.0"
+SN="PCSX2 1.7.0-git build: 26/09/2021"
 CME="Run PlayStation 2 games"
 
 export TERM=xterm
@@ -87,7 +87,7 @@ glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
 EXE="pcsx2.exe"
-cd "$WINEPREFIX/drive_c/PCSX2 1.4.0/"
+cd "$WINEPREFIX/drive_c/PCSX2/"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
