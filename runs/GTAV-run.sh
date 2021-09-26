@@ -86,8 +86,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="Steam.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+EXE="EpicGamesLauncher.exe"
+cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -109,7 +109,8 @@ Game_Actions=`zenity \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN}" \
+    TRUE "Run ${SN} (Epic Games Store)" \
+    FALSE "Run ${SN} (Steam)" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
@@ -126,8 +127,15 @@ Game_Actions=`zenity \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
-if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" -dx11 -applaunch 271590 \
+if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
+    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
+    cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+    "$W"/bin/wine Steam.exe -dx11 -applaunch 271590 \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
