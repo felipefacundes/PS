@@ -133,18 +133,21 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN} ($EXE0)" ] ; then
+    cd "$DIR0"
     "$W"/bin/wine "$EXE0" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "Run ${SN} ($EXE1)" ] ; then
+    cd "$DIR1"
     "$W"/bin/wine "$EXE1" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "Run ${SN} ($EXE2)" ] ; then
+    cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
