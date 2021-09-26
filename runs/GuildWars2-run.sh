@@ -8,10 +8,10 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-6.16-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=GuildWars2
 SN="Guild Wars 2"
-CME="MMORPG"
+CME="MMORPG - Content updates that add story, rewards & more to the world of GW2"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -53,7 +53,7 @@ export GPU_MAX_HEAP_SIZE=100
 export GPU_USE_SYNC_OBJECTS=1
 export GPU_MAX_ALLOC_PERCENT=100
 export GPU_SINGLE_ALLOC_PERCENT=100
-export __GL_DXVK_OPTIMIZATIONS=1
+#export __GL_DXVK_OPTIMIZATIONS=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
 export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
@@ -95,6 +95,11 @@ Pr3="-gl"
 Pr4="-dx9"
 Pr5="-dx10"
 Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
@@ -122,7 +127,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" -dx9single -autologin \
+    "$W"/bin/wine "$EXE" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -149,11 +154,11 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default > /dev/null 2>&1
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native > /dev/null 2>&1
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
     fi
 fi
