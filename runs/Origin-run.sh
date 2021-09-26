@@ -9,9 +9,9 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=EpicGamesStore
-SN="Epic Games Store"
-CME="Loja da Epic Games"
+GN=Origin
+SN="EA Games Store"
+CME="EA Games Store"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
