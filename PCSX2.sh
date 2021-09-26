@@ -189,8 +189,11 @@ cd "$WINEPREFIX"
 wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
 cd "$WINEPREFIX/drive_c/"
-wget -nc "https://github.com/felipefacundes/desktop/blob/master/PCSX2/PCSX2%201.4.0.tar.xz?raw=true" -O PCSX2.1.4.0.tar.xz
-tar -xf  PCSX2.1.4.0.tar.xz
+#wget -nc "https://github.com/felipefacundes/desktop/blob/master/PCSX2/PCSX2%201.4.0.tar.xz?raw=true" -O PCSX2.1.4.0.tar.xz
+wget -nc https://sourceforge.net/projects/gj-others/files/all/PCSX2_1.7-git-build-26-09-2021.tar.xz
+tar -xf  PCSX2_1.7-git-build-26-09-2021.tar.xz
+sleep 2
+rm -f PCSX2_1.7-git-build-26-09-2021.tar.xz
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
