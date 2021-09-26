@@ -43,7 +43,7 @@ rm -rf "$WV"
 # Server 01
 # wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
 # Server 02
-wget -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
+wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
 # Create .desktop
@@ -154,6 +154,8 @@ echo "Progress ..."
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
 "$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+tput sgr0
+
 cd ~/.PlayOnGit/setups/
 rm -f VC_redist.x64.exe 
 rm -r VC_redist.x86.exe
@@ -161,7 +163,7 @@ wget -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-
 wget -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
 "$W"/bin/wine VC_redist.x64.exe /q
 "$W"/bin/wine VC_redist.x86.exe /q
-tput sgr0
+
 cd ~/.PlayOnGit/libraries/
 wget -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
 tar -xf mfinstall.tar.xz
@@ -190,7 +192,7 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Epic
 
 cd "$WINEPREFIX/drive_c/"
 #wget -nc "https://github.com/felipefacundes/desktop/blob/master/PCSX2/PCSX2%201.4.0.tar.xz?raw=true" -O PCSX2.1.4.0.tar.xz
-wget -nc https://master.dl.sourceforge.net/project/gj-others/all/PCSX2_1.7-git-build-26-09-2021.tar.xz
+wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/PCSX2_1.7-git-build-26-09-2021.tar.xz
 tar -xf  PCSX2_1.7-git-build-26-09-2021.tar.xz
 sleep 2
 rm -f PCSX2_1.7-git-build-26-09-2021.tar.xz
