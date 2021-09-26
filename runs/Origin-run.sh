@@ -8,10 +8,10 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-6.14-1-x86_64
-GN=Origin
-SN="EA Games Store"
-CME="Loja da EA Games"
+WV=wine-tkg-staging-6.17.r13-x86_64
+GN=EpicGamesStore
+SN="Epic Games Store"
+CME="Loja da Epic Games"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -53,6 +53,7 @@ export GPU_MAX_HEAP_SIZE=100
 export GPU_USE_SYNC_OBJECTS=1
 export GPU_MAX_ALLOC_PERCENT=100
 export GPU_SINGLE_ALLOC_PERCENT=100
+#export __GL_DXVK_OPTIMIZATIONS=1
 export __GL_SHADER_DISK_CACHE=1
 export __GL_SHADER_DISK_CACHE_PATH="$WINEPREFIX"
 export MESA_GLSL_CACHE_DIR="$WINEPREFIX"
@@ -94,12 +95,42 @@ Pr3="-gl"
 Pr4="-dx9"
 Pr5="-dx10"
 Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
-Game_Actions=`zenity --width=800 --height=550 --title='PlayOnGit Game Launcher and Settings' --list --text 'What do you want to do?' --radiolist --column 'Choice' --column 'Action' TRUE "Run ${SN}" FALSE WineConfig FALSE Winetricks FALSE 'Custom Wine executable (.exe)' FALSE 'Wine Uninstaller' FALSE 'Wine Regedit' FALSE 'Wineconsole (Wine CMD)' FALSE 'Kill all wine processes' FALSE 'Edit Script' FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' FALSE 'Set your favorite terminal' FALSE 'Start your terminal' FALSE "Remove All Wineprefix ${GN}" FALSE Credits`
+Game_Actions=`zenity \
+    --width=800 \
+    --height=550 \
+    --title='PlayOnGit Game Launcher and Settings' \
+    --list --text 'What do you want to do?' \
+    --radiolist --column 'Choice' \
+    --column 'Action' \
+    TRUE "Run ${SN}" \
+    FALSE WineConfig \
+    FALSE Winetricks \
+    FALSE 'Custom Wine executable (.exe)' \
+    FALSE 'Wine Uninstaller' \
+    FALSE 'Wine Regedit' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
+    FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Kill all wine processes' \
+    FALSE 'Edit Script' \
+    FALSE 'Open Game Directory' \
+    FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' \
+    FALSE 'Set your favorite terminal' \
+    FALSE 'Start your terminal' \
+    FALSE "Remove All Wineprefix ${SN}" \
+    FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" 2>&1 | tee /dev/stderr | sed -u -n -e '/trace/ s/.*approx //p' | osd_cat --lines=1 --color=yellow --outline=1 --pos=top --align=left
+    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "WineConfig" ] ; then
     "$W"/bin/winecfg
@@ -108,7 +139,8 @@ if [ "$Game_Actions" = "Winetricks" ] ; then
     "$Wtricks"
 fi
 if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
+    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "$Cust_EXE"
 fi
 if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
@@ -116,6 +148,19 @@ if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
 fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
+fi
+if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
+    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+    if [ ! -e "$toggle_dxvk_check" ] ; then
+        touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+    else
+        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+    fi
 fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
     cd "$WINEPREFIX"/drive_c/
@@ -127,12 +172,17 @@ fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
     xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
 fi
+if [ "$Game_Actions" = "Open Game Directory" ] ; then
+    xdg-open "$WINEPREFIX"/drive_c
+fi
 if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performance" ] ; then
     cd ~/.PlayOnGit/scripts/functions
     ./"$GN"-Toggle_Nvidia.sh
 fi
 if [ "$Game_Actions" = "Set your favorite terminal" ] ; then
-    Set_Terminal=`zenity --entry --text "Set your favorite terminal. Example: kitty, xterm, etc..." --title "Set your favorite terminal"`
+    Set_Terminal=`zenity --entry --text \
+    "Set your favorite terminal. Example: kitty, xterm, etc..." \
+    --title "Set your favorite terminal"`
     touch ~/.PlayOnGit/scripts/run/TERM.conf
     echo "$Set_Terminal" > ~/.PlayOnGit/scripts/run/TERM.conf
     chmod +x  ~/.PlayOnGit/scripts/run/TERM.conf
@@ -143,8 +193,11 @@ if [ "$Game_Actions" = "Start your terminal" ] ; then
     alias winetricks=~/.PlayOnGit/scripts/winetricks
     ~/.PlayOnGit/scripts/run/TERM.conf
 fi
-if [ "$Game_Actions" = "Remove All Wineprefix ${GN}" ] ; then
-    Del_Prefix=`zenity --width=750 --height=200 --title="Remove All Wineprefix ${GN}?" --list --text "Remove All Wineprefix ${GN}?" --radiolist --column 'Choice' --column 'Action' TRUE No FALSE Yes`
+if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
+    Del_Prefix=`zenity --width=750 --height=200 \
+    --title="Remove All Wineprefix ${SN}?" --list \
+    --text "Remove All Wineprefix ${SN}?" --radiolist \
+    --column 'Choice' --column 'Action' TRUE No FALSE Yes`
    if [ "$Del_Prefix" = "Yes" ] ; then
     rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
     rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
@@ -153,6 +206,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${GN}" ] ; then
    fi
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
-    zenity --width=240 --height=200 --info --title="Credits" --text="Manteiner: Felipe Facundes Email: playongit@gmail.com License: GPLv3"
+    zenity --width=240 --height=200 --info \
+    --title="Credits" --text="Manteiner: Felipe Facundes Email: playongit@gmail.com License: GPLv3"
 fi
 exit 0
