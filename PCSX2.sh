@@ -190,7 +190,7 @@ wget -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Epic
 
 cd "$WINEPREFIX/drive_c/"
 #wget -nc "https://github.com/felipefacundes/desktop/blob/master/PCSX2/PCSX2%201.4.0.tar.xz?raw=true" -O PCSX2.1.4.0.tar.xz
-wget -nc https://sourceforge.net/projects/gj-others/files/all/PCSX2_1.7-git-build-26-09-2021.tar.xz
+wget -nc https://master.dl.sourceforge.net/project/gj-others/all/PCSX2_1.7-git-build-26-09-2021.tar.xz
 tar -xf  PCSX2_1.7-git-build-26-09-2021.tar.xz
 sleep 2
 rm -f PCSX2_1.7-git-build-26-09-2021.tar.xz
