@@ -14,7 +14,7 @@ whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de t
 
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=PCSX2
-SN="PCSX2 1.4.0"
+SN="PCSX2 1.7.0-git build: 26/09/2021"
 CME="Run PlayStation 2 games"
 
 mkdir -p ~/.local/share/applications/
