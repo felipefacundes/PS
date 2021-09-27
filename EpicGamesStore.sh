@@ -195,6 +195,7 @@ tput sgr0
 cd "$WINEPREFIX"
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
+######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 rm -f UbisoftConnectInstaller.exe
@@ -205,6 +206,8 @@ wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicg
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
+######################### ########################## ##########################
+
 cd ~/.PlayOnGit/scripts/
 #wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 #export beep=~/.PlayOnGit/scripts/leia.ogg
