@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=Black_Squad
 SN="Black Squad"
-CME="FPS - Free to Play"
+CME="Black Squad is a free-to-play military first-person-shooter. Players can master their skills and show off their strategies with a wide range."
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
