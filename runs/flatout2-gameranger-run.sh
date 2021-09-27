@@ -9,7 +9,7 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=flatout2
+GN=flatout2-gameranger
 SN="FlatOut 2"
 CME="Flat Out 2 is the second racing game of the demolition run genre."
 
