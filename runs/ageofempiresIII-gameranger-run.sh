@@ -9,7 +9,7 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=ageofempiresIII
+GN=ageofempiresIII-gameranger
 SN="Age Of Empires III"
 CME="Age of Empires III: Definitive Edition completes the celebration of one of the most beloved real-time strategy franchises in definitive form with enhanced."
 
