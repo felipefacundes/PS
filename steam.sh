@@ -6,6 +6,9 @@
 # 切 Telegram: https://t.me/winehq_linux
 ########### This script will use custom wine. But, you can use a wine in the version and location of your choice. 
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
+######### Not root #########
+if [[ "$EUID" -ne 0 ]]; then
+############################
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
@@ -192,6 +195,7 @@ tput sgr0
 cd "$WINEPREFIX"
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
+######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f SteamSetup.exe
 wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
@@ -199,6 +203,8 @@ wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
+######################### ########################## ########################## 
+
 cd ~/.PlayOnGit/scripts/
 #wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 #export beep=~/.PlayOnGit/scripts/leia.ogg
@@ -251,3 +257,34 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 notify-send "Para executar o script de inicialização, é necessário ter zenity instalado"
 tput sgr0
 rm -rf ~/.local/share/applications/*wine*
+###################################################################
+# Finish
+else
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh no! You are running me as root! Do not do this!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "This script cannot be run as root. Please rerun as normal user!"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo
+    echo
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Portuguese: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh não! Você executou este script como root! Não faça isso!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "Este script não pode ser executado como root. Por favor! O execute como um simples usuário normal! Ok?"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
