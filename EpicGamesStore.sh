@@ -15,7 +15,7 @@ whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de t
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=EpicGamesStore
 SN="Epic Games Store"
-CME="Loja da Epic Games"
+CME="Epic Games Store: a curated digital storefront for PC and Mac, designed with both players and creators in mind."
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
