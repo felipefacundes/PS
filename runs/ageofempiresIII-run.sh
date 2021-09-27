@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=ageofempiresIII
 SN="Age Of Empires III"
-CME="Jogo de estratégia em tempo real"
+CME="Age of Empires III: Definitive Edition completes the celebration of one of the most beloved real-time strategy franchises in definitive form with enhanced"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
