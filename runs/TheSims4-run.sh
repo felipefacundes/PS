@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=TheSims4
 SN="The Sims 4"
-CME="Estilo second life"
+CME="Enjoy the power of creating and controlling people in a virtual world where there are no rules with The Sims 4 - Second life Style."
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
