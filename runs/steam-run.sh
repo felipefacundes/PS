@@ -11,7 +11,8 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=steam
 SN="Steam Windows"
-CME="Loja da Steam"
+CME="Steam is the ultimate destination for playing, discussing, and creating games."
+
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
@@ -96,7 +97,10 @@ Pr4="-dx9"
 Pr5="-dx10"
 Pr6="-dx11"
 Pr7="-force-d3d11"
-Pr8="-vulkan"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
@@ -124,7 +128,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr8" \
+    "$W"/bin/wine "$EXE" -dx11 \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
