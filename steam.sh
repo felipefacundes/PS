@@ -195,10 +195,15 @@ tput sgr0
 cd "$WINEPREFIX"
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
+# Explorer++ File Manager 
+cd "$WINEPREFIX/drive_c/windows/"
+wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/Explorerpp.exe?raw=true" -O Explorerpp.exe > /dev/null 2>&1
+#######################################################################################################################################################################
+
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f SteamSetup.exe
-wget -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
