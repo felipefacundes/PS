@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=AffinityPhoto
 SN="Affinity Photo"
-CME="Edição profissional de imagens"
+CME="Affinity Photo has become the world's first choice for photography and creative professionals, a testament to its speed, power and precision."
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
