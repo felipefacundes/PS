@@ -216,6 +216,7 @@ cd ~/.PlayOnGit/scripts/
 whiptail --msgbox "Installation completed successfully. Just go to your games, go to start menu > games" 10 30
 whiptail --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
+clear -T "$TERM"
 tput bold
 tput setaf 3
 echo "━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━"
