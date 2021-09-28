@@ -195,6 +195,11 @@ tput sgr0
 cd "$WINEPREFIX"
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
+# Explorer++ File Manager 
+cd "$WINEPREFIX/drive_c/windows/"
+wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/Explorerpp.exe?raw=true" -O Explorerpp.exe > /dev/null 2>&1
+#######################################################################################################################################################################
+
 ######################### Setup executable/game here ########################## 
 cd "$WINEPREFIX/drive_c/"
 #wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/master/PCSX2/PCSX2%201.4.0.tar.xz?raw=true" -O PCSX2.1.4.0.tar.xz
