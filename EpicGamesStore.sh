@@ -132,6 +132,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+# Explorer++ File Manager 
+cd "$WINEPREFIX/drive_c/windows/"
+wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/Explorerpp.exe?raw=true" -O Explorerpp.exe > /dev/null 2>&1
+#######################################################################################################################################################################
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
