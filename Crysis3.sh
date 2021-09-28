@@ -207,7 +207,7 @@ wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer
 "$W"/bin/wine SteamSetup.exe
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -f OriginSetup.exe
-wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+wget --no-check-certificate -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
 "$W"/bin/wine OriginSetup.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
