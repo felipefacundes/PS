@@ -108,7 +108,7 @@ Pr11="-vulkan"
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
     --width=800 \
-    --height=550 \
+    --height=600 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
@@ -119,10 +119,12 @@ Game_Actions=`zenity \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
+    FALSE 'WineFile (Wine File Manager)' \
+    FALSE 'Explorer++ (File Manager)' \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
-    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
     FALSE 'Open Game Directory' \
@@ -160,15 +162,26 @@ if [ "$Game_Actions" = "Winetricks" ] ; then
     "$Wtricks"
 fi
 if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    Cust_EXE=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "$Cust_EXE"
+fi
+if [ "$Game_Actions" = "WineFile (Wine File Manager)" ] ; then
+    cd "$WINEPREFIX/drive_c/"
+    "$W"/bin/winefile
+fi
+if [ "$Game_Actions" = "Explorer++ (File Manager)" ] ; then
+    "$W"/bin/wine Explorerpp c:
 fi
 if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
     "$W"/bin/wine uninstaller
 fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
+fi
+if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
+    cd "$WINEPREFIX"/drive_c/
+    "$W"/bin/wineconsole
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
@@ -182,10 +195,6 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
         "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
     fi
-fi
-if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
-    cd "$WINEPREFIX"/drive_c/
-    "$W"/bin/wineconsole
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
     ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
