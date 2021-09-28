@@ -16,9 +16,9 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=AKnightsQuest
-SN="A Knight's Quest"
-CME="Knight's Quest. A beautiful and epic action adventure."
+GN=Battlenet-opengl
+SN="Battle.net - OpenGL"
+CME="Battle.net - Activision and Blizzard Entertainment Store"
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
