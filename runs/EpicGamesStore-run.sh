@@ -146,6 +146,7 @@ if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
     "$W"/bin/wine "$Cust_EXE"
 fi
 if [ "$Game_Actions" = "WineFile (Wine File Manager)" ] ; then
+    cd "$WINEPREFIX/drive_c/"
     "$W"/bin/winefile
 fi
 if [ "$Game_Actions" = "Explorer++ (File Manager)" ] ; then
