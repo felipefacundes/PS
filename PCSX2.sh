@@ -216,18 +216,7 @@ cd ~/.PlayOnGit/scripts/
 whiptail --msgbox "Installation completed successfully. Just go to your games, go to start menu > games" 10 30
 whiptail --msgbox "Instalação concluída com sucesso. Basta acessar os seus jogos, no menu iniciar > jogos" 10 30
 
-notify-send "Installation SUCCESSFUL."
-sleep 1
-notify-send "Access your program from: Start menu > Games"
-sleep 1
-notify-send "Instalação FINALIZADA com SUCESSO."
-sleep 1
-notify-send "Acesse o seu programa no: Menu iniciar > Jogos"
-sleep 1
-notify-send "If you like, you can close the terminal."
-sleep 1
-notify-send "Se quiser, pode fechar o terminal."
-clear
+clear -T "$TERM"
 tput bold
 tput setaf 3
 echo "━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -241,7 +230,6 @@ tput bold
 tput setaf 3
 echo "Creation by Felipe Facundes" 
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-notify-send "To run the startup script, you must have zenity installed"
 echo
 echo
 echo "━━━━━━━━━━━━━━━━━━━━ Portuguese: ━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -257,7 +245,11 @@ echo "Criação de Felipe Facundes"
 echo "Acesse nosso grupo do Telegram:"
 echo "https://t.me/winehq_linux"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-notify-send "Para executar o script de inicialização, é necessário ter zenity instalado"
+notify-send "Installation SUCCESSFUL." "━━━━━━━━━━━━━━━━━━━━━\nAccess your program \
+from:\nStart menu > Games\n━━━━━━━━━━━━━━━━━━\nTo run the startup script.\nYou must have zenity installed"
+sleep 2
+notify-send "Instalação FINALIZADA com SUCESSO." "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\nAcesse o seu programa \
+no:\nMenu iniciar > Jogos\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\nPara executar o script de inicialização.\nÉ necessário ter zenity instalado"
 tput sgr0
 rm -rf ~/.local/share/applications/*wine*
 ###################################################################
