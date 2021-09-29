@@ -11,7 +11,7 @@ clear -T "$TERM"
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=MortalKombat11
 SN="Mortal Kombat 11"
-CME="Clássico jogo de luta"
+CME="Mortal Kombat is back and better than ever in the next evolution of the iconic franchise. The all new Custom Character Variations give you unprecedented"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
