@@ -202,9 +202,9 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
-rm -f EpicGamesLauncherInstaller.msi
-wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
+rm -f SteamSetup.exe
+wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
