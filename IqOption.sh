@@ -203,7 +203,7 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f IQOption.msi
-wget -nc https://www.opencode.net/felipefacundes/free-games/-/raw/master/IQOption.msi
+wget --no-check-certificate -nc https://www.opencode.net/felipefacundes/free-games/-/raw/master/IQOption.msi
 "$W"/bin/msiexec /i IQOption.msi
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
