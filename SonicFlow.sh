@@ -201,10 +201,9 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 #######################################################################################################################################################################
 
 ######################### Setup executable/game here ########################## 
-cd ~/.PlayOnGit/setups/
-rm -f SteamSetup.exe
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-"$W"/bin/wine SteamSetup.exe
+cd "$WINEPREFIX/drive_c/"
+wget --no-check-certificate -nc https://ufpr.dl.sourceforge.net/project/gj-others/all/SocFlow-Demo-1.tar
+tar -xf SocFlow-Demo-1.tar
 
 ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
