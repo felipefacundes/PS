@@ -16,7 +16,7 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=grid2
+GN=grid2-2013
 SN="Grid 2 (2013)"
 CME="GRID 2 the long-awaited sequel to Race Driver: GRID, drifted onto PC, PS3 and Xbox 360 in 2013."
 
