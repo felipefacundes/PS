@@ -86,8 +86,16 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="EpicGamesLauncher.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="EpicGamesLauncher.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE1="Steam.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+EXE2=
+DIR2=
+EXE3=
+DIR3=
+EXE4="Launcher.exe"
+DIR4="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -104,20 +112,25 @@ Pr11="-vulkan"
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
     --width=800 \
-    --height=550 \
+    --height=690 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN} (Epic Games Store)" \
+    TRUE "Run Epic Games Store" \
+    FALSE "Run Steam" \
+    FALSE "Run ${SN} (Epic Games Store)" \
     FALSE "Run ${SN} (Steam)" \
+    FALSE "Rockstar Games Launcher" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
+    FALSE 'WineFile (Wine File Manager)' \
+    FALSE 'Explorer++ (File Manager)' \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
-    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
     FALSE 'Open Game Directory' \
@@ -127,15 +140,37 @@ Game_Actions=`zenity \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
+if [ "$Game_Actions" = "Run Epic Games Store" ] ; then
+    cd "$DIR0"
+    "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run Steam" ] ; then
+    cd "$DIR1"
+    "$W"/bin/wine "$EXE1" -dx11 -applaunch 271590 \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+    cd "$DIR2"
+    "$W"/bin/wine "$EXE2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
-    cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
-    "$W"/bin/wine Steam.exe -dx11 -applaunch 271590 \
+    cd "$DIR3"
+    "$W"/bin/wine "$EXE3" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
+    cd "$DIR4"
+    "$W"/bin/wine "$EXE4" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -147,15 +182,26 @@ if [ "$Game_Actions" = "Winetricks" ] ; then
     "$Wtricks"
 fi
 if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    Cust_EXE=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "$Cust_EXE"
+fi
+if [ "$Game_Actions" = "WineFile (Wine File Manager)" ] ; then
+    cd "$WINEPREFIX/drive_c/"
+    "$W"/bin/winefile
+fi
+if [ "$Game_Actions" = "Explorer++ (File Manager)" ] ; then
+    "$W"/bin/wine Explorerpp c:
 fi
 if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
     "$W"/bin/wine uninstaller
 fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
+fi
+if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
+    cd "$WINEPREFIX"/drive_c/
+    "$W"/bin/wineconsole
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
@@ -169,10 +215,6 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
         "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
     fi
-fi
-if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
-    cd "$WINEPREFIX"/drive_c/
-    "$W"/bin/wineconsole
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
     ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
