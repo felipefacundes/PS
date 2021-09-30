@@ -232,6 +232,11 @@ Wkill
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
 wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar_Games.tar.zst
 tar -xf Rockstar_Games.tar.zst
+cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
+rm -f Rockstar_Games.tar.zst
+cd "$WINEPREFIX/drive_c/Program Files/"
+tar -xf Rockstar_Games.tar.zst
+rm -f Rockstar_Games.tar.zst
 
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
