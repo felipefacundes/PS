@@ -230,7 +230,7 @@ rm -f Rockstar-Games-Launcher.exe
 wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar-Games-Launcher.exe
 "$W"/bin/wine Rockstar-Games-Launcher.exe #Social-Club-Setup.exe
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+#ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
