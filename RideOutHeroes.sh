@@ -205,9 +205,9 @@ cd "$WINEPREFIX/drive_c/"
 wget --no-check-certificate -nc https://ufpr.dl.sourceforge.net/project/gapx/roh.tar.zst
 tput bold
 tput setaf 3
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo "Now wait for the merged file extraction..." 
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "Now, wait for the file to be extracted. It may take a while..." 
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 tar -xf roh.tar.zst
 sleep 2
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━"
