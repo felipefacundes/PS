@@ -228,11 +228,12 @@ wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
-rm -f rockstar-games-launcher-ok.exe
+export WINEDEBUG=+heap 
+rm -f Rockstar-Games-Launcher.exe
 # wget --no-check-certificate -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
-# wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar-Games-Launcher.exe
-wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/rockstar-games-launcher-ok.exe
-"$W"/bin/wine rockstar-games-launcher-ok.exe
+wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar-Games-Launcher.exe
+# wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/rockstar-games-launcher-ok.exe
+"$W"/bin/wine Rockstar-Games-Launcher.exe
 
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
