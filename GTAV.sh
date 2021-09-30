@@ -233,7 +233,6 @@ rm -f Rockstar-Games-Launcher.exe
 wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar-Games-Launcher.exe
 "$W"/bin/wine Rockstar-Games-Launcher.exe
 
-# Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
