@@ -241,6 +241,7 @@ cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 "$W"/bin/wine Launcher.exe
 
 rm -rf ~/.local/share/applications/*wine*
+sleep 10
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
