@@ -9,8 +9,8 @@ ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=grid2
-SN="Grid 2"
+GN=grid2-2013
+SN="Grid 2 (2013)"
 CME="GRID 2 the long-awaited sequel to Race Driver: GRID, drifted onto PC, PS3 and Xbox 360 in 2013."
 
 export TERM=xterm
