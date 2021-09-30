@@ -9,7 +9,9 @@
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
-Wkill="$(ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe)"
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
@@ -218,19 +220,19 @@ cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
-"$Wkill"
+Wkill
 
 rm -f SteamSetup.exe
 wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
-"$Wkill"
+Wkill
 
 rm -f Rockstar-Games-Launcher.exe
 # wget --no-check-certificate -nc "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"
 wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar-Games-Launcher.exe
-"$W"/bin/wine Rockstar-Games-Launcher.exe && "$Wkill"
+"$W"/bin/wine Rockstar-Games-Launcher.exe && Wkill
 
-# "$Wkill"
+# Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
