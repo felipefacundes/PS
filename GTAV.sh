@@ -237,6 +237,8 @@ rm -f Rockstar_Games.tar.zst
 cd "$WINEPREFIX/drive_c/Program Files/"
 tar -xf Rockstar_Games.tar.zst
 rm -f Rockstar_Games.tar.zst
+cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+"$W"/bin/wine Launcher.exe
 
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
