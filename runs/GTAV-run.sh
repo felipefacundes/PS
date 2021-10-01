@@ -92,6 +92,8 @@ EXE1="Steam.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 EXE2="Launcher.exe"
 DIR2="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+EXE3="GTAVLauncher.exe"
+DIR3="$WINEPREFIX/drive_c/Program Files (x86)/Steam/steamapps/common/Grand Theft Auto V"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -115,6 +117,7 @@ Game_Actions=`zenity \
     --column 'Action' \
     TRUE "Run ${SN} (Epic Games Store)" \
     FALSE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Steam) directly" \
     FALSE "Rockstar Games Launcher" \
     FALSE WineConfig \
     FALSE Winetricks \
@@ -151,6 +154,13 @@ fi
 if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run ${SN} (Steam) directly" ] ; then
+    cd "$DIR3"
+    "$W"/bin/wine "$EXE3" -dx11 -applaunch 271590 \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
