@@ -4,6 +4,13 @@
 # Email: playongit@gmail.com
 #  Telegram: @FeFacundes
 #  Telegram Group: t.me/winehq_linux
+######### Not root #########
+if [[ "$EUID" -ne 0 ]]; then
+############################
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
@@ -198,16 +205,18 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
+        zenity --title="Disabling DXVK. Wait. Processing ..." --text="Disabling DXVK. Wait. Processing ..." \
+        --progress | "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+        zenity --title="Enabling DXVK. Wait. Processing ..." --text="Enabling DXVK. Wait. Processing ..." \
+        --progress | "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
     fi
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
-    ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+    Wkill
 fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
     xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
@@ -246,7 +255,38 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
    fi
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
-    zenity --width=240 --height=200 --info \
-    --title="Credits" --text="Manteiner: Felipe Facundes Email: playongit@gmail.com License: GPLv3"
+    zenity --info --ellipsize --title="Credits" \
+    --text="Manteiner: Felipe Facundes\nEmail: playongit@gmail.com\nLicense: GPLv3"
 fi
 exit 0
+###################################################################
+# Finish
+else
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh no! You are running me as root! Do not do this!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "This script cannot be run as root. Please rerun as normal user!"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo
+    echo
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Portuguese: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh não! Você executou este script como root! Não faça isso!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "Este script não pode ser executado como root. Por favor! O execute como um simples usuário normal! Ok?"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
