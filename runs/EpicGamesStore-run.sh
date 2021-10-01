@@ -224,7 +224,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
     zenity --width=240 --height=200 --info \
-    --title="Credits" --text="Manteiner: Felipe Facundes Email: playongit@gmail.com License: GPLv3"
+    --text="Manteiner: Felipe Facundes\nEmail: playongit@gmail.com\nLicense: GPLv3"
 fi
 exit 0
 ###################################################################
