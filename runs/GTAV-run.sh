@@ -90,12 +90,8 @@ EXE0="EpicGamesLauncher.exe"
 DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 EXE1="Steam.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
-EXE2=
-DIR2=
-EXE3=
-DIR3=
-EXE4="Launcher.exe"
-DIR4="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+EXE2="Launcher.exe"
+DIR2="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -112,14 +108,12 @@ Pr11="-vulkan"
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
     --width=800 \
-    --height=690 \
+    --height=650 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run Epic Games Store" \
-    FALSE "Run Steam" \
-    FALSE "Run ${SN} (Epic Games Store)" \
+    TRUE "Run ${SN} (Epic Games Store)" \
     FALSE "Run ${SN} (Steam)" \
     FALSE "Rockstar Games Launcher" \
     FALSE WineConfig \
@@ -140,37 +134,23 @@ Game_Actions=`zenity \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
-if [ "$Game_Actions" = "Run Epic Games Store" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
-if [ "$Game_Actions" = "Run Steam" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR1"
     "$W"/bin/wine "$EXE1" -dx11 -applaunch 271590 \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
-if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
+if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
-fi
-if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
-    cd "$DIR3"
-    "$W"/bin/wine "$EXE3" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
-fi
-if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
-    cd "$DIR4"
-    "$W"/bin/wine "$EXE4" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
