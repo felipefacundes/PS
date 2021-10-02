@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-staging-5.1-1-x86_64
+WV=wine-tkg-staging-6.18.r5-x86_64
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
