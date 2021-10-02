@@ -12,7 +12,6 @@ Wkill() {
 }
 Wkill
 rm -rf ~/.local/share/applications/*wine*
-ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.18.r5-x86_64
@@ -215,7 +214,7 @@ if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
         --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
         tar -xf "$NWV".tar.zst 2>&1 | zenity \
         --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
-        AWV=`cat "$Script_Run" | head -n 18 | grep -i WV= | cut -c 4-90`
+        AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
         zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     fi
