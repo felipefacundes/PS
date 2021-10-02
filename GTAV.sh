@@ -18,7 +18,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-staging-4.19-1-x86_64
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
