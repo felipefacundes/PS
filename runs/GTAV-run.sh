@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
@@ -117,7 +117,7 @@ Pr11="-vulkan"
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
     --width=800 \
-    --height=650 \
+    --height=690 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
@@ -134,6 +134,7 @@ Game_Actions=`zenity \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
     FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Choose another version of Wine' \
     FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
@@ -200,19 +201,35 @@ if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
     cd "$WINEPREFIX"/drive_c/
     "$W"/bin/wineconsole
 fi
+if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
+    rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
+    if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
+        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
+        Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+        cd ~/.PlayOnGit/wines/
+        rm -rf "$NWV"
+        rm -f "$NWV".tar.zst
+        sed -i "s/$WV/$NWV/g" "$Script_Run"
+        wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
+        tar -xf "$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+    fi
+fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        zenity --title="Disabling DXVK. Wait. Processing ..." --text="Disabling DXVK. Wait. Processing ..." \
-        --progress | "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Disabling DXVK. Wait! Processing..." --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        zenity --title="Enabling DXVK. Wait. Processing ..." --text="Enabling DXVK. Wait. Processing ..." \
-        --progress | "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
     fi
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
