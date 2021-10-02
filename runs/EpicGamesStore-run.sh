@@ -124,6 +124,7 @@ Game_Actions=`zenity \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
     FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Choose another version of Wine' \
     FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
@@ -167,6 +168,24 @@ fi
 if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
     cd "$WINEPREFIX"/drive_c/
     "$W"/bin/wineconsole
+fi
+if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
+    rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
+    if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
+        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
+        Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+        cd ~/.PlayOnGit/wines/
+        rm -rf "$NWV"
+        rm -f "$NWV".tar.zst
+        sed -i "s/$WV/$NWV/g" "$Script_Run"
+        wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
+        tar -xf "$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+        rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$WV\n\nfor $SN"
+    fi
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
