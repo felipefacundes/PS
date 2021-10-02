@@ -9,8 +9,8 @@ Wine_List=`
     --column 'Action' \
     TRUE "wine-tkg-staging-6.18.r5-x86_64" \
     FALSE "wine-tkg-staging-6.17.r13-x86_64" \
-    FALSE "wine-staging-6.16-1-x86_64"
-    FALSE "wine-staging-6.14-1-x86_64"
+    FALSE "wine-staging-6.16-1-x86_64" \
+    FALSE "wine-staging-6.14-1-x86_64" \
     FALSE "wine-staging-5.1-1-x86_64"
 `
 
