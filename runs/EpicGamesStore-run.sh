@@ -183,8 +183,9 @@ if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
         --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
         tar -xf "$NWV".tar.zst 2>&1 | zenity \
         --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+        AWV=`cat "$Script_Run" | head -n 18 | grep -i WV= | cut -c 4-90`
+        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$WV\n\nfor $SN"
     fi
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
