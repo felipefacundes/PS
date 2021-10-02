@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-staging-4.19-1-x86_64
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
