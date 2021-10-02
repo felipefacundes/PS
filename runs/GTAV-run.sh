@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-staging-5.1-1-x86_64
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
@@ -215,8 +215,9 @@ if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
         --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
         tar -xf "$NWV".tar.zst 2>&1 | zenity \
         --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+        AWV=`cat "$Script_Run" | head -n 18 | grep -i WV= | cut -c 4-90`
+        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$WV\n\nfor $SN"
     fi
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
