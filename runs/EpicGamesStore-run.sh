@@ -173,14 +173,14 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        zenity --title="Disabling DXVK. Wait. Processing ..." --text="Disabling DXVK. Wait. Processing ..." \
-        --progress | "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Disabling DXVK. Wait! Processing..." --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        zenity --title="Enabling DXVK. Wait. Processing ..." --text="Enabling DXVK. Wait. Processing ..." \
-        --progress | "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
     fi
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
