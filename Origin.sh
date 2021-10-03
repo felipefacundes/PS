@@ -9,7 +9,10 @@
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
@@ -203,12 +206,12 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f OriginThinSetup.exe OriginSetup.exe
-#wget -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
-#wget -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
-wget -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
+#wget --no-check-certificate -nc "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
+#wget --no-check-certificate -nc https://download.dm.origin.com/origin/live/OriginSetup.exe
+wget --no-check-certificate -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
 "$W"/bin/wine OriginThinSetup.exe
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
