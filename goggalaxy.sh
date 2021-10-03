@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=goggalaxy
 SN="GOG Galaxy 2.0"
 CME="Connect GOG GALAXY 2.0 with multiple platforms and unite all your games and friends scattered across them in one powerful app."
