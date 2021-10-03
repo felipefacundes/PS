@@ -16,7 +16,7 @@ clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
 GN=goggalaxy
-SN="GOG Galaxy 2.0"
+SN="GOG Galaxy 2.0 (with multiple platforms)"
 CME="Connect GOG GALAXY 2.0 with multiple platforms and unite all your games and friends scattered across them in one powerful app."
 
 export TERM=xterm
