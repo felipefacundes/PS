@@ -4,11 +4,17 @@
 # Email: playongit@gmail.com
 #  Telegram: @FeFacundes
 #  Telegram Group: t.me/winehq_linux
+######### Not root #########
+if [[ "$EUID" -ne 0 ]]; then
+############################
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 rm -rf ~/.local/share/applications/*wine*
-ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=goggalaxy
 SN="GOG Galaxy 2.0"
 CME="Connect GOG GALAXY 2.0 with multiple platforms and unite all your games and friends scattered across them in one powerful app."
@@ -104,7 +110,7 @@ Pr11="-vulkan"
 ######## Zenity (Pseudo GUI) ########
 Game_Actions=`zenity \
     --width=800 \
-    --height=550 \
+    --height=600 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
@@ -113,10 +119,13 @@ Game_Actions=`zenity \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
+    FALSE 'WineFile (Wine File Manager)' \
+    FALSE 'Explorer++ (File Manager)' \
     FALSE 'Wine Uninstaller' \
     FALSE 'Wine Regedit' \
-    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Wineconsole (Wine CMD)' \
+    FALSE 'Choose another version of Wine' \
+    FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes' \
     FALSE 'Edit Script' \
     FALSE 'Open Game Directory' \
@@ -127,7 +136,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" \
+    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -139,9 +148,16 @@ if [ "$Game_Actions" = "Winetricks" ] ; then
     "$Wtricks"
 fi
 if [ "$Game_Actions" = "Custom Wine executable (.exe)" ] ; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    Cust_EXE=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "$Cust_EXE"
+fi
+if [ "$Game_Actions" = "WineFile (Wine File Manager)" ] ; then
+    cd "$WINEPREFIX/drive_c/"
+    "$W"/bin/winefile
+fi
+if [ "$Game_Actions" = "Explorer++ (File Manager)" ] ; then
+    "$W"/bin/wine Explorerpp c:
 fi
 if [ "$Game_Actions" = "Wine Uninstaller" ] ; then
     "$W"/bin/wine uninstaller
@@ -149,25 +165,46 @@ fi
 if [ "$Game_Actions" = "Wine Regedit" ] ; then
     "$W"/bin/wine regedit
 fi
+if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
+    cd "$WINEPREFIX"/drive_c/
+    "$W"/bin/wineconsole
+fi
+if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
+    rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
+    if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
+        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
+        Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+        cd ~/.PlayOnGit/wines/
+        rm -rf "$NWV"
+        rm -f "$NWV".tar.zst
+        sed -i "s/$WV/$NWV/g" "$Script_Run"
+        wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
+        tar -xf "$NWV".tar.zst 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+        AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
+        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
+        rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    fi
+fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
     if [ ! -e "$toggle_dxvk_check" ] ; then
         touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
         echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Disable"
+        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Disabling DXVK. Wait! Processing..." --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
     else
         rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK Enable"
+        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
+        --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
+        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
     fi
 fi
-if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
-    cd "$WINEPREFIX"/drive_c/
-    "$W"/bin/wineconsole
-fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
-    ps ax|egrep '*.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+    Wkill
 fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
     xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
@@ -206,7 +243,38 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
    fi
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
-    zenity --width=240 --height=200 --info \
-    --title="Credits" --text="Manteiner: Felipe Facundes Email: playongit@gmail.com License: GPLv3"
+    zenity --info --ellipsize --title="Credits" \
+    --text="Manteiner: Felipe Facundes\nEmail: playongit@gmail.com\nLicense: GPLv3"
 fi
 exit 0
+###################################################################
+# Finish
+else
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━ English: ━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh no! You are running me as root! Do not do this!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "This script cannot be run as root. Please rerun as normal user!"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo
+    echo
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Portuguese: ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "Oh não! Você executou este script como root! Não faça isso!"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    tput bold
+    tput setaf 1
+    echo "Este script não pode ser executado como root. Por favor! O execute como um simples usuário normal! Ok?"
+    tput bold
+    tput setaf 3
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    exit 1
+fi
