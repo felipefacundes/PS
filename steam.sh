@@ -9,7 +9,10 @@
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
@@ -206,7 +209,7 @@ rm -f SteamSetup.exe
 wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
