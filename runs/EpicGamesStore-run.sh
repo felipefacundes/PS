@@ -219,7 +219,7 @@ if [ "$Game_Actions" = "Kill all wine processes" ] ; then
 fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
     xdg-open ~/.PlayOnGit/scripts/run/"$GN"-run.sh
-    exec "$0"
+    source ~/.PlayOnGit/scripts/run/"$GN"-run.sh
 fi
 if [ "$Game_Actions" = "Open Game Directory" ] ; then
     xdg-open "$WINEPREFIX"/drive_c
@@ -228,7 +228,7 @@ fi
 if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performance" ] ; then
     cd ~/.PlayOnGit/scripts/functions
     ./"$GN"-Toggle_Nvidia.sh
-    exec "$0"
+    source ~/.PlayOnGit/scripts/run/"$GN"-run.sh
 fi
 if [ "$Game_Actions" = "Set your favorite terminal" ] ; then
     Set_Terminal=`zenity --entry --text \
