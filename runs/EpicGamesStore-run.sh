@@ -192,9 +192,10 @@ if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
         tar -xf "$NWV".tar.zst 2>&1 | zenity \
         --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$WV\n\nfor $SN"
+        AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
+        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
+        source ~/.PlayOnGit/scripts/run/"$GN"-run.sh
     fi
-    exec "$0"
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
@@ -210,7 +211,7 @@ if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
         --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
         zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
     fi
-    exec "$0"
+    source ~/.PlayOnGit/scripts/run/"$GN"-run.sh
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
     Wkill
