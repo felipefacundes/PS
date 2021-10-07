@@ -3,8 +3,8 @@
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Custom_Script=`
     zenity \
-    --width=800 \
-    --height=600 \
+    --width=600 \
+    --height=300 \
     --title='Create your own script, to run your game or other app!' \
     --list --text "(PlayOnGit) Choose the desired base for your script!" \
     --radiolist --column 'Choice' \
