@@ -93,6 +93,7 @@ glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
 EXE="Steam.exe"
+Steam_Game_ID=1234
 cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
@@ -137,7 +138,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" -dx11 -applaunch 550650 \
+    "$W"/bin/wine "$EXE" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
