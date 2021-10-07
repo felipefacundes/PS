@@ -93,6 +93,7 @@ glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
 EXE="Steam.exe"
+Steam_Game_ID=550650
 cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
@@ -111,7 +112,7 @@ Pr11="-vulkan"
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Game_Actions=`zenity \
     --width=800 \
-    --height=600 \
+    --height=650 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
@@ -133,11 +134,12 @@ Game_Actions=`zenity \
     FALSE 'Toggle Nvidia Hybrid Graphics | Use Nvidia for performance' \
     FALSE 'Set your favorite terminal' \
     FALSE 'Start your terminal' \
+    FALSE 'Create your customized script, to run your game or other app!' \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" -dx11 -applaunch 550650 \
+    "$W"/bin/wine "$EXE" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -244,6 +246,10 @@ if [ "$Game_Actions" = "Start your terminal" ] ; then
     shopt -s expand_aliases
     alias winetricks=~/.PlayOnGit/scripts/winetricks
     ~/.PlayOnGit/scripts/run/TERM.conf
+    exec "$0"
+fi
+if [ "$Game_Actions" = "Create your customized script, to run your game or other app!" ] ; then
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/create_your_installation_script.sh)
     exec "$0"
 fi
 if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
