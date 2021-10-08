@@ -93,7 +93,7 @@ glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
 EXE0="Steam.exe"
-Steam_Game_ID=550650
+Steam_Game_ID=17300
 DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 EXE1="Crysis.exe"
 DIR1="$WINEPREFIX/drive_c/Crysis/Crysis/Bin32"
