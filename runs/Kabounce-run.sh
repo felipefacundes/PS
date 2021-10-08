@@ -93,7 +93,7 @@ glxgears -stereo > /dev/null 2>&1
 
 ## Game dir and executable
 EXE="Steam.exe"
-Steam_Game_ID=550650
+Steam_Game_ID=431930
 cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
