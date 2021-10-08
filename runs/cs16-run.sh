@@ -117,6 +117,7 @@ Game_Actions=`zenity \
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "Run ${SN}" \
+    FALSE "Run Half Life" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
