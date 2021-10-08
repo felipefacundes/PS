@@ -93,8 +93,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="EpicGamesLauncher.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE="LeagueClient.exe"
+cd "$WINEPREFIX/drive_c/Riot Games/League of Legends"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -139,7 +139,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+    "$W" wine "$EXE" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -259,7 +259,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
     --column 'Choice' --column 'Action' TRUE No FALSE Yes`
     if [ "$Del_Prefix" = "Yes" ] ; then
         rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
-        rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
+        rm -rf ~/.wine-appimage-lol
         rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
         rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
     fi
