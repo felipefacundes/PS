@@ -15,9 +15,9 @@ rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
 WV=wine-tkg-staging-6.17.r13-x86_64
-GN=Black_Squad
-SN="Black Squad"
-CME="Black Squad is a free-to-play military first-person-shooter. Players can master their skills and show off their strategies with a wide range."
+GN=Injustice2
+SN="Injustice 2"
+CME="Injustice 2 is a big, bold, expansive love letter to fans of DC comics and fighting games in general, and its sequel improves on the original in most every way."
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
