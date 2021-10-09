@@ -100,6 +100,18 @@ Define_Name() {
     --text "In which directory you want to save the installation script?" \
     --title "In which directory you want to save the installation script?"
 `
+    zenity \
+    --ellipsize \
+    --info \
+    --text "Choose a version of Wine."
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
+    if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
+        AWV=`cat launcher-default-*.sh | head -n 17 | grep -i WV= | cut -c 4-90`
+        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
+        sed -i "s/$AWV/$NWV/g" *default-*.sh
+        rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    fi
+
     sed -i "s/Base_Name/$Base_Name/g" *default-*.sh
     sed -i "s/Base Game Name/$Base_Game_Name/g" *default-*.sh
     sed -i "s/Base Comment/$Base_Comment/g" *default-*.sh
