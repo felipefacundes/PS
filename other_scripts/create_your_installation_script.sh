@@ -20,20 +20,20 @@ Get_Base() {
     mkdir -p ~/.PlayOnGit/tmp/
     cd ~/.PlayOnGit/tmp/
     if [ "$Custom_Script" = EpicGamesStore ] ; then
-    wget --no-check-certificate -nc
-    wget --no-check-certificate -nc
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-EpicGamesStore.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-EpicGamesStore.sh
     fi
     if [ "$Custom_Script" = Steam ] ; then
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-steam.sh
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam.sh
     fi
     if [ "$Custom_Script" = UbisoftConnect ] ; then
-    wget --no-check-certificate -nc
-    wget --no-check-certificate -nc
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-UbisoftConnect.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-UbisoftConnect.sh
     fi
     if [ "$Custom_Script" = Origin ] ; then
-    wget --no-check-certificate -nc
-    wget --no-check-certificate -nc
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-Origin.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Origin.sh
     fi
     if [ "$Custom_Script" = Battle.net ] ; then
     wget --no-check-certificate -nc
