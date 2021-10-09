@@ -14,7 +14,7 @@ Custom_Script=`
     FALSE UbisoftConnect \
     FALSE Origin \
     FALSE Battle.net \
-    FALSE GOG
+    FALSE "GOG Galaxy"
 `
 Get_Base() {
     mkdir -p ~/.PlayOnGit/tmp/
@@ -36,12 +36,12 @@ Get_Base() {
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Origin.sh
     fi
     if [ "$Custom_Script" = Battle.net ] ; then
-    wget --no-check-certificate -nc
-    wget --no-check-certificate -nc
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-Battlenet.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Battlenet.sh
     fi
-    if [ "$Custom_Script" = GOG ] ; then
-    wget --no-check-certificate -nc
-    wget --no-check-certificate -nc
+    if [ "$Custom_Script" = "GOG Galaxy" ] ; then
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-goggalaxy.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-goggalaxy.sh
     fi
 }
 
@@ -139,7 +139,7 @@ if [ "$Custom_Script" = Battle.net ] ; then
     Get_Base
     Define_Name
 fi
-if [ "$Custom_Script" = GOG ] ; then
+if [ "$Custom_Script" = "GOG Galaxy" ] ; then
     Get_Base
     Define_Name
 fi
