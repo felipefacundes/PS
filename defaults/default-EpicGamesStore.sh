@@ -206,9 +206,6 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
-rm -f UbisoftConnectInstaller.exe
-wget --no-check-certificate -nc https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
-"$W"/bin/wine UbisoftConnectInstaller.exe /S
 wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 
