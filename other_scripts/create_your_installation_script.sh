@@ -63,7 +63,7 @@ Define_Name() {
 `
     Base_Game_Name=`
     zenity --text="Enter the name of the complete game.\n\
-    This time,you can have spaces.\nExample: Apex Legends."\
+    This time, you can have spaces.\nExample: Apex Legends."\
     --entry-text="Apex Legends" --entry
 `
     Base_Comment=`
