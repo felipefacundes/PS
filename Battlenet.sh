@@ -9,7 +9,10 @@
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
@@ -32,13 +35,13 @@ cd ~/.PlayOnGit/wineprefixes/
 rm -rf "$GN"
 
 cd ~/.PlayOnGit/scripts/run/
-rm -rf "$GN"-run.sh
+rm -f "$GN"-run.sh
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
-rm -rf winetricks
+rm -f winetricks
 wget --no-check-certificate -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.PlayOnGit/wines/
@@ -210,7 +213,7 @@ tar -xf Battle.net.tar.zst
 sleep 3
 rm Battle.net.tar.zst
 
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
