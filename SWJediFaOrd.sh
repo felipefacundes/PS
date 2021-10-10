@@ -205,14 +205,14 @@ wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/
 
 ######################### Setup executable/game here ########################## 
 cd ~/.PlayOnGit/setups/
-rm -f SteamSetup.exe
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-"$W"/bin/wine SteamSetup.exe
-Wkill
-
 rm -f OriginThinSetup.exe OriginSetup.exe
 wget --no-check-certificate -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
 "$W"/bin/wine OriginThinSetup.exe
+Wkill
+
+rm -f SteamSetup.exe
+wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
 
 Wkill
 rm -rf ~/.local/share/applications/*wine*
