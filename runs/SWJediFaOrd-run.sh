@@ -119,8 +119,8 @@ Game_Actions=`zenity \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN}" \
-    FALSE "Run Origin" \
+    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Origin)" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
@@ -141,14 +141,14 @@ Game_Actions=`zenity \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
-if [ "$Game_Actions" = "Run ${SN}" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
-if [ "$Game_Actions" = "Run Origin" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Origin)" ] ; then
     cd "$DIR1"
     "$W"/bin/wine "$EXE1" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
