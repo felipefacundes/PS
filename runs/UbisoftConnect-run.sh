@@ -92,7 +92,7 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="Uplay.exe"
+EXE="upc.exe"
 cd "$WINEPREFIX/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
