@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-tkg-staging-6.18.r5-x86_64
 GN=SWJediFaOrd
 SN="Star Wars Jedi Fallen Order"
 CME="As one of the last Jedi, you must do whatever it takes to survive."
