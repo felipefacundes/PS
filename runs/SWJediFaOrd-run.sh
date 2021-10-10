@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-staging-6.14-1-x86_64
 GN=SWJediFaOrd
 SN="Star Wars Jedi Fallen Order"
 CME="As one of the last Jedi, you must do whatever it takes to survive."
@@ -92,9 +92,11 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="Steam.exe"
+EXE0="Steam.exe"
 Steam_Game_ID=1172380
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+EXE1="Origin.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -118,6 +120,7 @@ Game_Actions=`zenity \
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "Run ${SN}" \
+    FALSE "Run Origin" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
@@ -139,7 +142,15 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" -dx11 -applaunch "$Steam_Game_ID" \
+    cd "$DIR0"
+    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run Origin" ] ; then
+    cd "$DIR1"
+    "$W"/bin/wine "$EXE1" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
