@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-staging-6.14-1-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=rage2
 SN="Rage 2"
 CME="RAGE 2 is a first-person shooter in an open-world, post-apocalyptic setting."
