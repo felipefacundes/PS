@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-staging-6.16-1-x86_64
 GN=UbisoftConnect
 SN="Ubisoft Connect"
 CME="Ubisoft Connect - Ubisoft Digital Distributor."
