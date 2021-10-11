@@ -9,13 +9,16 @@
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill() {
+        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+}
+Wkill
 clear -T "$TERM"
 rm -rf ~/.local/share/applications/*wine* 
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-staging-6.14-1-x86_6
 GN=rage2
 SN="Rage 2"
 CME="RAGE 2 is a first-person shooter in an open-world, post-apocalyptic setting."
@@ -32,13 +35,13 @@ cd ~/.PlayOnGit/wineprefixes/
 rm -rf "$GN"
 
 cd ~/.PlayOnGit/scripts/run/
-rm -rf "$GN"-run.sh
+rm -f "$GN"-run.sh
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
 wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
-rm -rf winetricks
+rm -f winetricks
 wget --no-check-certificate -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.PlayOnGit/wines/
@@ -205,13 +208,8 @@ cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
 
-rm -f SteamSetup.exe
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-"$W"/bin/wine SteamSetup.exe
-
-ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
