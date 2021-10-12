@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
+WV=wine-tkg-staging-6.17.r13-x86_64
 GN=GTAV
 SN="Grand Theft Auto V"
 CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
@@ -117,7 +117,7 @@ Pr11="-vulkan"
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Game_Actions=`zenity \
     --width=800 \
-    --height=650 \
+    --height=700 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
