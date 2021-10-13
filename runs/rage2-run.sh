@@ -96,8 +96,10 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="EpicGamesLauncher.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="EpicGamesLauncher.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE1="RAGE2.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files/Epic Games/Rage2"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -120,7 +122,8 @@ Game_Actions=`zenity \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN}" \
+    TRUE "Run ${SN} (EpicGamesStore)" \
+    FALSE "Run ${SN} (EpicGamesStore) directly" \
     FALSE WineConfig \
     FALSE Winetricks \
     FALSE 'Custom Wine executable (.exe)' \
@@ -141,8 +144,16 @@ Game_Actions=`zenity \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE Credits`
 
-if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
+if [ "$Game_Actions" = "Run ${SN} (EpicGamesStore)" ] ; then
+    cd "$DIR0"
+    "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run ${SN} (EpicGamesStore) directly" ] ; then
+    cd "$DIR1"
+    "$W"/bin/wine "$EXE1" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
