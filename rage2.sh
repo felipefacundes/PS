@@ -136,13 +136,13 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 tput sgr0
 
-cd ~/.PlayOnGit/setups/
-wget --no-check-certificate -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
-"$W"/bin/wine DXSDK_Jun10.exe /U
-Wkill
-wget --no-check-certificate -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
-"$W"/bin/wine vulkan-sdk.exe 
-Wkill
+#cd ~/.PlayOnGit/setups/
+#wget --no-check-certificate -nc https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+#"$W"/bin/wine DXSDK_Jun10.exe /U
+#Wkill
+#wget --no-check-certificate -nc https://sdk.lunarg.com/sdk/download/latest/windows/vulkan-sdk.exe
+#"$W"/bin/wine vulkan-sdk.exe 
+#Wkill
 
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
