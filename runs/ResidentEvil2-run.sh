@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-tkg-staging-6.18.r5-x86_64
 GN=ResidentEvil2
 SN="Resident Evil 2"
 CME="A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets"
