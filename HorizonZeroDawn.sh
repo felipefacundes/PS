@@ -158,6 +158,7 @@ echo "Progress .."
 "$Wtricks" -q vcrun2012 > /dev/null 2>&1
 "$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
+"$Wtricks" -q mfc140 > /dev/null 2>&1
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
