@@ -8,7 +8,7 @@ Wine_List=`
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "wine-tkg-staging-6.19.r8-x86_64" \
-    FAlSE "wine-tkg-staging-6.19.r6-x86_64" \
+    FALSE "wine-tkg-staging-6.19.r6-x86_64" \
     FALSE "wine-tkg-staging-6.18.r5-x86_64" \
     FALSE "wine-tkg-staging-6.17.r13-x86_64" \
     FALSE "wine-staging-6.16-1-x86_64" \
