@@ -8,7 +8,7 @@
 if [[ "$EUID" -ne 0 ]]; then
 ############################
 Wkill() {
-        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+    ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1; pkill -9 .exe
 }
 Wkill
 rm -rf ~/.local/share/applications/*wine*
@@ -92,8 +92,8 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ## Game dir and executable
-EXE="EpicGamesLauncher.exe"
-cd "$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="EpicGamesLauncher.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -109,6 +109,51 @@ Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+Get() {
+    wget --no-check-certificate --server-response -nc "$@"
+}
+Get_Parse() {
+    perl -p -e '$| = 1; s/^.* +([0-9]+%) +([0-9,.]+[GMKB]) +([0-9hms,.]+).*$/\1\n# Downloading in progress... \2 (\3)/'
+}
+Zenity_Progress() {
+    zenity \
+    --title="PlayOnGit Wine Download" \
+    --text="<b>Download</b> in progress:" \
+    --progress \
+    --auto-close \
+    --auto-kill
+}
+FPS_Xosd() {
+    tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+}
+Choose_Wine() {
+    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
+        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
+        if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
+            cd ~/.PlayOnGit/wines/
+            rm -rf "$NWV"
+            Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$NWV".tar.zst.md5sum
+            wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
+            wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
+                if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
+                    echo "Wine OK"
+                else
+                    rm -f "$NWV".tar.zst
+                fi
+            sed -i "s/$WV/$NWV/g" "$Script_Run"
+            Get https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | Get_Parse | Zenity_Progress
+            tar -xf "$NWV".tar.zst 2>&1 | zenity \
+            --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
+            rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+            AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
+            zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
+        fi
+}
+Rerun_Info() {
+    zenity --ellipsize --info --text "<b>Rerun the script</b> (close and open again)."
+}
 Game_Actions=`zenity \
     --width=800 \
     --height=650 \
@@ -138,10 +183,9 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
+    cd "DIR0"
     "$W"/bin/wine "$EXE" "$Pr1" "$Pr2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "WineConfig" ] ; then
     "$W"/bin/winecfg
@@ -181,37 +225,25 @@ if [ "$Game_Actions" = "Wineconsole (Wine CMD)" ] ; then
 fi
 if [ "$Game_Actions" = "Choose another version of Wine" ] ; then
     rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
-    if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
-        NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
-        cd ~/.PlayOnGit/wines/
-        rm -rf "$NWV"
-        rm -f "$NWV".tar.zst
-        sed -i "s/$WV/$NWV/g" "$Script_Run"
-        wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | zenity \
-        --progress --pulsate --auto-close --title="PlayOnGit Wine Download" --text="<b>Download</b> in progress:"
-        tar -xf "$NWV".tar.zst 2>&1 | zenity \
-        --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
-        rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-        AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
-        zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
-    fi
-    source "$Script_Run"
+    Choose_Wine
+    Rerun_Info
+    exec "$0"
 fi
 if [ "$Game_Actions" = "Toggle DXVK (Disable/Enable)" ] ; then
     toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-    if [ ! -e "$toggle_dxvk_check" ] ; then
-        touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
-        --progress --pulsate --auto-close --title="Disabling DXVK. Wait! Processing..." --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
-    else
-        rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-        "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
-        --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
-        zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
-    fi
+        if [ ! -e "$toggle_dxvk_check" ] ; then
+            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+            "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
+            --progress --pulsate --auto-close --title="Disabling DXVK. Wait! Processing..." --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
+            zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
+        else
+            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+            "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
+            --progress --pulsate --auto-close --title="Enabling DXVK. Wait! Processing..." --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
+            zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
+        fi
+    Rerun_Info
     source "$Script_Run"
 fi
 if [ "$Game_Actions" = "Kill all wine processes" ] ; then
@@ -220,7 +252,8 @@ if [ "$Game_Actions" = "Kill all wine processes" ] ; then
 fi
 if [ "$Game_Actions" = "Edit Script" ] ; then
     xdg-open "$Script_Run"
-    source "$Script_Run"
+    Rerun_Info
+    exec "$0"
 fi
 if [ "$Game_Actions" = "Open Game Directory" ] ; then
     xdg-open "$WINEPREFIX"/drive_c
@@ -229,6 +262,7 @@ fi
 if [ "$Game_Actions" = "Toggle Nvidia Hybrid Graphics | Use Nvidia for performance" ] ; then
     cd ~/.PlayOnGit/scripts/functions
     ./"$GN"-Toggle_Nvidia.sh
+    Rerun_Info
     source "$Script_Run"
 fi
 if [ "$Game_Actions" = "Set your favorite terminal" ] ; then
@@ -256,12 +290,12 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
     --title="Remove All Wineprefix ${SN}?" --list \
     --text "Remove All Wineprefix ${SN}?" --radiolist \
     --column 'Choice' --column 'Action' TRUE No FALSE Yes`
-    if [ "$Del_Prefix" = "Yes" ] ; then
-        rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
-        rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
-        rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
-        rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
-    fi
+        if [ "$Del_Prefix" = "Yes" ] ; then
+            rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
+            rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
+            rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
+            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
+        fi
     exec "$0"
 fi
 if [ "$Game_Actions" = "Credits" ] ; then
