@@ -1,7 +1,7 @@
 #!/bin/bash
 # Manteiner: Felipe Facundes
 # License: GPLv3
-# 🖂 Email: playongit@gmail.com
+# 🖂 playongit@gmail.com
 # 﨧 Telegram: @FeFacundes
 # 﨧 Telegram Group: t.me/winehq_linux
 ######### No root #########
