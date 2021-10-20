@@ -259,15 +259,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check
+            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
@@ -315,7 +315,7 @@ if [ "$Game_Actions" = 'Change the default execution path of executable (.exe or
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Create your customized script, to run your game or other app!' ]; then
-    bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/create_your_installation_script.sh)
+    ~/.PlayOnGit/scripts/functions/create_your_installation_script.sh
     exec "$0"
 fi
 if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
@@ -329,6 +329,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
             rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Check-Toggle_Nvidia.txt
+            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
         fi
     exec "$0"
 fi
