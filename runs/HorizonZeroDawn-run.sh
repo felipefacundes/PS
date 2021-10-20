@@ -328,6 +328,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
             rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
             rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
+            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Check-Toggle_Nvidia.txt
         fi
     exec "$0"
 fi
