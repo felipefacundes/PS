@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.19.r8-x86_64
+WV=wine-tkg-staging-6.19.r6-x86_64
 GN=HorizonZeroDawn
 SN="Horizon Zero Dawn"
 CME="Aloy, a young hunter in a world overrun by machines, who sets out to uncover her past. The player uses ranged weapons, a spear, and stealth to combat mechanical creatures and other enemy forces."
@@ -113,12 +113,12 @@ Get() {
     wget --no-check-certificate --server-response -nc "$@"
 }
 Get_Parse() {
-    perl -p -e '$| = 1; s/^.* +([0-9]+%) +([0-9,.]+[GMKB]) +([0-9hms,.]+).*$/\1\n# Downloading in progress... \2 (\3)/'
+    perl -p -e '$| = 1; s/^.* +([0-9]+%) +([0-9,.]+[GMKB]) +([0-9hms,.]+).*$/\1\n# Wait! Downloading the wine... \2 (\3)/'
 }
 Zenity_Progress() {
     zenity \
     --title="PlayOnGit Wine Download" \
-    --text="<b>Download</b> in progress:" \
+    --text="<b>Wait!</b> Downloading the wine..." \
     --progress \
     --auto-close \
     --auto-kill
@@ -128,24 +128,36 @@ FPS_Xosd() {
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 }
+Test_Mirror() {
+    Mirrors='master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net'
+    Test_Mirror1=`LANG=C ping -c 2 master.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
+    Test_Mirror2=`LANG=C ping -c 2 razaoinfo.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
+        if [[ "$TEST_MIRROR1" < "$TEST_MIRROR2" ]]; then
+            export Mirror='https://master.dl.sourceforge.net'
+        else
+            export Mirror='https://razaoinfo.dl.sourceforge.net'
+        fi
+}
 Choose_Wine() {
     bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
         NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
         if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
             cd ~/.PlayOnGit/wines/
-            rm -rf "$NWV"
             Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$NWV".tar.zst.md5sum
             wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
             wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
                 if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
-                    echo "Wine OK"
+                    echo 'Wine checked!'
+                    notify-send 'Wine' 'Checked!'
                 else
+                    rm -rf "$NWV"
                     rm -f "$NWV".tar.zst
+                    Test_Mirror
+                    Get "$Mirror"/project/wine-bins/"$NWV".tar.zst 2>&1 | Get_Parse | Zenity_Progress
+                    tar -xf "$NWV".tar.zst 2>&1 | zenity \
+                    --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
                 fi
             sed -i "s/$WV/$NWV/g" "$Script_Run"
-            Get https://master.dl.sourceforge.net/project/wine-bins/"$NWV".tar.zst 2>&1 | Get_Parse | Zenity_Progress
-            tar -xf "$NWV".tar.zst 2>&1 | zenity \
-            --progress --pulsate --auto-close --title="Extracting Wine!" --text="Extracting Wine!"
             rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
             AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
             zenity --info --ellipsize --title="Success!" --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
