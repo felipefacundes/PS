@@ -147,6 +147,7 @@ Choose_Wine() {
         NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
         if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
             cd ~/.PlayOnGit/wines/
+            Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$NWV".tar.zst.md5sum
             wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
             wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
                 if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
@@ -155,7 +156,6 @@ Choose_Wine() {
                 else
                     rm -rf "$NWV"
                     rm -f "$NWV".tar.zst
-                    Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$NWV".tar.zst.md5sum
                     Test_Mirror
                     Get "$Mirror"/project/wine-bins/"$NWV".tar.zst 2>&1 | Get_Parse | Zenity_Progress
                     tar -xf "$NWV".tar.zst 2>&1 | zenity \
