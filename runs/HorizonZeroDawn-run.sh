@@ -1,12 +1,12 @@
 #!/bin/bash
 # Manteiner: Felipe Facundes
 # License: GPLv3
-# Email: playongit@gmail.com
-#  Telegram: @FeFacundes
-#  Telegram Group: t.me/winehq_linux
-######### Not root #########
+# 🖂 Email: playongit@gmail.com
+# 﨧 Telegram: @FeFacundes
+# 﨧 Telegram Group: t.me/winehq_linux
+######### No root #########
 if [[ "$EUID" -ne 0 ]]; then
-############################
+###########################
 Wkill() {
     ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1; pkill -9 .exe
 }
@@ -19,6 +19,24 @@ GN=HorizonZeroDawn
 SN="Horizon Zero Dawn"
 CME="Aloy, a young hunter in a world overrun by machines, who sets out to uncover her past. The player uses ranged weapons, a spear, and stealth to combat mechanical creatures and other enemy forces."
 
+## Game dir and executable
+EXE0="EpicGamesLauncher.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE1="Free any_file.exe"
+DIR1="Free Directory"
+## Executable Parameters
+Pr1="-SkipBuildPatchPrereq"
+Pr2="-opengl"
+Pr3="-gl"
+Pr4="-dx9"
+Pr5="-dx10"
+Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
+## All Variables
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -39,9 +57,11 @@ export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
 Wtricks=~/.PlayOnGit/scripts/winetricks
+
+## All Performance Variables
+
 #export MESA_GLSL_VERSION_OVERRIDE=440
 #export MESA_GL_VERSION_OVERRIDE=4.4COMPAT
-
 export DXVK_SPIRV_OPT=ON
 export DXVK_SHADER_OPTIMIZE=1
 export DXVK_DEBUG_LAYERS=0
@@ -90,22 +110,6 @@ glxgears -stereo > /dev/null 2>&1
 
 # GAMEMODE: gamemoderun
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
-
-## Game dir and executable
-EXE0="EpicGamesLauncher.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
-## Executable Parameters
-Pr1="-SkipBuildPatchPrereq"
-Pr2="-opengl"
-Pr3="-gl"
-Pr4="-dx9"
-Pr5="-dx10"
-Pr6="-dx11"
-Pr7="-force-d3d11"
-Pr8="-d3d11legacy"
-Pr9="-d311"
-Pr10="-d3d12"
-Pr11="-vulkan"
 
 ######## Zenity (Pseudo GUI) ########
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
@@ -164,16 +168,16 @@ Choose_Wine() {
         fi
 }
 Change_EXE0_DIR0(){
-    Read_EXE0=`cat "$Script_Run" | head -n 95 | grep 'EXE0=' | cut -c 6-599`
-    Read_DIR0=`cat "$Script_Run" | head -n 96 | grep 'DIR0=' | cut -c 6-599`
+    Read_EXE0=`cat "$Script_Run" | head -n 23 | grep 'EXE0=' | cut -c 6-599`
+    Read_DIR0=`cat "$Script_Run" | head -n 24 | grep 'DIR0=' | cut -c 6-599`
         zenity --info --ellipsize --title='Default DIR' --text "<b>Default directory where the executable is located:</b>\n\n$AWV\n\nfor $SN"
         Change_DIR0=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
             --text "Default directory where the executable is located" --title "Default directory where the executable is located"`
-            sed -i "96s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
+            sed -i "24s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
         zenity --info --ellipsize --title='Default executable!' --text "<b>Change the default executable:</b>\n\n$AWV\n\nfor $SN"
         Change_EXE0=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
             --text "Change the default executable" --title "Change the default executable"`
-            sed -i "95s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
+            sed -i "23s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
 }
 Rerun_Info() {
     zenity --ellipsize --info --text "<b>Rerun the script</b> (close and open again)."
@@ -188,7 +192,7 @@ Game_Actions=`zenity \
     TRUE "Run ${SN}" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
-    FALSE 'Open an executable (.exe)' \
+    FALSE 'Open an executable (.exe or .msi)' \
     FALSE 'WineFile (Wine File Manager)' \
     FALSE 'Explorer++ (File Manager)' \
     FALSE 'Wine Uninstaller' \
@@ -202,7 +206,7 @@ Game_Actions=`zenity \
     FALSE 'Toggle Nvidia Hybrid Graphics! | Use Nvidia for performance!' \
     FALSE 'Set your favorite terminal!' \
     FALSE 'Start your terminal!' \
-    FALSE 'Change the default boot and executable paths!' \
+    FALSE 'Change the default execution path of executable (.exe or .lnk)!' \
     FALSE 'Create your customized script, to run your game or other app!' \
     FALSE "Remove All Wineprefix ${SN}" \
     FALSE 'Credits:'`
@@ -220,7 +224,7 @@ if [ "$Game_Actions" = 'Winetricks' ]; then
     "$Wtricks"
     exec "$0"
 fi
-if [ "$Game_Actions" = 'Open an executable (.exe)' ]; then
+if [ "$Game_Actions" = 'Open an executable (.exe or .msi)' ]; then
     Open_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "\"${Open_EXE}\""
@@ -306,7 +310,7 @@ if [ "$Game_Actions" = 'Start your terminal!' ]; then
     ~/.PlayOnGit/scripts/run/TERM.conf
     exec "$0"
 fi
-if [ "$Game_Actions" = 'Change the default boot and executable paths!' ]; then
+if [ "$Game_Actions" = 'Change the default execution path of executable (.exe or .lnk)!' ]; then
     Change_EXE0_DIR0
     exec "$0"
 fi
