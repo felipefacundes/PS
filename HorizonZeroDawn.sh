@@ -54,6 +54,7 @@ Check_Wine_and_Get() {
     wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
     wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
         if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
+            notify-send 'Wine' 'Checked!'
             echo 'Wine checked!'
         else
             rm -f "$WV".tar.zst
@@ -108,10 +109,14 @@ echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
 echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
+echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
+echo '    notify-send "Variables enabled:" "__NV_PRIME_RENDER_OFFLOAD=1\n__VK_LAYER_NV_optimus=NVIDIA_only\n__GLX_VENDOR_LIBRARY_NAME=nvidia"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'else' >> "$GN"-Toggle_Nvidia.sh
+echo '    rm "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
+echo '    notify-send "Nvidia Variables" "Disabled"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
