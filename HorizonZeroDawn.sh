@@ -49,17 +49,17 @@ Test_Mirror_Sourceforge() {
         fi
 }
 Check_Wine_and_Get() {
-      cd ~/.PlayOnGit/wines/
-      Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$WV".tar.zst.md5sum
-      wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
-      wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
-            if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
-                  echo 'Wine checked!'
-            else
-                  rm -f "$WV".tar.zst
-                  Test_Mirror_Sourceforge
-                  Get "$Mirror"/project/wine-bins/"$WV".tar.zst
-            fi
+    cd ~/.PlayOnGit/wines/
+    Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$WV".tar.zst.md5sum
+    wine_integrity_check=`md5sum "$NWV".tar.zst | awk '{ print $1 }'`
+    wine_integrity_file=`cat "$NWV".tar.zst.md5sum`
+        if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
+            echo 'Wine checked!'
+        else
+            rm -f "$WV".tar.zst
+            Test_Mirror_Sourceforge
+            Get "$Mirror"/project/wine-bins/"$WV".tar.zst
+        fi
 }
 
 cd ~/.PlayOnGit/scripts/run/
@@ -72,6 +72,9 @@ cd ~/.PlayOnGit/scripts/
 rm -f winetricks
 Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
+cd ~/.PlayOnGit/scripts/functions/
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/create_your_installation_script.sh > /dev/null 2>&1
+chmod +x create_your_installation_script.sh
 
 Check_Wine_and_Get
 cd ~/.PlayOnGit/wines/
