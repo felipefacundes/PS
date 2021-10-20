@@ -289,8 +289,7 @@ if [ "$Game_Actions" = 'Open Game Directory!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle Nvidia Hybrid Graphics! | Use Nvidia for performance!' ]; then
-    cd ~/.PlayOnGit/scripts/functions
-    ./"$GN"-Toggle_Nvidia.sh
+    ~/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
     Rerun_Info
     source "$Script_Run"
 fi
