@@ -49,13 +49,13 @@ Test_Mirror_Sourceforge() {
         fi
 }
 Check_Wine_and_Get() {
+    cd ~/.PlayOnGit/wines/
     wine_integrity_check=`md5sum "$WV".tar.zst | awk '{ print $1 }'`
     wine_integrity_file=`cat "$WV".tar.zst.md5sum`
         if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
             notify-send 'Wine' 'Checked!'
             echo 'Wine checked!'
         else
-            cd ~/.PlayOnGit/wines/
             rm -f "$WV".tar.zst
             Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$WV".tar.zst.md5sum
             Test_Mirror_Sourceforge
