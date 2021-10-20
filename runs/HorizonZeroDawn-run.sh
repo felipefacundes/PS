@@ -157,7 +157,7 @@ Choose_Wine() {
                     tar -xf "$NWV".tar.zst 2>&1 | zenity \
                     --progress --pulsate --auto-close --title='Extracting Wine!' --text='Extracting Wine!'
                 fi
-            sed -i "s/$WV/$NWV/g" "$Script_Run"
+            sed -i "17s/$WV/$NWV/" "$Script_Run"
             rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
             AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
             zenity --info --ellipsize --title='Success!' --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
@@ -169,12 +169,10 @@ Change_EXE0_DIR0(){
         zenity --info --ellipsize --title='Default DIR' --text "<b>Default directory where the executable is located:</b>\n\n$AWV\n\nfor $SN"
         Change_DIR0=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
             --text "Default directory where the executable is located" --title "Default directory where the executable is located"`
-            echo "\"${Change_DIR0}\""
             sed -i "96s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
         zenity --info --ellipsize --title='Default executable!' --text "<b>Change the default executable:</b>\n\n$AWV\n\nfor $SN"
         Change_EXE0=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
             --text "Change the default executable" --title "Change the default executable"`
-            echo "\'${Change_EXE0##*/}\'"
             sed -i "95s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
 }
 Rerun_Info() {
@@ -223,9 +221,9 @@ if [ "$Game_Actions" = 'Winetricks' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Open an executable (.exe)' ]; then
-    Cust_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
+    Open_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
-    "$W"/bin/wine "\"${Cust_EXE##*/}\"" #"${Cust_EXE##*/}"
+    "$W"/bin/wine "\"${Open_EXE}\""
     exec "$0"
 fi
 if [ "$Game_Actions" = 'WineFile (Wine File Manager)' ]; then
