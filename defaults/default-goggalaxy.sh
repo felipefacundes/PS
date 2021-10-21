@@ -244,18 +244,18 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
 rm -f GOG_Galaxy_2.0.exe EpicGamesLauncherInstaller.msi UbisoftConnectInstaller.exe SteamSetup.exe OriginThinSetup.exe
-wget --no-check-certificate -nc https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+Get https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
 "$W"/bin/wine UbisoftConnectInstaller.exe /S
-wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 Wkill
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
-wget --no-check-certificate -nc https://webinstallers.gog-statics.com/download/GOG_Galaxy_2.0.exe
+Get https://webinstallers.gog-statics.com/download/GOG_Galaxy_2.0.exe
 "$W"/bin/wine GOG_Galaxy_2.0.exe
 Wkill
-wget --no-check-certificate -nc https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
+Get https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
 "$W"/bin/wine OriginThinSetup.exe
 
 Wkill
