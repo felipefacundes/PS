@@ -244,7 +244,7 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
 rm -f SteamSetup.exe
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 
 Wkill
