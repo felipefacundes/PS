@@ -214,7 +214,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN}" ]; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" -force-d3d9 \
+    "$W"/bin/wine "$EXE0" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
