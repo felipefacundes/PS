@@ -184,7 +184,7 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=650 \
+    --height=690 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
