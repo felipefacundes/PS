@@ -2,15 +2,16 @@
 # PlayOnGit - Launch your Games directly from the start menu.
 # License: GPLv3
 # Manteiner: Felipe Facundes
-# Email: playongit@gmail.com
-# 切 Telegram: https://t.me/winehq_linux
+# 🖂 playongit@gmail.com
+# 﨧 Telegram: @FeFacundes
+# 﨧 Telegram Group: https://t.me/winehq_linux
 ########### This script will use custom wine. But, you can use a wine in the version and location of your choice.
 ########### Este script irá usar o wine personalizado. Mas, você poderá usar um wine na versão e local de sua escolha
 ######### Not root #########
 if [[ "$EUID" -ne 0 ]]; then
 ############################
 Wkill() {
-        ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1 ; pkill -9 .exe
+      ps ax|egrep '*\.exe'|grep -v 'egrep'|awk '{print $1 }' | xargs kill -9 $1; pkill -9 .exe
 }
 Wkill
 clear -T "$TERM"
@@ -18,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-tkg-staging-6.19.r8-x86_64
 GN=Base_Name
 SN="Base Game Name"
 CME="Base Comment"
@@ -34,22 +35,54 @@ mkdir -p ~/.PlayOnGit/wineprefixes/
 cd ~/.PlayOnGit/wineprefixes/
 rm -rf "$GN"
 
+Get() {
+    wget --no-check-certificate --server-response -nc "$@"
+}
+Test_Mirror_Sourceforge() {
+    Mirrors='master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net'
+    Test_Mirror1=`LANG=C ping -c 2 master.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
+    Test_Mirror2=`LANG=C ping -c 2 razaoinfo.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
+        if [[ "$TEST_MIRROR1" < "$TEST_MIRROR2" ]]; then
+            export Mirror='https://master.dl.sourceforge.net'
+        else
+            export Mirror='https://razaoinfo.dl.sourceforge.net'
+        fi
+}
+Check_Wine_and_Get() {
+    cd ~/.PlayOnGit/wines/
+    Get https://raw.githubusercontent.com/felipefacundes/PS/master/Wines_md5sum/"$WV".tar.zst.md5sum
+    wine_integrity_check=`md5sum "$WV".tar.zst | awk '{ print $1 }'`
+    wine_integrity_file=`cat "$WV".tar.zst.md5sum`
+        if [ "$wine_integrity_check" = "$wine_integrity_file" ]; then
+            notify-send 'Wine' 'Checked!'
+            echo 'Wine checked!'
+        else
+            rm -f "$WV".tar.zst
+            Test_Mirror_Sourceforge
+            Get "$Mirror"/project/wine-bins/"$WV".tar.zst
+        fi
+}
+
 cd ~/.PlayOnGit/scripts/run/
 #rm -f "$GN"-run.sh
-#wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
-#wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
 rm -f winetricks
-wget --no-check-certificate -nc https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
+Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
+cd ~/.PlayOnGit/scripts/functions/
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/create_your_installation_script.sh > /dev/null 2>&1
+chmod +x create_your_installation_script.sh
+
+Check_Wine_and_Get
 cd ~/.PlayOnGit/wines/
 rm -rf "$WV"
 # Server 01
-# wget --no-check-certificate -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
+# Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/"$WV".tar.zst
 # Server 02
-wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/wine-bins/"$WV".tar.zst
 tar -xf "$WV".tar.zst
 
 # Create .desktop
@@ -73,20 +106,24 @@ touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
 echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Intel=`glxinfo -B  2> /dev/null | grep "Vendor: Intel" | cut -c 13-17`' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
-echo 'if [ "$Intel" = "Intel" ] ; then' >> "$GN"-Toggle_Nvidia.sh
+echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
+echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
+echo '    notify-send "Variables enabled:" "__NV_PRIME_RENDER_OFFLOAD=1\n__VK_LAYER_NV_optimus=NVIDIA_only\n__GLX_VENDOR_LIBRARY_NAME=nvidia"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^#//g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'else' >> "$GN"-Toggle_Nvidia.sh
+echo '    rm "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
+echo '    notify-send "Nvidia Variables" "Disabled"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __NV_PRIME_RENDER_OFFLOAD=1/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __VK_LAYER_NV_optimus=NVIDIA_only/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo '    sed -i "/export __GLX_VENDOR_LIBRARY_NAME=nvidia/s/^/#/g" "$Script"' >> "$GN"-Toggle_Nvidia.sh
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
 echo '}' >> "$GN"-Toggle_Nvidia.sh
 echo 'Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Nvidia=`lspci | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
+echo 'Nvidia=`LANG=C lspci | grep "VGA compatible controller:" | grep -i Nvidia | cut -c 36-41`' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ "$Nvidia" = "NVIDIA" ] ; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    Toggle_Nvidia' >> "$GN"-Toggle_Nvidia.sh
 echo 'fi' >> "$GN"-Toggle_Nvidia.sh
@@ -158,6 +195,7 @@ echo "Progress .."
 "$Wtricks" -q vcrun2012 > /dev/null 2>&1
 "$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
+"$Wtricks" -q mfc140 > /dev/null 2>&1
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
@@ -167,20 +205,20 @@ tput sgr0
 cd ~/.PlayOnGit/setups/
 rm -f VC_redist.x64.exe
 rm -r VC_redist.x86.exe
-wget --no-check-certificate -nc "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-wget --no-check-certificate -nc "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+Get "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
 "$W"/bin/wine VC_redist.x64.exe /q
 "$W"/bin/wine VC_redist.x86.exe /q
 
 cd ~/.PlayOnGit/libraries/
-wget --no-check-certificate -nc https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
 tar -xf mfinstall.tar.xz
 cd mfinstall
 bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
-wget --no-check-certificate -nc https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
+Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
 tar -xf dxvk-1.9.2.tar.gz
 
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
@@ -196,11 +234,11 @@ tput sgr0
 "$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
-wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
 
 # Explorer++ File Manager
 cd "$WINEPREFIX/drive_c/windows/"
-wget --no-check-certificate -nc "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/Explorerpp.exe?raw=true" -O Explorerpp.exe > /dev/null 2>&1
+Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/Explorerpp.exe?raw=true" -O Explorerpp.exe > /dev/null 2>&1
 #######################################################################################################################################################################
 
 ######################### Setup executable/game here ##########################
@@ -214,7 +252,7 @@ rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
-#wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/songs/leia.ogg > /dev/null 2>&1
 #export beep=~/.PlayOnGit/scripts/leia.ogg
 #pactl upload-sample ~/.PlayOnGit/scripts/leia.ogg
 #paplay "$beep" --volume=76767
