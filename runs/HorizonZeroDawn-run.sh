@@ -202,6 +202,7 @@ Game_Actions=`zenity \
     FALSE 'Toggle DXVK (Disable/Enable)' \
     FALSE 'Kill all wine processes!' \
     FALSE 'Edit Script!' \
+    FALSE 'Edit dxvk.conf!' \
     FALSE 'Open Game Directory!' \
     FALSE 'Toggle Nvidia Hybrid Graphics! | Use Nvidia for performance!' \
     FALSE 'Set your favorite terminal!' \
@@ -281,6 +282,11 @@ if [ "$Game_Actions" = 'Kill all wine processes!' ]; then
 fi
 if [ "$Game_Actions" = 'Edit Script!' ]; then
     xdg-open "$Script_Run"
+    Rerun_Info
+    exec "$0"
+fi
+if [ "$Game_Actions" = 'Edit dxvk.conf!' ]; then
+    xdg-open "$WINEPREFIX"/dxvk.conf
     Rerun_Info
     exec "$0"
 fi
