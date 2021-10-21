@@ -237,7 +237,7 @@ if [ "$Game_Actions" = 'WineFile (Wine File Manager)' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Explorer++ (File Manager)' ]; then
-    "$W"/bin/wine Explorerpp c:
+    "$W"/bin/wine Explorerpp
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Wine Uninstaller' ]; then
