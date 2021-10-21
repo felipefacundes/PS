@@ -1,6 +1,7 @@
 Dependencies that do not critically affect wine.
 #winetricks -q msacm32 msasn1 msctf msls31 filever
 #winetricks -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta
+#winetricks -q mfc40 mfc42 mfc80 mfc90 mfc100 mfc110 mfc120 mfc140
 
 Other dependencies (winetricks dlls list):
 
