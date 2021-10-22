@@ -22,7 +22,6 @@ export CME="Base Comment"
 ## Game dir and executable
 EXE0="GalaxyClient.exe"
 DIR0="$WINEPREFIX/drive_c/Program Files (x86)/GOG Galaxy"
-Steam_Game_ID="414340"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
 ## Executable Parameters
