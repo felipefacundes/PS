@@ -14,10 +14,10 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.18.r5-x86_64
-export GN=Hellblade_Senuas_Sacrifice
-export SN="Hellblade: Senua's Sacrifice"
-export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
+export WV=wine-tkg-staging-6.19.r8-x86_64
+export GN=EpicGamesStore
+export SN="Epic Games Store"
+export CME="Epic Games Store: a curated digital storefront for PC and Mac, designed with both players and creators in mind."
 
 ## Game dir and executable
 EXE0="EpicGamesLauncher.exe"
