@@ -17,7 +17,7 @@ clear -T "$TERM"
 export WV=wine-tkg-staging-6.18.r5-x86_64
 export GN=Hellblade_Senuas_Sacrifice
 export SN="Hellblade: Senua's Sacrifice"
-export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
+export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover."
 
 ## Game dir and executable
 EXE0="Steam.exe"
