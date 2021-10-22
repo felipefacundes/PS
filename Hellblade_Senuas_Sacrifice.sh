@@ -19,10 +19,10 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.18.r5-x86_64
-GN=Hellblade_Senuas_Sacrifice
-SN="Hellblade: Senua's Sacrifice"
-CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
+export WV=wine-tkg-staging-6.19.r8-x86_64
+export GN=Hellblade_Senuas_Sacrifice
+export SN="Hellblade: Senua's Sacrifice"
+export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
@@ -39,14 +39,16 @@ Get() {
     wget --no-check-certificate --server-response -nc "$@"
 }
 Test_Mirror_Sourceforge() {
-    Mirrors='master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net'
-    Test_Mirror1=`LANG=C ping -c 2 master.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-    Test_Mirror2=`LANG=C ping -c 2 razaoinfo.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-        if [[ "$TEST_MIRROR1" < "$TEST_MIRROR2" ]]; then
-            export Mirror='https://master.dl.sourceforge.net'
+    Mirrors=(master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net)
+    Test_Mirror0=`LANG=C ping -c 2 "${Mirrors[0]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+    Test_Mirror1=`LANG=C ping -c 2 "${Mirrors[1]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+        if [ "$Test_Mirror0" -lt "$Test_Mirror1" ]; then
+            export Mirror="https://${Mirrors[0]}"
         else
-            export Mirror='https://razaoinfo.dl.sourceforge.net'
+            export Mirror="https://${Mirrors[1]}"
         fi
+    echo "$Test_Mirror0=${Mirrors[0]} x $Test_Mirror1=${Mirrors[1]}"
+    echo "Winner: $Mirror"
 }
 Check_Wine_and_Get() {
     cd ~/.PlayOnGit/wines/
@@ -64,11 +66,11 @@ Check_Wine_and_Get() {
 }
 
 cd ~/.PlayOnGit/scripts/run/
-rm -f "$GN"-run.sh
-Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+#rm -f "$GN"-run.sh
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
-Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
 rm -f winetricks
 Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
@@ -133,7 +135,7 @@ chmod +x ~/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
 clear -T "$TERM"
 
 export TERM=xterm
-W=~/.PlayOnGit/wines/"$WV"
+export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
@@ -151,7 +153,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
-Wtricks=~/.PlayOnGit/scripts/winetricks
+export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 tput bold
 tput setaf 3
