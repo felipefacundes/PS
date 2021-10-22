@@ -14,10 +14,10 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.18.r5-x86_64
-GN=Hellblade_Senuas_Sacrifice
-SN="Hellblade: Senua's Sacrifice"
-CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
+export WV=wine-tkg-staging-6.18.r5-x86_64
+export GN=Hellblade_Senuas_Sacrifice
+export SN="Hellblade: Senua's Sacrifice"
+export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
 
 ## Game dir and executable
 EXE0="Steam.exe"
@@ -39,7 +39,7 @@ Pr10="-d3d12"
 Pr11="-vulkan"
 ## All Variables
 export TERM=xterm
-W=~/.PlayOnGit/wines/"$WV"
+export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
@@ -57,7 +57,7 @@ export WINEDEBUG=-all,fps
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
-Wtricks=~/.PlayOnGit/scripts/winetricks
+export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## All Performance Variables
 
@@ -113,7 +113,7 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ######## Zenity (Pseudo GUI) ########
-Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+export Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Get() {
     wget --no-check-certificate --server-response -nc "$@"
 }
@@ -164,7 +164,7 @@ Choose_Wine() {
                 fi
             sed -i "17s/$WV/$NWV/" "$Script_Run"
             rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-            AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
+            AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 11-99`
             zenity --info --ellipsize --title='Success!' --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
         fi
 }
