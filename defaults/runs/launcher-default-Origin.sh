@@ -14,10 +14,10 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.19.r8-x86_64
-GN=Base_Name
-SN="Base Game Name"
-CME="Base Comment"
+export WV=wine-tkg-staging-6.19.r8-x86_64
+export GN=Base_Name
+export SN="Base Game Name"
+export CME="Base Comment"
 
 ## Game dir and executable
 EXE0="Origin.exe"
@@ -38,7 +38,7 @@ Pr10="-d3d12"
 Pr11="-vulkan"
 ## All Variables
 export TERM=xterm
-W=~/.PlayOnGit/wines/"$WV"
+export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
@@ -56,7 +56,7 @@ export WINEDEBUG=-all,fps
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
-Wtricks=~/.PlayOnGit/scripts/winetricks
+export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## All Performance Variables
 
@@ -112,7 +112,7 @@ glxgears -stereo > /dev/null 2>&1
 #export LD_PRELOAD="$LD_PRELOAD:/usr/\$LIB/libgamemodeauto.so.0"
 
 ######## Zenity (Pseudo GUI) ########
-Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
+export Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Get() {
     wget --no-check-certificate --server-response -nc "$@"
 }
@@ -133,14 +133,16 @@ FPS_Xosd() {
     --color=yellow --outline=1 --pos=top --align=left
 }
 Test_Mirror() {
-    Mirrors='master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net'
-    Test_Mirror1=`LANG=C ping -c 2 master.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-    Test_Mirror2=`LANG=C ping -c 2 razaoinfo.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-        if [[ "$TEST_MIRROR1" < "$TEST_MIRROR2" ]]; then
-            export Mirror='https://master.dl.sourceforge.net'
+    Mirrors=(master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net)
+    Test_Mirror0=`LANG=C ping -c 2 "${Mirrors[0]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+    Test_Mirror1=`LANG=C ping -c 2 "${Mirrors[1]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+        if [ "$Test_Mirror0" -lt "$Test_Mirror1" ]; then
+            export Mirror="https://${Mirrors[0]}"
         else
-            export Mirror='https://razaoinfo.dl.sourceforge.net'
+            export Mirror="https://${Mirrors[1]}"
         fi
+    echo "$Test_Mirror0=${Mirrors[0]} x $Test_Mirror1=${Mirrors[1]}"
+    echo "Winner: $Mirror"
 }
 Choose_Wine() {
     bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
@@ -163,7 +165,7 @@ Choose_Wine() {
                 fi
             sed -i "17s/$WV/$NWV/" "$Script_Run"
             rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
-            AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 4-90`
+            AWV=`cat "$Script_Run" | head -n 17 | grep -i WV= | cut -c 11-99`
             zenity --info --ellipsize --title='Success!' --text "<b>Now the new version of Wine is:</b>\n\n$AWV\n\nfor $SN"
         fi
 }
