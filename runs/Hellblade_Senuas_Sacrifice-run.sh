@@ -17,7 +17,7 @@ clear -T "$TERM"
 export WV=wine-tkg-staging-6.18.r5-x86_64
 export GN=Hellblade_Senuas_Sacrifice
 export SN="Hellblade: Senua's Sacrifice"
-export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover. "
+export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover."
 
 ## Game dir and executable
 EXE0="Steam.exe"
@@ -134,14 +134,16 @@ FPS_Xosd() {
     --color=yellow --outline=1 --pos=top --align=left
 }
 Test_Mirror() {
-    Mirrors='master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net'
-    Test_Mirror1=`LANG=C ping -c 2 master.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-    Test_Mirror2=`LANG=C ping -c 2 razaoinfo.dl.sourceforge.net | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | tail -n 1`
-        if [[ "$TEST_MIRROR1" < "$TEST_MIRROR2" ]]; then
-            export Mirror='https://master.dl.sourceforge.net'
+    Mirrors=(master.dl.sourceforge.net razaoinfo.dl.sourceforge.net ufpr.dl.sourceforge.net)
+    Test_Mirror0=`LANG=C ping -c 2 "${Mirrors[0]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+    Test_Mirror1=`LANG=C ping -c 2 "${Mirrors[1]}" | awk '{ print $8 }' | grep -v 'loss,' | grep -v -e '^[[:space:]]*$' | cut -c 6-8 | cut -d'.' -f 1 | tail -n 1`
+        if [ "$Test_Mirror0" -lt "$Test_Mirror1" ]; then
+            export Mirror="https://${Mirrors[0]}"
         else
-            export Mirror='https://razaoinfo.dl.sourceforge.net'
+            export Mirror="https://${Mirrors[1]}"
         fi
+    echo "$Test_Mirror0=${Mirrors[0]} x $Test_Mirror1=${Mirrors[1]}"
+    echo "Winner: $Mirror"
 }
 Choose_Wine() {
     bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
