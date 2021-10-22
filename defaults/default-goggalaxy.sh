@@ -19,10 +19,10 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-WV=wine-tkg-staging-6.19.r8-x86_64
-GN=Base_Name
-SN="Base Game Name"
-CME="Base Comment"
+export WV=wine-tkg-staging-6.19.r8-x86_64
+export GN=Base_Name
+export SN="Base Game Name"
+export CME="Base Comment"
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
@@ -135,7 +135,7 @@ chmod +x ~/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
 clear -T "$TERM"
 
 export TERM=xterm
-W=~/.PlayOnGit/wines/"$WV"
+export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
 export WINE="$W"/bin/wine
 export WINEVERPATH="$W"
@@ -153,7 +153,7 @@ export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=0
-Wtricks=~/.PlayOnGit/scripts/winetricks
+export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 tput bold
 tput setaf 3
