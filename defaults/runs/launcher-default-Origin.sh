@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-staging-6.14-1-x86_64
 export GN=Base_Name
 export SN="Base Game Name"
 export CME="Base Comment"
