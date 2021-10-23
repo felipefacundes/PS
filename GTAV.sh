@@ -248,30 +248,31 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 cd "$WINEPREFIX"
 wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O GTA5.dxvk-cache
 cp -f GTA5.dxvk-cache Launcher.dxvk-cache
-wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
 
 mkdir -p "$HOME/Documentos/Rockstar Games/GTA V"
 cd "$HOME/Documentos/Rockstar Games/GTA V"
-wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
 
 mkdir -p "$HOME/Documents/Rockstar Games/GTA V"
 cd "$HOME/Documents/Rockstar Games/GTA V"
-wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
 
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
-wget --no-check-certificate -nc "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
 Wkill
 
+sleep 3
 rm -f SteamSetup.exe
-wget --no-check-certificate -nc https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
 #export WINEDEBUG=+heap
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
-wget --no-check-certificate -nc https://master.dl.sourceforge.net/project/gj-others/all/Rockstar_Games.tar.zst
+Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
 tar -xf Rockstar_Games.tar.zst
 cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
 rm -f Rockstar_Games.tar.zst
