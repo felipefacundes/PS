@@ -19,23 +19,6 @@ export GN=Base_Name
 export SN="Base Game Name"
 export CME="Base Comment"
 
-## Game dir and executable
-EXE0="Origin.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Origin"
-EXE1="Free any_file.exe"
-DIR1="Free Directory"
-## Executable Parameters
-Pr1="-SkipBuildPatchPrereq"
-Pr2="-opengl"
-Pr3="-gl"
-Pr4="-dx9"
-Pr5="-dx10"
-Pr6="-dx11"
-Pr7="-force-d3d11"
-Pr8="-d3d11legacy"
-Pr9="-d311"
-Pr10="-d3d12"
-Pr11="-vulkan"
 ## All Variables
 export TERM=xterm
 export W=~/.PlayOnGit/wines/"$WV"
@@ -57,6 +40,24 @@ export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
+
+## Game dir and executable
+EXE0="Origin.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Origin"
+EXE1="Free any_file.exe"
+DIR1="Free Directory"
+## Executable Parameters
+Pr1="-SkipBuildPatchPrereq"
+Pr2="-opengl"
+Pr3="-gl"
+Pr4="-dx9"
+Pr5="-dx10"
+Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ## All Performance Variables
 
@@ -170,16 +171,16 @@ Choose_Wine() {
         fi
 }
 Change_EXE0_DIR0(){
-    Read_EXE0=`cat "$Script_Run" | head -n 23 | grep 'EXE0=' | cut -c 6-599`
-    Read_DIR0=`cat "$Script_Run" | head -n 24 | grep 'DIR0=' | cut -c 6-599`
+    Read_EXE0=`cat "$Script_Run" | head -n 45 | grep 'EXE0=' | cut -c 6-599`
+    Read_DIR0=`cat "$Script_Run" | head -n 46 | grep 'DIR0=' | cut -c 6-599`
         zenity --info --ellipsize --title='Default DIR' --text "<b>Default directory where the executable is located:</b>\n\n$AWV\n\nfor $SN"
         Change_DIR0=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
             --text "Default directory where the executable is located" --title "Default directory where the executable is located"`
-            sed -i "24s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
+            sed -i "46s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
         zenity --info --ellipsize --title='Default executable!' --text "<b>Change the default executable:</b>\n\n$AWV\n\nfor $SN"
         Change_EXE0=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
             --text "Change the default executable" --title "Change the default executable"`
-            sed -i "23s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
+            sed -i "45s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
 }
 Rerun_Info() {
     zenity --ellipsize --info --text "<b>Rerun the script</b> (close and open again)."
