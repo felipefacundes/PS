@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-expwine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.19.r8-x86_64
 export GN=ConanExiles
 export SN="Conan Exiles"
 export CME="Conan Exiles is an online multiplayer survival game, now with mounts and mounted combat, set in the lands of Conan the Barbarian."
