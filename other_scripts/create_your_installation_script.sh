@@ -106,7 +106,7 @@ Define_Name() {
     --text "Choose a version of Wine."
     bash <(curl -s https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/wine_list.sh)
     if ls ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt > /dev/null 2>&1 ; then
-        AWV=`cat launcher-default-*.sh | head -n 17 | grep -i WV= | cut -c 4-90`
+        AWV=`cat launcher-default-*.sh | head -n 17 | grep -i WV= | cut -c 11-99`
         NWV=`cat ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt`
         sed -i "s/$AWV/$NWV/g" *default-*.sh
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
@@ -115,7 +115,7 @@ Define_Name() {
     sed -i "s/Base_Name/$Base_Name/g" *default-*.sh
     sed -i "s/Base Game Name/$Base_Game_Name/g" *default-*.sh
     sed -i "s/Base Comment/$Base_Comment/g" *default-*.sh
-    cp -f "$Cust_PNG" ~/.PlayOnGit/icons/"$Base_Name".png
+    cp -f "\"$Cust_PNG\"" ~/.PlayOnGit/icons/"$Base_Name".png
     cp -f launcher-default-*.sh ~/.PlayOnGit/scripts/run/"$Base_Name"-run.sh
     chmod +x ~/.PlayOnGit/scripts/run/"$Base_Name"-run.sh
     cp -f default-*.sh "$Save_Directory/$Base_Name".sh
