@@ -76,6 +76,7 @@ rm -f winetricks
 Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
 chmod +x winetricks
 cd ~/.PlayOnGit/scripts/functions/
+rm -f create_your_installation_script.sh
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/other_scripts/create_your_installation_script.sh > /dev/null 2>&1
 chmod +x create_your_installation_script.sh
 
