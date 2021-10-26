@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
 export WV=wine-staging-6.14-1-x86_64
-export GN=Base_Name
+export GN="Base_Name"
 export SN="Base Game Name"
 export CME="Base Comment"
 
