@@ -20,7 +20,7 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 export WV=wine-staging-6.14-1-x86_64
-export GN=Base_Name
+export GN="Base_Name"
 export SN="Base Game Name"
 export CME="Base Comment"
 
