@@ -266,7 +266,7 @@ if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
     toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
             touch "$toggle_dxvk_check"
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            echo "DXVK Disable" > "$toggle_dxvk_check"
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
