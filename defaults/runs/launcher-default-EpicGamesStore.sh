@@ -263,15 +263,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+    toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            touch "$toggle_dxvk_check"
             echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            rm "$toggle_dxvk_check"
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
