@@ -107,9 +107,8 @@ cd ~/.PlayOnGit/scripts/functions/
 rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
-echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="$WINEPREFIX/.Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
