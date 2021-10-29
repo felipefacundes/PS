@@ -19,7 +19,7 @@ export GN=GTAV
 export SN="Grand Theft Auexport to V"
 export CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
 
-## Base Variables
+## All Variables
 export TERM=xterm
 export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -42,11 +42,11 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="EpicGamesLauncher.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="Steam.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="271590"
-EXE1="Steam.exe"
-DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+EXE1="EpicGamesLauncher.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 EXE2="Launcher.exe"
 DIR2="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 ## Executable Parameters
@@ -190,13 +190,13 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=790 \
+    --height=690 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN} (Epic Games Store)" \
-    FALSE "Run ${SN} (Steam)" \
+    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Epic Games Store)" \
     FALSE "Rockstar Games Launcher" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
@@ -218,18 +218,19 @@ Game_Actions=`zenity \
     FALSE 'Change the default execution path of executable (.exe or .lnk)!' \
     FALSE 'Create your customized script, to run your game or other app!' \
     FALSE "Remove All Wineprefix ${SN}" \
-    FALSE 'Credits:'`
+    FALSE 'Credits:'
+`
 
-if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
+    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
 fi
-if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     cd "$DIR1"
-    "$W"/bin/wine "$EXE1" -dx11 -applaunch "$Steam_Game_ID" \
+    "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -284,15 +285,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+    toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            touch "$toggle_dxvk_check"
+            echo "DXVK Disable" > "$toggle_dxvk_check"
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            rm "$toggle_dxvk_check"
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
