@@ -107,9 +107,8 @@ cd ~/.PlayOnGit/scripts/functions/
 rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
-echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="$WINEPREFIX/.Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
@@ -246,7 +245,7 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd "$WINEPREFIX"
-wget -nc "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O GTA5.dxvk-cache
+Get "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O GTA5.dxvk-cache
 cp -f GTA5.dxvk-cache Launcher.dxvk-cache
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
 
