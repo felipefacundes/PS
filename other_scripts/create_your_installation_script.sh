@@ -11,6 +11,7 @@ Custom_Script=`
     --column 'Base script' \
     TRUE EpicGamesStore \
     FALSE Steam \
+    FALSE "Steam and EpicGamesStore" \
     FALSE UbisoftConnect \
     FALSE Origin \
     FALSE Battle.net \
@@ -26,6 +27,10 @@ Get_Base() {
     if [ "$Custom_Script" = "Steam" ] ; then
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-steam.sh
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam.sh
+    fi
+    if [ "$Custom_Script" = "Steam and EpicGamesStore" ] ; then
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-steam_and_epic.sh
+    wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam_and_epic.sh
     fi
     if [ "$Custom_Script" = "UbisoftConnect" ] ; then
     wget --no-check-certificate -nc https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/default-UbisoftConnect.sh
