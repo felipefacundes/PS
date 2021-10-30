@@ -56,7 +56,7 @@ Steam_Game_ID() {
     Example: 730 is the Counter Strike Global Offensive (CSGO) ID."\
     --entry-text="730" --entry
 `
-    sed -i "s/1234/$Game_ID/g" launcher-default-steam.sh
+    sed -i "s/1234/$Game_ID/g" launcher-default-stea*.sh
 }
 
 Define_Name() {
@@ -120,7 +120,7 @@ Define_Name() {
     sed -i "s/Base_Name/$Base_Name/g" *default-*.sh
     sed -i "s/Base Game Name/$Base_Game_Name/g" *default-*.sh
     sed -i "s/Base Comment/$Base_Comment/g" *default-*.sh
-    cp -f "\"$Cust_PNG\"" ~/.PlayOnGit/icons/"$Base_Name".png
+    cp -f "$Cust_PNG" ~/.PlayOnGit/icons/"$Base_Name".png
     cp -f launcher-default-*.sh ~/.PlayOnGit/scripts/run/"$Base_Name"-run.sh
     chmod +x ~/.PlayOnGit/scripts/run/"$Base_Name"-run.sh
     cp -f default-*.sh "$Save_Directory/$Base_Name".sh
