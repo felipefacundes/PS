@@ -47,8 +47,6 @@ DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="271590"
 EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
-EXE2="Launcher.exe"
-DIR2="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
