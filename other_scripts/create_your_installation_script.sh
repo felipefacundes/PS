@@ -144,6 +144,11 @@ if [ "$Custom_Script" = "Steam" ] ; then
     Steam_Game_ID
     Define_Name
 fi
+if [ "$Custom_Script" = "Steam and EpicGamesStore" ] ; then
+    Get_Base
+    Steam_Game_ID
+    Define_Name
+fi
 if [ "$Custom_Script" = "UbisoftConnect" ] ; then
     Get_Base
     Define_Name
