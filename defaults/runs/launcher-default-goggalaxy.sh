@@ -19,7 +19,7 @@ export GN="Base_Name"
 export SN="Base Game Name"
 export CME="Base Comment"
 
-## All Variables
+## Base Variables
 export TERM=xterm
 export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
