@@ -59,7 +59,7 @@ Steam_Game_ID() {
     Example: 730 is the Counter Strike Global Offensive (CSGO) ID."\
     --entry-text="730" --entry
 `
-    sed -i "s47/1234/$Game_ID/" launcher-default-steam.sh
+    sed -i "s/1234/$Game_ID/g" launcher-default-stea*.sh
 }
 
 Define_Name() {
@@ -141,6 +141,11 @@ if [ "$Custom_Script" = "EpicGamesStore" ] ; then
     Define_Name
 fi
 if [ "$Custom_Script" = "Steam" ] ; then
+    Get_Base
+    Steam_Game_ID
+    Define_Name
+fi
+if [ "$Custom_Script" = "Steam and EpicGamesStore" ] ; then
     Get_Base
     Steam_Game_ID
     Define_Name
