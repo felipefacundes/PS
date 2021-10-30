@@ -44,7 +44,7 @@ export Wtricks=~/.PlayOnGit/scripts/winetricks
 ## Game dir and executable
 EXE0="Steam.exe"
 DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
-Steam_Game_ID="271590"
+Steam_Game_ID="1234"
 EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 ## Executable Parameters
