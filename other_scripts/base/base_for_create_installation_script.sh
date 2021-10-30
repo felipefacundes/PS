@@ -123,7 +123,7 @@ Define_Name() {
     sed -i "s/Base_Name/$Base_Name/g" *default-*.sh
     sed -i "s/Base Game Name/$Base_Game_Name/g" *default-*.sh
     sed -i "s/Base Comment/$Base_Comment/g" *default-*.sh
-    cp -f "\"$Cust_PNG\"" "$Save_Directory/$Base_Name".png
+    cp -f "$Cust_PNG" "$Save_Directory/$Base_Name".png
     cp -f launcher-default-*.sh "$Save_Directory/$Base_Name"-run.sh
     cp -f default-*.sh "$Save_Directory/$Base_Name".sh
     rm -rf ~/.PlayOnGit/tmp/
