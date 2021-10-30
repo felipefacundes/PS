@@ -66,11 +66,11 @@ Check_Wine_and_Get() {
 }
 
 cd ~/.PlayOnGit/scripts/run/
-rm -f "$GN"-run.sh
-Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+#rm -f "$GN"-run.sh
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
-Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+#Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
 rm -f winetricks
 Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
