@@ -236,7 +236,7 @@ if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = "Run ${SN} (Ubisoft Connect)" ] ; then
-    cd "$DIR0"
+    cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
