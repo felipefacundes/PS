@@ -245,12 +245,24 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
+rm -f EpicGamesLauncherInstaller.msi
+Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
+Wkill
+
+sleep 3
 rm -f SteamSetup.exe
 Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
-
 Wkill
+
+rm -f UbisoftConnectInstaller.exe
+Get https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+"$W"/bin/wine UbisoftConnectInstaller.exe /S
+Wkill
+
 rm -rf ~/.local/share/applications/*wine*
+sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
