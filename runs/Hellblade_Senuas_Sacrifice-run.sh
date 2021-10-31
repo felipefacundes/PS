@@ -14,8 +14,8 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.18.r5-x86_64
-export GN=Hellblade_Senuas_Sacrifice
+export WV=wine-tkg-staging-6.19.r8-x86_64
+export GN="Hellblade_Senuas_Sacrifice"
 export SN="Hellblade: Senua's Sacrifice"
 export CME="Set in the Viking age, a broken Celtic warrior embarks on a haunting vision quest into Viking Hell to fight for the soul of her dead lover."
 
@@ -218,7 +218,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN}" ]; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" -dx10 -applaunch "$Steam_Game_ID" \
+    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
@@ -264,15 +264,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+    toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            touch "$toggle_dxvk_check"
+            echo "DXVK Disable" > "$toggle_dxvk_check"
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            rm "$toggle_dxvk_check"
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
@@ -337,8 +337,6 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
             rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
             rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Check-Toggle_Nvidia.txt
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
         fi
     exec "$0"
 fi
