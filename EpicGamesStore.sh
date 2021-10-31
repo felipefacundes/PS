@@ -20,7 +20,7 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
-export GN=EpicGamesStore
+export GN="EpicGamesStore"
 export SN="Epic Games Store"
 export CME="Epic Games Store: a curated digital storefront for PC and Mac, designed with both players and creators in mind."
 
@@ -107,9 +107,8 @@ cd ~/.PlayOnGit/scripts/functions/
 rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
-echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="$WINEPREFIX/.Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
