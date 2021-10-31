@@ -1,5 +1,9 @@
 #!/bin/bash
-
+# License: GPLv3
+# Manteiner: Felipe Facundes
+# 🖂 playongit@gmail.com
+# 﨧 Telegram: @FeFacundes
+# 﨧 Telegram Group: https://t.me/winehq_linux
 Script_Run=~/.PlayOnGit/scripts/run/"$GN"-run.sh
 Custom_Script=`
     zenity \
@@ -120,9 +124,9 @@ Define_Name() {
         rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     fi
 
-    sed -i "s/Base_Name/$Base_Name/g" *default-*.sh
-    sed -i "s/Base Game Name/$Base_Game_Name/g" *default-*.sh
-    sed -i "s/Base Comment/$Base_Comment/g" *default-*.sh
+    sed -i "s|Base_Name|$Base_Name|g" *default-*.sh
+    sed -i "s|Base Game Name|$Base_Game_Name|g" *default-*.sh
+    sed -i "s|Base Comment|$Base_Comment|g" *default-*.sh
     cp -f "$Cust_PNG" "$Save_Directory/$Base_Name".png
     cp -f launcher-default-*.sh "$Save_Directory/$Base_Name"-run.sh
     cp -f default-*.sh "$Save_Directory/$Base_Name".sh
