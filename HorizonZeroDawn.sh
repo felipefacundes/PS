@@ -20,7 +20,7 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
-export GN=HorizonZeroDawn
+export GN="HorizonZeroDawn"
 export SN="Horizon Zero Dawn"
 export CME="Aloy, a young hunter in a world overrun by machines, who sets out to uncover her past. The player uses ranged weapons, a spear, and stealth to combat mechanical creatures and other enemy forces."
 
@@ -107,9 +107,8 @@ cd ~/.PlayOnGit/scripts/functions/
 rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
-echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="$WINEPREFIX/.Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
@@ -227,7 +226,7 @@ tar -xf dxvk-1.9.2.tar.gz
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
-#"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
@@ -249,8 +248,14 @@ cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
-
 Wkill
+
+sleep 3
+rm -f SteamSetup.exe
+Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
+Wkill
+
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
