@@ -15,7 +15,7 @@ rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
-export GN=HorizonZeroDawn
+export GN="HorizonZeroDawn"
 export SN="Horizon Zero Dawn"
 export CME="Aloy, a young hunter in a world overrun by machines, who sets out to uncover her past. The player uses ranged weapons, a spear, and stealth to combat mechanical creatures and other enemy forces."
 
@@ -42,10 +42,11 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="EpicGamesLauncher.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
-EXE1="Free any_file.exe"
-DIR1="Free Directory"
+EXE0="Steam.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+Steam_Game_ID="1151640"
+EXE1="EpicGamesLauncher.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -192,7 +193,8 @@ Game_Actions=`zenity \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN}" \
+    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Epic Games Store)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -213,12 +215,22 @@ Game_Actions=`zenity \
     FALSE 'Change the default execution path of executable (.exe or .lnk)!' \
     FALSE 'Create your customized script, to run your game or other app!' \
     FALSE "Remove All Wineprefix ${SN}" \
-    FALSE 'Credits:'`
+    FALSE 'Credits:'
+`
 
-if [ "$Game_Actions" = "Run ${SN}" ]; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
-    2>&1 | FPS_Xosd
+    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
+fi
+if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
+    cd "$DIR1"
+    "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
+    2>&1 | tee /dev/stderr | sed -u -n -e \
+    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
+    --color=yellow --outline=1 --pos=top --align=left
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
     "$W"/bin/winecfg
@@ -263,15 +275,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+    toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            touch "$toggle_dxvk_check"
+            echo "DXVK Disable" > "$toggle_dxvk_check"
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            rm "$toggle_dxvk_check"
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
@@ -336,8 +348,6 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
             rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
             rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Check-Toggle_Nvidia.txt
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
         fi
     exec "$0"
 fi
