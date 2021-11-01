@@ -257,7 +257,6 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 Wkill
 
 rm -rf ~/.local/share/applications/*wine*
-sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
