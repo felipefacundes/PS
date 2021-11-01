@@ -21,8 +21,8 @@ whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de t
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
 export GN="Heroes_Generals"
-export SN="Heroes Base Game Name Generals"
-export CME="Heroes Base Comment Generals is a full on, all-out WAR experience. Thousands of players fighting one massive clash of nations."
+export SN="Heroes & Generals"
+export CME="Heroes & Generals is a full on, all-out WAR experience. Thousands of players fighting one massive clash of nations."
 
 mkdir -p ~/.local/share/applications/
 mkdir -p ~/.PlayOnGit/wines/
