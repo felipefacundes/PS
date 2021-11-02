@@ -20,7 +20,7 @@ whiptail --msgbox "Installation may take some time depending on the GAME. Above 
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
-export GN=Black_Squad
+export GN="Black_Squad"
 export SN="Black Squad"
 export CME="Black Squad is a free-to-play military first-person-shooter. Players can master their skills and show off their strategies with a wide range."
 
@@ -66,11 +66,11 @@ Check_Wine_and_Get() {
 }
 
 cd ~/.PlayOnGit/scripts/run/
-#rm -f "$GN"-run.sh
-#Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
+rm -f "$GN"-run.sh
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/runs/"$GN"-run.sh > /dev/null 2>&1
 chmod +x "$GN"-run.sh
 cd ~/.PlayOnGit/icons/
-#Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/icons/"$GN".png > /dev/null 2>&1
 cd ~/.PlayOnGit/scripts/
 rm -f winetricks
 Get https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks > /dev/null 2>&1
@@ -107,9 +107,8 @@ cd ~/.PlayOnGit/scripts/functions/
 rm -f "$GN"-Toggle_Nvidia.sh
 touch "$GN"-Toggle_Nvidia.sh
 echo "#!/bin/bash" > "$GN"-Toggle_Nvidia.sh
-echo "GN=$GN" >> "$GN"-Toggle_Nvidia.sh
 echo 'Toggle_Nvidia(){' >> "$GN"-Toggle_Nvidia.sh
-echo 'Check_Nvidia="/home/$USER/.PlayOnGit/scripts/functions/$GN-Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
+echo 'Check_Nvidia="$WINEPREFIX/.Check-Toggle_Nvidia.txt"' >> "$GN"-Toggle_Nvidia.sh
 echo 'Script="/home/$USER/.PlayOnGit/scripts/run/$GN-run.sh"' >> "$GN"-Toggle_Nvidia.sh
 echo 'if [ ! -e "$Check_Nvidia" ]; then' >> "$GN"-Toggle_Nvidia.sh
 echo '    touch "$Check_Nvidia"' >> "$GN"-Toggle_Nvidia.sh
