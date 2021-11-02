@@ -15,29 +15,11 @@ rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
 export WV=wine-tkg-staging-6.19.r8-x86_64
-export GN=Black_Squad
+export GN="Black_Squad"
 export SN="Black Squad"
 export CME="Black Squad is a free-to-play military first-person-shooter. Players can master their skills and show off their strategies with a wide range."
 
-## Game dir and executable
-EXE0="Steam.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
-Steam_Game_ID="414340"
-EXE1="Free any_file.exe"
-DIR1="Free Directory"
-## Executable Parameters
-Pr1="-SkipBuildPatchPrereq"
-Pr2="-opengl"
-Pr3="-gl"
-Pr4="-dx9"
-Pr5="-dx10"
-Pr6="-dx11"
-Pr7="-force-d3d11"
-Pr8="-d3d11legacy"
-Pr9="-d311"
-Pr10="-d3d12"
-Pr11="-vulkan"
-## All Variables
+## Base Variables
 export TERM=xterm
 export W=~/.PlayOnGit/wines/"$WV"
 export WINE64="$W"/bin/wine64
@@ -58,6 +40,25 @@ export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
 export WINEARCH=win64
 export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
+
+## Game dir and executable
+EXE0="Steam.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+Steam_Game_ID="550650"
+EXE1="Free any_file.exe"
+DIR1="Free Directory"
+## Executable Parameters
+Pr1="-SkipBuildPatchPrereq"
+Pr2="-opengl"
+Pr3="-gl"
+Pr4="-dx9"
+Pr5="-dx10"
+Pr6="-dx11"
+Pr7="-force-d3d11"
+Pr8="-d3d11legacy"
+Pr9="-d311"
+Pr10="-d3d12"
+Pr11="-vulkan"
 
 ## All Performance Variables
 
@@ -171,16 +172,16 @@ Choose_Wine() {
         fi
 }
 Change_EXE0_DIR0(){
-    Read_EXE0=`cat "$Script_Run" | head -n 23 | grep 'EXE0=' | cut -c 6-599`
-    Read_DIR0=`cat "$Script_Run" | head -n 24 | grep 'DIR0=' | cut -c 6-599`
+    Read_EXE0=`cat "$Script_Run" | head -n 45 | grep 'EXE0=' | cut -c 6-599`
+    Read_DIR0=`cat "$Script_Run" | head -n 46 | grep 'DIR0=' | cut -c 6-599`
         zenity --info --ellipsize --title='Default DIR' --text "<b>Default directory where the executable is located:</b>\n\n$AWV\n\nfor $SN"
         Change_DIR0=`zenity --file-selection --directory --filename="$WINEPREFIX/drive_c/" \
             --text "Default directory where the executable is located" --title "Default directory where the executable is located"`
-            sed -i "24s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
+            sed -i "46s|${Read_DIR0}|\'${Change_DIR0}\'|" "${Script_Run}"
         zenity --info --ellipsize --title='Default executable!' --text "<b>Change the default executable:</b>\n\n$AWV\n\nfor $SN"
         Change_EXE0=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
             --text "Change the default executable" --title "Change the default executable"`
-            sed -i "23s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
+            sed -i "45s/${Read_EXE0}/\'${Change_EXE0##*/}\'/" "${Script_Run}"
 }
 Rerun_Info() {
     zenity --ellipsize --info --text "<b>Rerun the script</b> (close and open again)."
@@ -263,15 +264,15 @@ if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
-    toggle_dxvk_check=~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+    toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
         if [ ! -e "$toggle_dxvk_check" ]; then
-            touch ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
-            echo "DXVK Disable" > ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            touch "$toggle_dxvk_check"
+            echo "DXVK Disable" > "$toggle_dxvk_check"
             "$Wtricks" d3d9=default d3d10=default d3d10_1=default d3d10core=default d3d11=default dxgi=default 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Disabling DXVK. Wait! Processing...' --text="<b>Disabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Disabled</b>"
         else
-            rm ~/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
+            rm "$toggle_dxvk_check"
             "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native 2>&1 | zenity \
             --progress --pulsate --auto-close --title='Enabling DXVK. Wait! Processing...' --text="<b>Enabling DXVK.</b>\n\n Wait! Processing..."
             zenity --info --ellipsize --title="Toggle DXVK" --text "DXVK <b>Enabled</b>"
@@ -336,8 +337,6 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ]; then
             rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
             rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
             rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Check-Toggle_Nvidia.txt
-            rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-toggle-dxvk-check.txt
         fi
     exec "$0"
 fi
