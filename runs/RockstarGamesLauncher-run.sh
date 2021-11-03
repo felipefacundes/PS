@@ -219,9 +219,7 @@ Game_Actions=`zenity \
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
     "$W"/bin/winecfg
