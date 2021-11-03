@@ -187,36 +187,36 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-"$Wtricks" -q vb6run > /dev/null 2>&1
-"$Wtricks" -q vcrun2008 > /dev/null 2>&1
-"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
-echo "Progress ."
-"$Wtricks" -q vcrun2010 > /dev/null 2>&1
-echo "Progress .."
-"$Wtricks" -q vcrun2012 > /dev/null 2>&1
-"$Wtricks" -q vcrun2013 > /dev/null 2>&1
-echo "Progress ..."
-"$Wtricks" -q mfc140 > /dev/null 2>&1
-"$Wtricks" -q vcrun2015 > /dev/null 2>&1
-#"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#"$Wtricks" -q vb6run > /dev/null 2>&1
+#"$Wtricks" -q vcrun2008 > /dev/null 2>&1
+#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+#echo "Progress ."
+#"$Wtricks" -q vcrun2010 > /dev/null 2>&1
+#echo "Progress .."
+#"$Wtricks" -q vcrun2012 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2013 > /dev/null 2>&1
+#echo "Progress ..."
+#"$Wtricks" -q mfc140 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2015 > /dev/null 2>&1
+"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
 "$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 
-cd ~/.PlayOnGit/setups/
-rm -f VC_redist.x64.exe
-rm -r VC_redist.x86.exe
-Get "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-"$W"/bin/wine VC_redist.x64.exe /q
-"$W"/bin/wine VC_redist.x86.exe /q
+#cd ~/.PlayOnGit/setups/
+#rm -f VC_redist.x64.exe
+#rm -r VC_redist.x86.exe
+#Get "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+#Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+#"$W"/bin/wine VC_redist.x64.exe /q
+#"$W"/bin/wine VC_redist.x86.exe /q
 
-cd ~/.PlayOnGit/libraries/
-Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#cd ~/.PlayOnGit/libraries/
+#Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
@@ -226,7 +226,7 @@ tar -xf dxvk-1.9.2.tar.gz
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
-"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+#"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
