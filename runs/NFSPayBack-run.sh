@@ -45,8 +45,8 @@ export Wtricks=~/.PlayOnGit/scripts/winetricks
 EXE0="Steam.exe"
 DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="1262580"
-EXE1="Free any_file.exe"
-DIR1="Free Directory"
+EXE1="Origin.exe"
+DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -193,7 +193,8 @@ Game_Actions=`zenity \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN}" \
+    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Origin)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -214,11 +215,17 @@ Game_Actions=`zenity \
     FALSE 'Change the default execution path of executable (.exe or .lnk)!' \
     FALSE 'Create your customized script, to run your game or other app!' \
     FALSE "Remove All Wineprefix ${SN}" \
-    FALSE 'Credits:'`
+    FALSE 'Credits:'
+`
 
-if [ "$Game_Actions" = "Run ${SN}" ]; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
+    2>&1 | FPS_Xosd
+fi
+if [ "$Game_Actions" = "Run ${SN} (Origin)" ] ; then
+    cd "$DIR1"
+    "$W"/bin/wine "$EXE1" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
