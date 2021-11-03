@@ -245,11 +245,19 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
+rm -rf OriginThinSetup.exe OriginSetup.exe
+#Get "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
+#Get https://download.dm.origin.com/origin/live/OriginSetup.exe
+Get https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
+"$W"/bin/wine OriginThinSetup.exe
+Wkill
+
+sleep 3
 rm -f SteamSetup.exe
 Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
-
 Wkill
+
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
