@@ -224,23 +224,17 @@ Game_Actions=`zenity \
 if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     cd "$DIR1"
     "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
     "$W"/bin/winecfg
