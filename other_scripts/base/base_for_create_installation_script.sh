@@ -16,6 +16,7 @@ Custom_Script=`
     TRUE EpicGamesStore \
     FALSE Steam \
     FALSE "Steam and EpicGamesStore" \
+    FALSE "Steam, EpicGamesStore and UbisoftConnect" \
     FALSE UbisoftConnect \
     FALSE Origin \
     FALSE Battle.net \
@@ -27,23 +28,27 @@ Get() {
 Get_Base() {
     mkdir -p ~/.PlayOnGit/tmp/
     cd ~/.PlayOnGit/tmp/
-    if [ "$Custom_Script" = "EpicGamesStore" ] ; then
+    if [ "$Custom_Script" = "EpicGamesStore" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-EpicGamesStore.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-EpicGamesStore.sh
     fi
-    if [ "$Custom_Script" = "Steam" ] ; then
+    if [ "$Custom_Script" = "Steam" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-steam.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam.sh
     fi
-    if [ "$Custom_Script" = "Steam and EpicGamesStore" ] ; then
+    if [ "$Custom_Script" = "Steam and EpicGamesStore" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-steam_and_epic.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam_and_epic.sh
     fi
-    if [ "$Custom_Script" = "UbisoftConnect" ] ; then
+    if [ "$Custom_Script" = "Steam, EpicGamesStore and UbisoftConnect" ]; then
+    Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-Steam_Epic_and_Ubisoft.sh
+    Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Steam_Epic_and_Ubisoft.sh
+    fi
+    if [ "$Custom_Script" = "UbisoftConnect" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-UbisoftConnect.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-UbisoftConnect.sh
     fi
-    if [ "$Custom_Script" = "Origin" ] ; then
+    if [ "$Custom_Script" = "Origin" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-Origin.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Origin.sh
     fi
