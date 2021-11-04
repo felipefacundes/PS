@@ -16,7 +16,7 @@ Custom_Script=`
     TRUE EpicGamesStore \
     FALSE Steam \
     FALSE "Steam and EpicGamesStore" \
-    FALSE "Steam, EpicGamesStore and UbisoftConnect" \
+    FALSE 'Steam, EpicGamesStore and UbisoftConnect' \
     FALSE UbisoftConnect \
     FALSE Origin \
     FALSE Battle.net \
@@ -40,7 +40,7 @@ Get_Base() {
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-steam_and_epic.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam_and_epic.sh
     fi
-    if [ "$Custom_Script" = "Steam, EpicGamesStore and UbisoftConnect" ]; then
+    if [ "$Custom_Script" = 'Steam, EpicGamesStore and UbisoftConnect' ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-Steam_Epic_and_Ubisoft.sh
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Steam_Epic_and_Ubisoft.sh
     fi
