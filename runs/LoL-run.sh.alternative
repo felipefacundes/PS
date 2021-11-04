@@ -14,28 +14,29 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-WV=wine-tkg-staging-6.17.r13-x86_64
+WV=wine-staging-4.10-i386-LoL.exec
 GN=LoL
 SN="League of Legends"
 CME="online battle arena free-to-play"
 
 export TERM=xterm
 W=~/.PlayOnGit/wines/"$WV"
-export WINE64="$W"/bin/wine64
-export WINE="$W"/bin/wine
-export WINEVERPATH="$W"
-export WINEPATH="$W/bin:$WINEPATH"
-export WINESERVER="$W"/bin/wineserver
-export WINELOADER64="$W"/bin/wine64
-export WINELOADER="$W"/bin/wine
-export WINEDLLPATH32="$W"/lib32/wine/fakedlls
-export WINEDLLPATH64="$W"/lib/wine/fakedlls
-export WINEDLLPATH="$W"/lib/wine/fakedlls
-export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
-export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
-export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
-export WINEDEBUG=-all,fps
-export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
+#export WINE64="$W"/bin/wine64
+#export WINE="$W"/bin/wine
+#export WINEVERPATH="$W"
+#export WINEPATH="$W/bin:$WINEPATH"
+#export WINESERVER="$W"/bin/wineserver
+#export WINELOADER64="$W"/bin/wine64
+#export WINELOADER="$W"/bin/wine
+#export WINEDLLPATH32="$W"/lib32/wine/fakedlls
+#export WINEDLLPATH64="$W"/lib/wine/fakedlls
+#export WINEDLLPATH="$W"/lib/wine/fakedlls
+#export LD_LIBRARY32_PATH="$W/lib32:$LD_LIBRARY32_PATH"
+#export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
+#export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
+#export WINEDEBUG=-all,fps
+#export WINEDEBUG=fixme-all
+export WINEPREFIX=~/.wine-appimage-lol
 export WINEARCH=win64
 export WINEESYNC=1
 Wtricks=~/.PlayOnGit/scripts/winetricks
@@ -138,7 +139,7 @@ Game_Actions=`zenity \
     FALSE Credits`
 
 if [ "$Game_Actions" = "Run ${SN}" ] ; then
-    "$W"/bin/wine "$EXE" \
+    "$W" wine "$EXE" \
     2>&1 | tee /dev/stderr | sed -u -n -e \
     '/trace/ s/.*approx //p' | osd_cat --lines=1 \
     --color=yellow --outline=1 --pos=top --align=left
@@ -258,7 +259,7 @@ if [ "$Game_Actions" = "Remove All Wineprefix ${SN}" ] ; then
     --column 'Choice' --column 'Action' TRUE No FALSE Yes`
     if [ "$Del_Prefix" = "Yes" ] ; then
         rm -f /home/"$USER"/.local/share/applications/"$GN".desktop
-        rm -rf /home/"$USER"/.PlayOnGit/wineprefixes/"$GN"/
+        rm -rf ~/.wine-appimage-lol
         rm -f /home/"$USER"/.PlayOnGit/scripts/run/"$GN"-run.sh
         rm -f /home/"$USER"/.PlayOnGit/scripts/functions/"$GN"-Toggle_Nvidia.sh
     fi
