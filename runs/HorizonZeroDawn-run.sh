@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.20.r6-x86_64
 export GN="HorizonZeroDawn"
 export SN="Horizon Zero Dawn"
 export CME="Aloy, a young hunter in a world overrun by machines, who sets out to uncover her past. The player uses ranged weapons, a spear, and stealth to combat mechanical creatures and other enemy forces."
