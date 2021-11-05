@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.20.r6-x86_64
 export GN="NieR-Automata"
 export SN="NieR Automata"
 export CME="NieR: Automata tells the story of androids 2B, 9S and A2 and their battle to reclaim the machine-driven dystopia overrun by powerful machines."
