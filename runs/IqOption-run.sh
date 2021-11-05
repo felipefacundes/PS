@@ -42,8 +42,8 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="EpicGamesLauncher.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="IQ Option.exe"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/IQ Option"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
 ## Executable Parameters
@@ -217,7 +217,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN}" ]; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" "$Pr1" "$Pr2" \
+    "$W"/bin/wine "$EXE0" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
