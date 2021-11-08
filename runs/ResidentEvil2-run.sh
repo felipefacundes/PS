@@ -37,13 +37,13 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export WINEDEBUG=-all,fps
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
-export WINEARCH=win32
+export WINEARCH=win64
 export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
 EXE0="Steam.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files/Steam/"
+DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="883710"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
