@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.20.r6-x86_64
 export GN="EpicGamesStore"
 export SN="Epic Games Store"
 export CME="Epic Games Store: a curated digital storefront for PC and Mac, designed with both players and creators in mind."
