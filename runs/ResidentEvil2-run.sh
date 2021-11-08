@@ -37,7 +37,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export WINEDEBUG=-all,fps
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
