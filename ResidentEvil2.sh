@@ -175,6 +175,11 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 "$Wtricks" -q --force wmp11 > /dev/null 2>&1
+cd "$WINEPREFIX"/drive_c/
+Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz
+tar -xf mpv.tar.xz
+cd "$WINEPREFIX"/drive_c/mpv
+"$W"/bin/wineconsole mpv-install.bat
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
