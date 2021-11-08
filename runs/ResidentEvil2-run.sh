@@ -43,7 +43,7 @@ export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
 EXE0="Steam.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+DIR0="$WINEPREFIX/drive_c/Program Files/Steam/"
 Steam_Game_ID="883710"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
