@@ -151,7 +151,7 @@ export LD_LIBRARY64_PATH="$W/lib:$LD_LIBRARY64_PATH"
 export LD_LIBRARY_PATH="$W/lib:$LD_LIBRARY_PATH"
 export WINEDEBUG=-all
 export WINEPREFIX=~/.PlayOnGit/wineprefixes/"$GN"
-export WINEARCH=win64
+export WINEARCH=win32
 export WINEESYNC=0
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
@@ -174,6 +174,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+"$Wtricks" -q wmp9 > /dev/null 2>&1
+"$Wtricks" -q wmp10 > /dev/null 2>&1
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
