@@ -245,9 +245,9 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
-rm -f EpicGamesLauncherInstaller.msi
-Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
+rm -f MicroSIP-3.20.5.exe
+Get https://www.opencode.net/felipefacundes/free-games/raw/master/MicroSIP-3.20.5.exe
+"$W"/bin/wine MicroSIP-3.20.5.exe
 
 Wkill
 rm -rf ~/.local/share/applications/*wine*
