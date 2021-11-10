@@ -42,8 +42,8 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="EpicGamesLauncher.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE0="microsip.exe"
+DIR0="$WINEPREFIX/drive_c/users/$USER/Local Settings/Application Data/MicroSIP"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
 ## Executable Parameters
