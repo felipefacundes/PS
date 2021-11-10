@@ -222,11 +222,11 @@ Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-
 "$W"/bin/wine VC_redist.x64.exe /q
 "$W"/bin/wine VC_redist.x86.exe /q
 
-#cd ~/.PlayOnGit/libraries/
-#Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-#tar -xf mfinstall.tar.xz
-#cd mfinstall
-#bash install-mf.sh > /dev/null 2>&1
+cd ~/.PlayOnGit/libraries/
+Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
