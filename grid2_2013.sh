@@ -236,7 +236,8 @@ tput sgr0
 "$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
-Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/Grid2/dxvk.conf
+Get "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/grid2_avx.dxvk-cache?raw=true" -O grid2_avx.dxvk-cache
 
 # Explorer++ File Manager
 cd "$WINEPREFIX/drive_c/windows/"
