@@ -251,6 +251,7 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 Wkill
 Get https://www.gameranger.com/download/GameRangerSetup.exe
 "$W"/bin/wine GameRangerSetup.exe
+sleep 40
 
 Wkill
 rm -rf ~/.local/share/applications/*wine*
