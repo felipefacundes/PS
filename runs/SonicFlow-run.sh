@@ -218,7 +218,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN} Next Dimension 1.20" ]; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" "$Pr1" \
+    "$W"/bin/wine "$EXE0" "$Pr1" -vulkan \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Run ${SN} Demo 1" ]; then
