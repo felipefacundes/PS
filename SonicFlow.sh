@@ -250,6 +250,9 @@ Get "$Mirror"/project/gj-others/all/SocFlow-Demo-1.tar
 Get "$Mirror"/project/gj-others/all/sf2-2020.tar.zst
 tar -xf SocFlow-Demo-1.tar
 tar -xf sf2-2020.tar.zst
+sleep 2
+rm -f SocFlow-Demo-1.tar
+rm -f sf2-2020.tar.zst
 
 Wkill
 rm -rf ~/.local/share/applications/*wine*
