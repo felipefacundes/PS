@@ -42,8 +42,8 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="Free any_file.exe"
-DIR0="Free Directory"
+EXE0="wampmanager.exe"
+DIR0="$WINEPREFIX/drive_c/wamp64"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
 ## Executable Parameters
