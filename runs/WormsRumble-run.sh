@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.20.r10-x86_64
+export WV=wine-ge-custom-6.20.GE.1-1-x86_64
 export GN="WormsRumble"
 export SN="Worms Rumble"
 export CME="Worms Rumble is Worms like you've never played it before, with intense, real-time, arena-based 32 player cross-platform combat. Get ready for Deathmatch"
