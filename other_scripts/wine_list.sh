@@ -11,6 +11,7 @@ Wine_List=`
     FALSE "wine-tkg-staging-6.21.r0-x86_64" \
     FALSE "wine-tkg-staging-6.20.r10-x86_64" \
     FALSE "wine-tkg-staging-6.20.r6-x86_64" \
+    FALSE "wine-ge-custom-6.20.GE.1-1-x86_64" \
     FALSE "wine-tkg-staging-6.20.r1-x86_64" \
     FALSE "wine-tkg-staging-6.20.r0-x86_64" \
     FALSE "wine-tkg-staging-6.19.r8-x86_64" \
@@ -44,6 +45,10 @@ fi
 if [ "$Wine_List" = "wine-tkg-staging-6.20.r6-x86_64" ]; then
     touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     echo "wine-tkg-staging-6.20.r6-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
+if [ "$Wine_List" = "wine-ge-custom-6.20.GE.1-1-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-ge-custom-6.20.GE.1-1-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
 fi
 if [ "$Wine_List" = "wine-tkg-staging-6.20.r1-x86_64" ]; then
     touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
