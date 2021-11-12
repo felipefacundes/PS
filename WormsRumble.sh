@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.20.r10-x86_64
+export WV=wine-ge-custom-6.20.GE.1-1-x86_64
 export GN="WormsRumble"
 export SN="Worms Rumble"
 export CME="Worms Rumble is Worms like you've never played it before, with intense, real-time, arena-based 32 player cross-platform combat. Get ready for Deathmatch"
