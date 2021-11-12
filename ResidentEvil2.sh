@@ -176,13 +176,17 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 tput sgr0
 
 "$Wtricks" -q --force wmp11 > /dev/null 2>&1
+"$Wtricks" -q --force l3codecx > /dev/null 2>&1
 cd "$WINEPREFIX"/drive_c/
 Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/codecs-and-players/mpv.tar.xz > /dev/null 2>&1
 tar -xf mpv.tar.xz
 cd "$WINEPREFIX"/drive_c/mpv
 "$W"/bin/wineconsole mpv-install.bat
+"$Wtricks" -q comctl32ocx > /dev/null 2>&1
+"$Wtricks" -q comdlg32ocx > /dev/null 2>&1
+"$Wtricks" -q mf richtx32 winhttp msftedit mshflxgd msflxgrd msdelta > /dev/null 2>&1
+"$Wtricks" -q quartz > /dev/null 2>&1
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
-"$Wtricks" -q mf > /dev/null 2>&1
 
 tput bold
 tput setaf 3
