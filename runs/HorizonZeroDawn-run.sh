@@ -220,7 +220,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
+    "$W"/bin/wine "$EXE0" -dx12 -applaunch "$Steam_Game_ID" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
