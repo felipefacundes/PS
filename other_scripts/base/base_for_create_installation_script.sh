@@ -42,7 +42,7 @@ Get_Base() {
     fi
     if [ "$Custom_Script" = "Steam, EpicGamesStore and UbisoftConnect" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-Steam_Epic_and_Ubisoft.sh
-    Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-Steam_Epic_and_Ubisoft.sh
+    Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/runs/launcher-default-steam_epic_and_ubisoft.sh
     fi
     if [ "$Custom_Script" = "UbisoftConnect" ]; then
     Get https://raw.githubusercontent.com/felipefacundes/PS/master/defaults/base/default-UbisoftConnect.sh
