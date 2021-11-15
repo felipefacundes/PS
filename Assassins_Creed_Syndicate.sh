@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.21.r8-x86_64
+export WV=wine-staging-6.16-1-x86_64
 export GN="Assassins_Creed_Syndicate"
 export SN="Assassin's Creed® Syndicate"
 export CME="In Assassin's Creed Syndicate, action is fast-paced and brutal. As a master of combat, combine powerful multi-kills and countermoves to strike your enemies down"
@@ -174,10 +174,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$W"/bin/wineboot
-"$W"/bin/wine uninstaller --remove {BEF75720-E23F-5A02-B01F-CE9B220A1B92} {B9CD3566-6115-5FD4-960F-59EF845316EC}
-Wkill
-"$Wtricks" -q faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+#"$W"/bin/wineboot
+#"$W"/bin/wine uninstaller --remove {BEF75720-E23F-5A02-B01F-CE9B220A1B92} {B9CD3566-6115-5FD4-960F-59EF845316EC}
+#Wkill
+"$Wtricks" -q faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
 echo
