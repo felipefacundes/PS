@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.21.r8-x86_64
+export WV=wine-ge-custom-6.21.GE.1-1-x86_64
 export GN="Assassins_Creed_Syndicate"
 export SN="Assassin's Creed® Syndicate"
 export CME="In Assassin's Creed Syndicate, action is fast-paced and brutal. As a master of combat, combine powerful multi-kills and countermoves to strike your enemies down"
@@ -47,8 +47,10 @@ DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="368500"
 EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
-EXE2="upc.exe"
+EXE2="UbisoftConnect"
 DIR2="$WINEPREFIX/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher"
+EXE3="ACS"
+DIR3="$WINEPREFIX/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher/games/Assassin's Creed Syndicate"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -107,7 +109,7 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 #export STAGING_WRITECOPY=1
-export DXVK_HUD=fps
+export DXVK_HUD=compiler
 export DXVK_ASYNC=1
 glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
@@ -190,7 +192,7 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=710 \
+    --height=740 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
@@ -198,6 +200,7 @@ Game_Actions=`zenity \
     FALSE "Run ${SN} (Steam)" \
     FALSE "Run ${SN} (Epic Games Store)" \
     TRUE "Run ${SN} (Ubisoft Connect)" \
+    FALSE "Run ${SN} (directly)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -233,7 +236,12 @@ if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ]; then
 fi
 if [ "$Game_Actions" = "Run ${SN} (Ubisoft Connect)" ]; then
     cd "$DIR2"
-    "$W"/bin/wine "$EXE2" \
+    "$W"/bin/wine "$EXE2" uplay://launch/1875/0 -dx11 \
+    2>&1 | FPS_Xosd
+fi
+if [ "$Game_Actions" = "Run ${SN} (directly)" ]; then
+    cd "$DIR3"
+    "$W"/bin/wine "$EXE3" -dx11 \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
