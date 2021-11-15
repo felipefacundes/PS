@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-ge-custom-6.21.GE.1-1-x86_64
+export WV=wine-tkg-staging-6.21.r8-x86_64
 export GN="Assassins_Creed_Syndicate"
 export SN="Assassin's Creed® Syndicate"
 export CME="In Assassin's Creed Syndicate, action is fast-paced and brutal. As a master of combat, combine powerful multi-kills and countermoves to strike your enemies down"
