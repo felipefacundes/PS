@@ -190,14 +190,14 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=690 \
+    --height=710 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Steam)" \
     FALSE "Run ${SN} (Epic Games Store)" \
-    FALSE "Run ${SN} (Ubisoft Connect)" \
+    TRUE "Run ${SN} (Ubisoft Connect)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
