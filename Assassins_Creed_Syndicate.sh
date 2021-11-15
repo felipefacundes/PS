@@ -174,7 +174,9 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
+"$W"/bin/wineboot
 "$W"/bin/wine uninstaller --remove {BEF75720-E23F-5A02-B01F-CE9B220A1B92} {B9CD3566-6115-5FD4-960F-59EF845316EC}
+Wkill
 "$Wtricks" -q faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 
 echo
