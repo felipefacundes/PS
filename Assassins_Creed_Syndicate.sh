@@ -178,6 +178,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #"$W"/bin/wine uninstaller --remove {BEF75720-E23F-5A02-B01F-CE9B220A1B92} {B9CD3566-6115-5FD4-960F-59EF845316EC}
 #Wkill
 "$Wtricks" -q faudio mf corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+"$Wtricks" -q fontsmooth-rgb > /dev/null 2>&1
 
 echo
 echo
@@ -190,10 +191,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-#"$Wtricks" -q vb6run > /dev/null 2>&1
+"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+"$Wtricks" -q vb6run > /dev/null 2>&1
 #"$Wtricks" -q vcrun2008 > /dev/null 2>&1
-#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress ."
 #"$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
@@ -230,6 +231,7 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
 "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" -q vkd3d > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
