@@ -177,7 +177,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 #"$W"/bin/wineboot
 #"$W"/bin/wine uninstaller --remove {BEF75720-E23F-5A02-B01F-CE9B220A1B92} {B9CD3566-6115-5FD4-960F-59EF845316EC}
 #Wkill
-"$Wtricks" -q faudio corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+"$Wtricks" -q faudio mf corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
 echo
 echo
@@ -216,10 +216,10 @@ cd ~/.PlayOnGit/setups/
 #"$W"/bin/wine VC_redist.x86.exe /q
 
 cd ~/.PlayOnGit/libraries/
-#Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-#tar -xf mfinstall.tar.xz
-#cd mfinstall
-#bash install-mf.sh > /dev/null 2>&1
+Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
@@ -236,7 +236,7 @@ echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win7 csmt=off grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
@@ -248,16 +248,16 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
-#rm -f EpicGamesLauncherInstaller.msi
-#Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
-#"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
-#Wkill
+rm -f EpicGamesLauncherInstaller.msi
+Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+"$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
+Wkill
 
-#sleep 3
-#rm -f SteamSetup.exe
-#Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
-#"$W"/bin/wine SteamSetup.exe
-#Wkill
+sleep 3
+rm -f SteamSetup.exe
+Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
+"$W"/bin/wine SteamSetup.exe
+Wkill
 
 rm -f UbisoftConnectInstaller.exe
 Get https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
