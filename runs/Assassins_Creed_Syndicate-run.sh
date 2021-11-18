@@ -109,7 +109,7 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 #export STAGING_WRITECOPY=1
-export DXVK_HUD=compiler
+export DXVK_HUD=fps
 export DXVK_ASYNC=1
 glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
