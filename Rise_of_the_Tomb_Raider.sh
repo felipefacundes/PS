@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.17.r13-x86_64
 export GN="Rise_of_the_Tomb_Raider"
 export SN="Rise of the Tomb Raider"
 export CME="With over an hour of new story, a replayable combat mode, classic skins, a new outfit and weapon, and a new difficulty mode, this is the perfect"
@@ -175,6 +175,7 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+"$Wtricks" -q fontsmooth-rgb > /dev/null 2>&1
 
 echo
 echo
@@ -202,6 +203,8 @@ echo "Progress ..."
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
 "$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" -q vkd3d > /dev/null 2>&1
+
 tput sgr0
 
 cd ~/.PlayOnGit/setups/
