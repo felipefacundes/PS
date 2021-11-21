@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.17.r13-x86_64
 export GN="Rise_of_the_Tomb_Raider"
 export SN="Rise of the Tomb Raider"
 export CME="With over an hour of new story, a replayable combat mode, classic skins, a new outfit and weapon, and a new difficulty mode, this is the perfect"
