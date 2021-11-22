@@ -258,6 +258,11 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
+rm -f UbisoftConnectInstaller.exe
+Get https://ubistatic3-a.akamaihd.net/orbit/launcher_installer/UbisoftConnectInstaller.exe
+"$W"/bin/wine UbisoftConnectInstaller.exe /S
+
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
