@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.21.r10-whfx-x86_64
+export WV=wine-tkg-staging-6.22.r0-whfx-x86_64
 export GN="ResidentEvil2"
 export SN="Resident Evil 2"
 export CME="A deadly virus engulfs the residents of Raccoon City in September of 1998, plunging the city into chaos as flesh eating zombies roam the streets"
