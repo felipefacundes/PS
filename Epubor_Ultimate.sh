@@ -260,7 +260,7 @@ Wkill
 
 "$W"/bin/wine Kindle-for-PC-1-26-55076.exe
 
-Wkill
+#Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
