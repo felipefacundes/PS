@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.22.r0-x86_64
+export WV=wine-staging-5.21-1-x86_64
 export GN="Watch_Dogs_2"
 export SN="Watch Dogs 2"
 export CME="Players control Marcus Holloway, a hacker who works with the hacking group DedSec to take down the city's advanced surveillance system known as ctOS."
@@ -47,7 +47,7 @@ DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="447040"
 EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
-EXE2="upc.exe"
+EXE2="UbisoftConnect"
 DIR2="$WINEPREFIX/drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
@@ -233,7 +233,7 @@ if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ]; then
 fi
 if [ "$Game_Actions" = "Run ${SN} (Ubisoft Connect)" ]; then
     cd "$DIR2"
-    "$W"/bin/wine "$EXE2" \
+    "$W"/bin/wine "$EXE2" uplay://launch/2688/0 -eac_launcher -nosplash -dx11 \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
