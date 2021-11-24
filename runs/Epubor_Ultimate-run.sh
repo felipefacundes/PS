@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.17.r13-x86_64
+export WV=wine-tkg-staging-6.22.r0-x86_64
 export GN="Epubor_Ultimate"
 export SN="Epubor Ultimate 3.0.13.812 more Kindle 1.26"
 export CME="The Best eBook converter, in is most advanced shape. Decrypt (Removal DRM) and convert"
