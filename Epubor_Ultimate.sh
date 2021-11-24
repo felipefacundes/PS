@@ -174,7 +174,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q corefonts d3dcompiler_43 d3dcompiler_47 gdiplus > /dev/null 2>&1
+"$Wtricks" -q corefonts > /dev/null 2>&1
 "$Wtricks" -q fontsmooth=rgb > /dev/null 2>&1
 
 echo
@@ -188,21 +188,21 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-"$Wtricks" -q vb6run > /dev/null 2>&1
-"$Wtricks" -q vcrun2008 > /dev/null 2>&1
-"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#"$Wtricks" -q vb6run > /dev/null 2>&1
+#"$Wtricks" -q vcrun2008 > /dev/null 2>&1
+#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress ."
-"$Wtricks" -q vcrun2010 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
-"$Wtricks" -q vcrun2012 > /dev/null 2>&1
-"$Wtricks" -q vcrun2013 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2012 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
-"$Wtricks" -q mfc140 > /dev/null 2>&1
-"$Wtricks" -q vcrun2015 > /dev/null 2>&1
+#"$Wtricks" -q mfc140 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
-"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled csmt=off hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 
 #cd ~/.PlayOnGit/setups/
@@ -235,7 +235,7 @@ echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 > /dev/null 2>&1
 
 #cd "$WINEPREFIX"
 #Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
