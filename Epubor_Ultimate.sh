@@ -259,6 +259,7 @@ cp -f Kindle-for-PC-1-26-55076.exe "$WINEPREFIX/drive_c" #For fix Option
 Wkill
 
 "$W"/bin/wine Kindle-for-PC-1-26-55076.exe
+sleep 46
 
 #Wkill
 rm -rf ~/.local/share/applications/*wine*
