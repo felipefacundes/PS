@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.22.r0-x86_64
+export WV=wine-tkg-staging-6.17.r13-x86_64
 export GN="Epubor_Ultimate"
 export SN="Epubor Ultimate 3.0.13.812 more Kindle 1.26"
 export CME="The Best eBook converter, in is most advanced shape. Decrypt (Removal DRM) and convert"
@@ -174,7 +174,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q corefonts > /dev/null 2>&1
+"$Wtricks" -q corefonts gdiplus > /dev/null 2>&1
 "$Wtricks" -q fontsmooth=rgb > /dev/null 2>&1
 
 echo
@@ -188,12 +188,12 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-#"$Wtricks" -q vb6run > /dev/null 2>&1
-#"$Wtricks" -q vcrun2008 > /dev/null 2>&1
-#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+"$Wtricks" -q vb6run > /dev/null 2>&1
+"$Wtricks" -q vcrun2008 > /dev/null 2>&1
+"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress ."
-#"$Wtricks" -q vcrun2010 > /dev/null 2>&1
+"$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
 #"$Wtricks" -q vcrun2012 > /dev/null 2>&1
 #"$Wtricks" -q vcrun2013 > /dev/null 2>&1
