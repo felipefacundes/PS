@@ -235,7 +235,7 @@ echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win10 > /dev/null 2>&1
+"$Wtricks" -q win7 > /dev/null 2>&1
 
 #cd "$WINEPREFIX"
 #Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
