@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.22.r0-x86_64
+export WV=wine-tkg-staging-6.17.r13-x86_64
 export GN="Epubor_Ultimate"
 export SN="Epubor Ultimate 3.0.13.812 more Kindle 1.26"
 export CME="The Best eBook converter, in is most advanced shape. Decrypt (Removal DRM) and convert"
@@ -187,14 +187,14 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=690 \
+    --height=720 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "Run Epubor Ultimate 3.0.13.812" \
     FALSE "Run Kindle" \
-    FALSE "Fix Kindle 1.26" \
+    FALSE "Fix Kindle 1.26 (reinstall)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -225,7 +225,7 @@ if [ "$Game_Actions" = "Run Kindle" ]; then
     cd "$DIR1"
     "$W"/bin/wine "$EXE1"
 fi
-if [ "$Game_Actions" = "Fix Kindle 1.26" ]; then
+if [ "$Game_Actions" = "Fix Kindle 1.26 (reinstall)" ]; then
     rm -rf "$DIR1"
     cd "$WINEPREFIX/drive_c"
     "$W"/bin/wine Kindle-for-PC-1-26-55076.exe
