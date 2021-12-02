@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.20.r6-x86_64
+export WV=wine-tkg-staging-6.22.r8-x86_64
 export GN="MortalKombat11"
 export SN="Mortal Kombat 11"
 export CME="Mortal Kombat is back and better than ever in the next evolution of the iconic franchise. The all new Custom Character Variations give you unprecedented"
