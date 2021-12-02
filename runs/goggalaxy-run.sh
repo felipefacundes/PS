@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.22.r8-x86_64
 export GN="goggalaxy"
 export SN="GOG Galaxy 2.0 (with multiple platforms)"
 export CME="Connect GOG GALAXY 2.0 with multiple platforms and unite all your games and friends scattered across them in one powerful app."
