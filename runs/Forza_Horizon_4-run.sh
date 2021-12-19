@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.20.r6-x86_64
+export WV=wine-staging-7.0rc2.r0-x86_64
 export GN="Forza_Horizon_4"
 export SN="Forza Horizon 4"
 export CME="Dynamic seasons change everything at the world's greatest automotive festival. Go it alone or team up with others to explore beautiful"
