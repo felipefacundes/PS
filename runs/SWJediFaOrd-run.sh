@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-staging-7.0rc2.r0-x86_64
 export GN="SWJediFaOrd"
 export SN="Star Wars Jedi Fallen Order"
 export CME="As one of the last Jedi, you must do whatever it takes to survive."
@@ -47,6 +47,8 @@ DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
 Steam_Game_ID="1172380"
 EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
+EXE2="Origin.exe"
+DIR2="$WINEPREFIX/drive_c/Program Files (x86)/Origin"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -188,13 +190,14 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=690 \
+    --height=710 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "Run ${SN} (Steam)" \
+    FALSE "Run ${SN} (Steam)" \
     FALSE "Run ${SN} (Epic Games Store)" \
+    TRUE "Run ${SN} (Origin)" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -218,14 +221,19 @@ Game_Actions=`zenity \
     FALSE 'Credits:'
 `
 
-if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Steam)" ]; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | FPS_Xosd
 fi
-if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
+if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ]; then
     cd "$DIR1"
     "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
+    2>&1 | FPS_Xosd
+fi
+if [ "$Game_Actions" = "Run ${SN} (Origin)" ]; then
+    cd "$DIR2"
+    "$W"/bin/wine "$EXE2" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
