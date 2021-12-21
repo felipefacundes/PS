@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-staging-7.0rc2.r0-x86_64
 export GN="SWJediFaOrd"
 export SN="Star Wars Jedi Fallen Order"
 export CME="As one of the last Jedi, you must do whatever it takes to survive."
@@ -175,6 +175,7 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
+"$Wtricks" -q fontsmooth=rgb > /dev/null 2>&1
 
 echo
 echo
@@ -227,6 +228,7 @@ cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$
 cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
 "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" -q vkd3d > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
@@ -245,6 +247,13 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 
 ######################### Setup executable/game here ##########################
 cd ~/.PlayOnGit/setups/
+rm -rf OriginThinSetup.exe OriginSetup.exe
+#Get "https://origin-a.akamaihd.net/Origin-Client-Download/origin/legacy/OriginThinSetup.exe" -O OriginThinSetup.exe
+#Get https://download.dm.origin.com/origin/live/OriginSetup.exe
+Get https://origin-a.akamaihd.net/Origin-Client-Download/origin/live/OriginThinSetup.exe
+"$W"/bin/wine OriginThinSetup.exe
+Wkill
+
 rm -f EpicGamesLauncherInstaller.msi
 Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
@@ -254,8 +263,8 @@ sleep 3
 rm -f SteamSetup.exe
 Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
-Wkill
 
+Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
