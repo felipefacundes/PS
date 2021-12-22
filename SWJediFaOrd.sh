@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-staging-7.0rc2.r0-x86_64
+export WV=wine-tkg-staging-6.22.r8-x86_64
 export GN="SWJediFaOrd"
 export SN="Star Wars Jedi Fallen Order"
 export CME="As one of the last Jedi, you must do whatever it takes to survive."
