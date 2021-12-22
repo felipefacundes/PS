@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.19.r8-x86_64
+export WV=wine-tkg-staging-6.22.r8-x86_64
 export GN="SASRT"
 export SN="Sonic All Stars Racing Transformed"
 export CME="Sonic and the All-Stars cast line up on the starting grid once again to battle for supremacy in the ultimate race."
