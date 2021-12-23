@@ -42,8 +42,8 @@ export WINEESYNC=1
 export Wtricks=~/.PlayOnGit/scripts/winetricks
 
 ## Game dir and executable
-EXE0="Steam.exe"
-DIR0="$WINEPREFIX/drive_c/Program Files (x86)/Steam/"
+EXE0='ASN_App_PcDx9_Final.exe'
+DIR0='/home/rfacundes/.PlayOnGit/wineprefixes/SASRT/drive_c/Program Files (x86)/Sonic All-Stars Racing Transformed'
 Steam_Game_ID="212480"
 EXE1="Free any_file.exe"
 DIR1="Free Directory"
@@ -105,7 +105,13 @@ export PBA_DISABLE=0
 export WINE_LARGE_ADDRESS_AWARE=1
 export STAGING_SHARED_MEMORY=1
 #export STAGING_WRITECOPY=1
+export VSYNC=0
+export FPS=200
 export DXVK_HUD=fps
+
+export VK_LAYER_PATH=.
+export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_VkGHL"
+
 export DXVK_ASYNC=1
 glxinfo -B 2> /dev/null
 glxgears -stereo > /dev/null 2>&1
@@ -194,6 +200,7 @@ Game_Actions=`zenity \
     --radiolist --column 'Choice' \
     --column 'Action' \
     TRUE "Run ${SN}" \
+    FALSE "Launcher and Settings" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
     FALSE 'Open an executable (.exe or .msi)' \
@@ -220,6 +227,10 @@ if [ "$Game_Actions" = "Run ${SN}" ]; then
     cd "$DIR0"
     "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
     2>&1 | FPS_Xosd
+fi
+if [ "$Game_Actions" = "Launcher and Settings" ]; then
+    find "$WINEPREFIX/drive_c" -name Launcher.exe -exec "$W"/bin/wine {} \;
+    exec "$0"
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
     "$W"/bin/winecfg
