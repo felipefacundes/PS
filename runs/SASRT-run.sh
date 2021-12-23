@@ -233,7 +233,7 @@ if [ "$Game_Actions" = 'Open an executable (.exe or .msi)' ]; then
     Open_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "\"${Open_EXE}\""
-    exec "$0"
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'WineFile (Wine File Manager)' ]; then
     cd "$WINEPREFIX/drive_c/"
