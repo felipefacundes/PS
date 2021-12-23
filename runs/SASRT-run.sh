@@ -109,8 +109,8 @@ export VSYNC=0
 export FPS=200
 export DXVK_HUD=fps
 
-export VK_LAYER_PATH=.
-export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_VkGHL"
+#export VK_LAYER_PATH=.
+#export VK_INSTANCE_LAYERS="VK_LAYER_LUNARG_VkGHL"
 
 export DXVK_ASYNC=1
 glxinfo -B 2> /dev/null
