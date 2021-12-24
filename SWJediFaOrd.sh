@@ -188,10 +188,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-"$Wtricks" -q vb6run > /dev/null 2>&1
-"$Wtricks" -q vcrun2008 > /dev/null 2>&1
-"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+#"$Wtricks" -q vb6run > /dev/null 2>&1
+#"$Wtricks" -q vcrun2008 > /dev/null 2>&1
+#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress ."
 "$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
