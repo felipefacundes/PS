@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.21.r8-x86_64
+export WV=wine-tkg-staging-6.22.r8-x86_64
 export GN="SWJediFaOrd"
 export SN="Star Wars Jedi Fallen Order"
 export CME="As one of the last Jedi, you must do whatever it takes to survive."
