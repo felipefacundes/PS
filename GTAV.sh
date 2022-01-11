@@ -269,6 +269,7 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
+Test_Mirror_Sourceforge
 #export WINEDEBUG=+heap
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
 Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
