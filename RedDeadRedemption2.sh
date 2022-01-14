@@ -262,28 +262,25 @@ Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/VulkanRT-1.1.108.0-I
 "$W"/bin/wine VulkanRT-1.1.108.0-Installer.exe
 Wkill
 
+#export WINEDEBUG=+heap
+cd "$WINEPREFIX/drive_c/Program Files (x86)"
+Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
+tar -xf Rockstar_Games.tar.zst
+cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
+rm -f Rockstar_Games.tar.zst
+cd "$WINEPREFIX/drive_c/Program Files/"
+tar -xf Rockstar_Games.tar.zst
+rm -f Rockstar_Games.tar.zst
+
+cd ~/.PlayOnGit/setups/
 Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
 Wkill
 
-Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Rockstar-Games-Launcher.exe
-"$W"/bin/wine Rockstar-Games-Launcher.exe
+cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+"$W"/bin/wine Launcher.exe
+rm -rf ~/.local/share/applications/*wine*
 sleep 30
-
-#export WINEDEBUG=+heap
-#cd "$WINEPREFIX/drive_c/Program Files (x86)"
-#Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
-#tar -xf Rockstar_Games.tar.zst
-#cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
-#rm -f Rockstar_Games.tar.zst
-#cd "$WINEPREFIX/drive_c/Program Files/"
-#tar -xf Rockstar_Games.tar.zst
-#rm -f Rockstar_Games.tar.zst
-#cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
-#"$W"/bin/wine Launcher.exe
-
-#rm -rf ~/.local/share/applications/*wine*
-#sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
