@@ -174,7 +174,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
+#"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 
 echo
 echo
@@ -201,7 +201,7 @@ echo "Progress ..."
 #"$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
-"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=force grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 
 cd ~/.PlayOnGit/setups/
@@ -213,27 +213,27 @@ cd ~/.PlayOnGit/setups/
 #"$W"/bin/wine VC_redist.x86.exe /q
 
 cd ~/.PlayOnGit/libraries/
-Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-tar -xf mfinstall.tar.xz
-cd mfinstall
-bash install-mf.sh > /dev/null 2>&1
+#Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+#tar -xf mfinstall.tar.xz
+#cd mfinstall
+#bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
-cd ~/.PlayOnGit/libraries/dxvk/
-Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
-tar -xf dxvk-1.9.2.tar.gz
+#cd ~/.PlayOnGit/libraries/dxvk/
+#Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
+#tar -xf dxvk-1.9.2.tar.gz
 
-cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
+#cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
+#cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
-"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+#"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
@@ -257,20 +257,20 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 Wkill
 
 #export WINEDEBUG=+heap
-Test_Mirror_Sourceforge
-cd "$WINEPREFIX/drive_c/Program Files (x86)"
-Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
-tar -xf Rockstar_Games.tar.zst
-cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
-rm -f Rockstar_Games.tar.zst
-cd "$WINEPREFIX/drive_c/Program Files/"
-tar -xf Rockstar_Games.tar.zst
-rm -f Rockstar_Games.tar.zst
-cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
-"$W"/bin/wine Launcher.exe
+#Test_Mirror_Sourceforge
+#cd "$WINEPREFIX/drive_c/Program Files (x86)"
+#Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
+#tar -xf Rockstar_Games.tar.zst
+#cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
+#rm -f Rockstar_Games.tar.zst
+#cd "$WINEPREFIX/drive_c/Program Files/"
+#tar -xf Rockstar_Games.tar.zst
+#rm -f Rockstar_Games.tar.zst
+#cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+#"$W"/bin/wine Launcher.exe
 
-rm -rf ~/.local/share/applications/*wine*
-sleep 30
+#rm -rf ~/.local/share/applications/*wine*
+#sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
