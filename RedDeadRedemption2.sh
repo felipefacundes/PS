@@ -256,8 +256,20 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
+Test_Mirror_Sourceforge
+Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/VulkanRT-1.1.108.0-Installer.exe
+"$W"/bin/wine VulkanRT-1.1.108.0-Installer.exe
+Wkill
+
+Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
+"$W"/bin/wine Social-Club-Setup.exe
+Wkill
+
+Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Rockstar-Games-Launcher.exe
+"$W"/bin/wine Rockstar-Games-Launcher.exe
+Wkill
+
 #export WINEDEBUG=+heap
-#Test_Mirror_Sourceforge
 #cd "$WINEPREFIX/drive_c/Program Files (x86)"
 #Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
 #tar -xf Rockstar_Games.tar.zst
