@@ -276,9 +276,9 @@ tar -xf Rockstar_Games.tar.zst
 rm -f Rockstar_Games.tar.zst
 
 cd ~/.PlayOnGit/setups/
-#Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
-#"$W"/bin/wine Social-Club-Setup.exe
-#Wkill
+Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
+"$W"/bin/wine Social-Club-Setup.exe
+Wkill
 
 rm -f vc_redist.x64.exe
 Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/vc_redist.x64.exe
@@ -288,7 +288,7 @@ Wkill
 cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 "$W"/bin/wine Launcher.exe
 rm -rf ~/.local/share/applications/*wine*
-sleep 30
+sleep 55
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
