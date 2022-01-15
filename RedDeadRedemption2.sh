@@ -175,7 +175,6 @@ echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
-#"$W"/bin/wineboot > /dev/null 2>&1
 
 echo
 echo
@@ -198,9 +197,6 @@ echo "Progress .."
 "$Wtricks" -q vcrun2012 > /dev/null 2>&1
 "$Wtricks" -q vcrun2013 > /dev/null 2>&1
 echo "Progress ..."
-"$Wtricks" -q mfc100 > /dev/null 2>&1
-"$Wtricks" -q mfc110 > /dev/null 2>&1
-"$Wtricks" -q mfc120 > /dev/null 2>&1
 "$Wtricks" -q mfc140 > /dev/null 2>&1
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
@@ -217,20 +213,20 @@ Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-
 "$W"/bin/wine VC_redist.x86.exe /q
 
 cd ~/.PlayOnGit/libraries/
-#Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
-#tar -xf mfinstall.tar.xz
-#cd mfinstall
-#bash install-mf.sh > /dev/null 2>&1
+Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
+tar -xf mfinstall.tar.xz
+cd mfinstall
+bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
-#cd ~/.PlayOnGit/libraries/dxvk/
-#Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
-#tar -xf dxvk-1.9.2.tar.gz
+cd ~/.PlayOnGit/libraries/dxvk/
+Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
+tar -xf dxvk-1.9.2.tar.gz
 
-#cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
-#cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
-#"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
+"$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
 tput setaf 3
 echo "Progress ....."
@@ -248,6 +244,19 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 #######################################################################################################################################################################
 
 ######################### Setup executable/game here ##########################
+cd "$WINEPREFIX"
+Get "https://github.com/felipefacundes/PS/blob/master/DXVK_SHADER_CACHE/GTAV/GTA5.dxvk-cache?raw=true" -O GTA5.dxvk-cache
+cp -f GTA5.dxvk-cache Launcher.dxvk-cache
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/dxvk.conf
+
+mkdir -p "$HOME/Documentos/Rockstar Games/GTA V"
+cd "$HOME/Documentos/Rockstar Games/GTA V"
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+
+mkdir -p "$HOME/Documents/Rockstar Games/GTA V"
+cd "$HOME/Documents/Rockstar Games/GTA V"
+Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/GTAV/settings.xml
+
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
@@ -261,10 +270,6 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 Wkill
 
 Test_Mirror_Sourceforge
-Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/VulkanRT-1.1.108.0-Installer.exe
-"$W"/bin/wine VulkanRT-1.1.108.0-Installer.exe
-Wkill
-
 #export WINEDEBUG=+heap
 cd "$WINEPREFIX/drive_c/Program Files (x86)"
 Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
@@ -274,16 +279,11 @@ rm -f Rockstar_Games.tar.zst
 cd "$WINEPREFIX/drive_c/Program Files/"
 tar -xf Rockstar_Games.tar.zst
 rm -f Rockstar_Games.tar.zst
-
-cd ~/.PlayOnGit/setups/
-Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
-"$W"/bin/wine Social-Club-Setup.exe
-Wkill
-
 cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 "$W"/bin/wine Launcher.exe
+
 rm -rf ~/.local/share/applications/*wine*
-sleep 55
+sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
