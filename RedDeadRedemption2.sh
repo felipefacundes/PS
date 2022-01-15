@@ -205,7 +205,7 @@ echo "Progress ..."
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
-"$Wtricks" autostart_winedbg=disabled hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 
 cd ~/.PlayOnGit/setups/
@@ -237,7 +237,7 @@ echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win10 grabfullscreen=y > /dev/null 2>&1
+"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
