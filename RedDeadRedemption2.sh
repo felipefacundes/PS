@@ -188,10 +188,10 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "VAMOS LÁ. VOCÊ CONSEGUE. Aguarde só MAIS UM POUCO."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-#"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
-#"$Wtricks" -q vb6run > /dev/null 2>&1
+"$Wtricks" -q vcrun2005 vcrun6sp6 > /dev/null 2>&1
+"$Wtricks" -q vb6run > /dev/null 2>&1
 "$Wtricks" -q vcrun2008 > /dev/null 2>&1
-#"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
+"$Wtricks" -q mfc40 mfc42 > /dev/null 2>&1
 echo "Progress ."
 "$Wtricks" -q vcrun2010 > /dev/null 2>&1
 echo "Progress .."
@@ -278,11 +278,6 @@ rm -f Rockstar_Games.tar.zst
 cd ~/.PlayOnGit/setups/
 Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/Social-Club-Setup.exe
 "$W"/bin/wine Social-Club-Setup.exe
-Wkill
-
-rm -f vc_redist.x64.exe
-Get "$Mirror"/project/gj-others/all/RDR2%20Redistributables/vc_redist.x64.exe
-"$W"/bin/wine vc_redist.x64.exe
 Wkill
 
 cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
