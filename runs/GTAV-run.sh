@@ -16,7 +16,7 @@ clear -T "$TERM"
 
 export WV=wine-ge-custom-7.0rc3.GE.1-1-x86_64
 export GN=GTAV
-export SN="Grand Theft Auexport to V"
+export SN="Grand Theft Auto V"
 export CME="Grand Theft Auto V is an action-adventure video game developed by Rockstar."
 
 ## Base Variables
