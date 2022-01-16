@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-staging-7.0rc3-x86_64
+export WV=wine-ge-custom-7.0rc3.GE.1-1-x86_64
 export GN="RedDeadRedemption2"
 export SN="Red Dead Redemption 2"
 export CME="Red Dead Redemption 2 also includes the shared world of Red Dead online - trill your own path while facing authorities, out-of-law gangs and fierce wildlife to build a life at the United States border."
@@ -190,7 +190,7 @@ Rerun_Info() {
 }
 Game_Actions=`zenity \
     --width=800 \
-    --height=690 \
+    --height=790 \
     --title='PlayOnGit Game Launcher and Settings' \
     --list --text "(PlayOnGit) ${SN} Menu. What do you want to do?" \
     --radiolist --column 'Choice' \
@@ -234,9 +234,7 @@ fi
 if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
     "$W"/bin/wine "$EXE2" \
-    2>&1 | tee /dev/stderr | sed -u -n -e \
-    '/trace/ s/.*approx //p' | osd_cat --lines=1 \
-    --color=yellow --outline=1 --pos=top --align=left
+    2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
     "$W"/bin/winecfg
