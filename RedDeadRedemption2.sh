@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-ge-custom-7.0rc3.GE.1-1-x86_64
+export WV=wine-ge-custom-7.0rc6.GE.1-1-x86_64
 export GN="RedDeadRedemption2"
 export SN="Red Dead Redemption 2"
 export CME="Red Dead Redemption 2 also includes the shared world of Red Dead online - trill your own path while facing authorities, out-of-law gangs and fierce wildlife to build a life at the United States border."
