@@ -173,17 +173,20 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+tput sgr0
 
 mkdir -p ~/.jogos/setups/DXSDK_Jun10/
 cd ~/.jogos/setups/DXSDK_Jun10/
-Get https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe
+Get https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe > /dev/null 2>&1
 "$W"/bin/wine DXSDK_Jun10.exe
 
-"$Wtricks" -q dotnet48 > /dev/null 2>&1
+"$Wtricks" -q dotnet48
 "$Wtricks" -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
 "$Wtricks" -q xact > /dev/null 2>&1
 "$Wtricks" -q gdiplus > /dev/null 2>&1
 
+tput bold
+tput setaf 3
 echo
 echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
