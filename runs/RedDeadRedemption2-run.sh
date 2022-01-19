@@ -49,6 +49,8 @@ EXE1="EpicGamesLauncher.exe"
 DIR1="$WINEPREFIX/drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries/Win32"
 EXE2="Launcher.exe"
 DIR2="$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+EXE3="RDR2.exe"
+DIR3="$WINEPREFIX/drive_c/Program Files/Epic Games/RedDeadRedemption2"
 ## Executable Parameters
 Pr1="-SkipBuildPatchPrereq"
 Pr2="-opengl"
@@ -197,6 +199,7 @@ Game_Actions=`zenity \
     --column 'Action' \
     TRUE "Run ${SN} (Steam)" \
     FALSE "Run ${SN} (Epic Games Store)" \
+    FALSE "Run ${SN} (Epic Games - Directly Folder Game)" \
     FALSE "Rockstar Games Launcher" \
     FALSE 'WineConfig' \
     FALSE 'Winetricks' \
@@ -223,7 +226,7 @@ Game_Actions=`zenity \
 
 if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
     cd "$DIR0"
-    "$W"/bin/wine "$EXE0" -dx11 -applaunch "$Steam_Game_ID" \
+    "$W"/bin/wine "$EXE0" -vulkan -ignorepipelinecache -applaunch "$Steam_Game_ID" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
@@ -231,9 +234,14 @@ if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
     2>&1 | FPS_Xosd
 fi
+if [ "$Game_Actions" = "Run ${SN} (Epic Games - Directly Folder Game)" ] ; then
+    cd "$DIR3"
+    "$W"/bin/wine "$EXE3" -vulkan -ignorepipelinecache \
+    2>&1 | FPS_Xosd
+fi
 if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
-    "$W"/bin/wine "$EXE2" \
+    "$W"/bin/wine "$EXE2" -vulkan -ignorepipelinecache \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
@@ -248,7 +256,7 @@ if [ "$Game_Actions" = 'Open an executable (.exe or .msi)' ]; then
     Open_EXE=`zenity --file-selection --filename="$WINEPREFIX/drive_c/" \
     --text "Custom Wine executable (.exe)" --title "Open executable (.exe)"`
     "$W"/bin/wine "\"${Open_EXE}\""
-    exec "$0"
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'WineFile (Wine File Manager)' ]; then
     cd "$WINEPREFIX/drive_c/"
@@ -275,8 +283,8 @@ fi
 if [ "$Game_Actions" = 'Choose another version of Wine!' ]; then
     rm -f ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     Choose_Wine
-    Rerun_Info
-    exec "$0"
+    #Rerun_Info
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'Toggle DXVK (Disable/Enable)' ]; then
     toggle_dxvk_check="$WINEPREFIX"/.toggle-dxvk-check.txt
@@ -301,13 +309,13 @@ if [ "$Game_Actions" = 'Kill all wine processes!' ]; then
 fi
 if [ "$Game_Actions" = 'Edit Script!' ]; then
     xdg-open "$Script_Run"
-    Rerun_Info
-    exec "$0"
+    #Rerun_Info
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'Edit dxvk.conf!' ]; then
     xdg-open "$WINEPREFIX"/dxvk.conf
-    Rerun_Info
-    exec "$0"
+    #Rerun_Info
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'Open Game Directory!' ]; then
     xdg-open "$WINEPREFIX"/drive_c
