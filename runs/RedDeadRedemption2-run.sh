@@ -231,6 +231,7 @@ if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     cd "$DIR1"
+    notify-send "You must use the following arguments:" "\-vulkan \-ignorepipelinecache"
     "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
     2>&1 | FPS_Xosd
 fi
