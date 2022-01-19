@@ -216,12 +216,12 @@ echo "Progress ...."
 tput sgr0
 
 cd ~/.PlayOnGit/setups/
-#rm -f VC_redist.x64.exe
-#rm -r VC_redist.x86.exe
-#Get "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
-#Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
-#"$W"/bin/wine VC_redist.x64.exe /q
-#"$W"/bin/wine VC_redist.x86.exe /q
+rm -f VC_redist.x64.exe
+rm -r VC_redist.x86.exe
+Get "https://download.visualstudio.microsoft.com/download/pr/3b070396-b7fb-4eee-aa8b-102a23c3e4f4/40EA2955391C9EAE3E35619C4C24B5AAF3D17AEAA6D09424EE9672AA9372AEED/VC_redist.x64.exe"
+Get "https://download.visualstudio.microsoft.com/download/pr/9307e627-aaac-42cb-a32a-a39e166ee8cb/E59AE3E886BD4571A811FE31A47959AE5C40D87C583F786816C60440252CD7EC/VC_redist.x86.exe"
+"$W"/bin/wine VC_redist.x64.exe /q
+"$W"/bin/wine VC_redist.x86.exe /q
 
 cd ~/.PlayOnGit/libraries/
 Get https://www.opencode.net/felipefacundes/wine-bins/raw/master/libraries/mfinstall.tar.xz
@@ -280,21 +280,21 @@ Get https://steamcdn-a.akamaihd.net/client/installer/SteamSetup.exe
 "$W"/bin/wine SteamSetup.exe
 Wkill
 
-#Test_Mirror_Sourceforge
+Test_Mirror_Sourceforge
 #export WINEDEBUG=+heap
-#cd "$WINEPREFIX/drive_c/Program Files (x86)"
-#Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
-#tar -xf Rockstar_Games.tar.zst
-#cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
-#rm -f Rockstar_Games.tar.zst
-#cd "$WINEPREFIX/drive_c/Program Files/"
-#tar -xf Rockstar_Games.tar.zst
-#rm -f Rockstar_Games.tar.zst
-#cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
-#"$W"/bin/wine Launcher.exe
+cd "$WINEPREFIX/drive_c/Program Files (x86)"
+Get "$Mirror"/project/gj-others/all/Rockstar_Games.tar.zst
+tar -xf Rockstar_Games.tar.zst
+cp -f Rockstar_Games.tar.zst "$WINEPREFIX/drive_c/Program Files/"
+rm -f Rockstar_Games.tar.zst
+cd "$WINEPREFIX/drive_c/Program Files/"
+tar -xf Rockstar_Games.tar.zst
+rm -f Rockstar_Games.tar.zst
+cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
+"$W"/bin/wine Launcher.exe
 
 rm -rf ~/.local/share/applications/*wine*
-#sleep 55
+sleep 55
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
