@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-7.0rc6.r0-x86_64
+export WV=wine-tkg-staging-7.0.r0-x86_64
 export GN="RedDeadRedemption2"
 export SN="Red Dead Redemption 2"
 export CME="Red Dead Redemption 2 also includes the shared world of Red Dead online - trill your own path while facing authorities, out-of-law gangs and fierce wildlife to build a life at the United States border."
