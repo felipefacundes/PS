@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-ge-custom-7.0rc3.GE.1-1-x86_64
+export WV=wine-tkg-staging-7.0rc6.r0-x86_64
 export GN="RedDeadRedemption2"
 export SN="Red Dead Redemption 2"
 export CME="Red Dead Redemption 2 also includes the shared world of Red Dead online - trill your own path while facing authorities, out-of-law gangs and fierce wildlife to build a life at the United States border."
@@ -231,18 +231,18 @@ if [ "$Game_Actions" = "Run ${SN} (Steam)" ] ; then
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games Store)" ] ; then
     cd "$DIR1"
-    notify-send "You must use the following arguments:" "\-vulkan \-ignorepipelinecache"
+    notify-send "You must use the following arguments:" "\-vulkan \-ignorepipelinecache \-cpuLoadRebalancing"
     "$W"/bin/wine "$EXE1" "$Pr1" "$Pr2" \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Run ${SN} (Epic Games - Directly Folder Game)" ] ; then
     cd "$DIR3"
-    "$W"/bin/wine "$EXE3" -vulkan -ignorepipelinecache \
+    "$W"/bin/wine "$EXE3" -vulkan -ignorepipelinecache -cpuLoadRebalancing \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = "Rockstar Games Launcher" ] ; then
     cd "$DIR2"
-    "$W"/bin/wine "$EXE2" -vulkan -ignorepipelinecache \
+    "$W"/bin/wine "$EXE2" -vulkan -ignorepipelinecache -cpuLoadRebalancing \
     2>&1 | FPS_Xosd
 fi
 if [ "$Game_Actions" = 'WineConfig' ]; then
@@ -341,7 +341,7 @@ if [ "$Game_Actions" = 'Start your terminal!' ]; then
     shopt -s expand_aliases
     alias winetricks=~/.PlayOnGit/scripts/winetricks
     ~/.PlayOnGit/scripts/run/TERM.conf
-    exec "$0"
+    #exec "$0"
 fi
 if [ "$Game_Actions" = 'Change the default execution path of executable (.exe or .lnk)!' ]; then
     Change_EXE0_DIR0
