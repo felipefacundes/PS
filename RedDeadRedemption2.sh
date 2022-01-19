@@ -173,20 +173,9 @@ echo "AGUARDE enquanto o WINETRICKS, realiza os procedimentos necessários. Isso
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-tput sgr0
 
-#mkdir -p ~/.jogos/setups/DXSDK_Jun10/
-#cd ~/.jogos/setups/DXSDK_Jun10/
-#Get https://download.microsoft.com/download/A/E/7/AE743F1F-632B-4809-87A9-AA1BB3458E31/DXSDK_Jun10.exe -O DXSDK_Jun10.exe > /dev/null 2>&1
-#"$W"/bin/wine DXSDK_Jun10.exe /U
+"$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 
-#"$Wtricks" -q dotnet48
-"$Wtricks" -q corefonts d3dx9 d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 > /dev/null 2>&1
-"$Wtricks" -q xact > /dev/null 2>&1
-"$Wtricks" -q gdiplus > /dev/null 2>&1
-
-tput bold
-tput setaf 3
 echo
 echo
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -212,7 +201,7 @@ echo "Progress ..."
 "$Wtricks" -q vcrun2015 > /dev/null 2>&1
 #"$Wtricks" -q --force vcrun2017 > /dev/null 2>&1
 echo "Progress ...."
-"$Wtricks" autostart_winedbg=disabled hosts nocrashdialog > /dev/null 2>&1
+"$Wtricks" autostart_winedbg=disabled nvapi=disabled nvapi64=disabled csmt=off grabfullscreen=y hosts nocrashdialog > /dev/null 2>&1
 tput sgr0
 
 cd ~/.PlayOnGit/setups/
@@ -231,11 +220,12 @@ bash install-mf.sh > /dev/null 2>&1
 
 # DXVK - VULKAN
 cd ~/.PlayOnGit/libraries/dxvk/
-Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
-tar -xf dxvk-1.9.2.tar.gz
+#Get https://github.com/doitsujin/dxvk/releases/download/v1.9.2/dxvk-1.9.2.tar.gz
+Get https://github.com/doitsujin/dxvk/releases/download/v1.9.3/dxvk-1.9.3.tar.gz
+tar -xf dxvk-1.9.3.tar.gz
 
-cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
-cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.2/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
+cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.3/x64/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/system32/
+cp -rf ~/.PlayOnGit/libraries/dxvk/dxvk-1.9.3/x32/* ~/.PlayOnGit/wineprefixes/"$GN"/drive_c/windows/syswow64/
 
 "$Wtricks" d3d9=native d3d10=native d3d10_1=native d3d10core=native d3d11=native dxgi=native > /dev/null 2>&1
 tput bold
@@ -244,7 +234,7 @@ echo "Progress ....."
 tput sgr0
 
 # Windows Version
-"$Wtricks" -q win10 > /dev/null 2>&1
+"$Wtricks" -q win10 csmt=off grabfullscreen=y > /dev/null 2>&1
 
 cd "$WINEPREFIX"
 Get https://raw.githubusercontent.com/felipefacundes/PS/master/Configs/EpicGamesStore/dxvk.conf
@@ -294,7 +284,7 @@ cd "$WINEPREFIX/drive_c/Program Files/Rockstar Games/Launcher"
 "$W"/bin/wine Launcher.exe
 
 rm -rf ~/.local/share/applications/*wine*
-sleep 55
+sleep 30
 ######################### ########################## ##########################
 
 cd ~/.PlayOnGit/scripts/
