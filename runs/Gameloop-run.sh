@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-tkg-staging-6.21.r0-x86_64
+export WV=wine-ge-custom-7.0rc6.GE.1-1-x86_64
 export GN="Gameloop"
 export SN="GameLoop Android Emulator"
 export CME="GameLoop Android Emulator"
