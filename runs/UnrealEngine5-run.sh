@@ -14,7 +14,7 @@ Wkill
 rm -rf ~/.local/share/applications/*wine*
 clear -T "$TERM"
 
-export WV=wine-staging-7.9-x86_64
+export WV=wine-staging-7.8-x86_64
 export GN="UnrealEngine5"
 export SN="Unreal Engine 5"
 export CME="Unreal Engine is a 3D computer graphics game engine developed by Epic Games. The world's most advanced real-time 3D creation tool for photoreal visuals and immersive experiences."
