@@ -19,7 +19,7 @@ rm -rf ~/.local/share/applications/*wine*
 whiptail --msgbox "Installation may take some time depending on the GAME. Above all, please: PATIENCE. WAIT! You will be notified when installation is complete." 10 30
 whiptail --msgbox "A instalação poderá demorar dependendo do JOGO. Acima de tudo tenha: PACIÊNCIA. AGUARDE! Você será notificado, quando a instalação concluir." 10 30
 
-export WV=wine-staging-7.9-x86_64
+export WV=wine-staging-7.8-x86_64
 export GN="UnrealEngine5"
 export SN="Unreal Engine 5"
 export CME="Unreal Engine is a 3D computer graphics game engine developed by Epic Games. The world's most advanced real-time 3D creation tool for photoreal visuals and immersive experiences."
