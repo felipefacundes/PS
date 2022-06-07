@@ -7,7 +7,12 @@ Wine_List=`
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "wine-tkg-staging-7.0.r0-x86_64" \
+    TRUE "wine-staging-7.9-x86_64" \
+    FALSE "wine-staging-7.8-x86_64" \
+    FALSE "wine-ge-custom-7.16.GE.1-1-x86_64" \
+    FALSE "wine-ge-custom-7.6.GE.1-1-x86_64" \
+    FALSE "wine-ge-custom-7.1.GE.1-1-x86_64" \
+    FALSE "wine-tkg-staging-7.0.r0-x86_64" \
     FALSE "wine-staging-7.0-x86_64" \
     FALSE "wine-tkg-staging-7.0rc6.r0-x86_64" \
     FALSE "wine-ge-custom-7.0rc6.GE.1-1-x86_64" \
@@ -54,6 +59,26 @@ Wine_List=`
     FALSE "wine-staging-4.1-1-x86_64"
 `
 
+if [ "$Wine_List" = "wine-staging-7.9-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-staging-7.9-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
+if [ "$Wine_List" = "wine-staging-7.8-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-staging-7.8-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
+if [ "$Wine_List" = "wine-ge-custom-7.16.GE.1-1-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-ge-custom-7.16.GE.1-1-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
+if [ "$Wine_List" = "wine-ge-custom-7.6.GE.1-1-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-ge-custom-7.6.GE.1-1-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
+if [ "$Wine_List" = "wine-ge-custom-7.1.GE.1-1-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-ge-custom-7.1.GE.1-1-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
 if [ "$Wine_List" = "wine-tkg-staging-7.0.r0-x86_64" ]; then
     touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     echo "wine-tkg-staging-7.0.r0-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
