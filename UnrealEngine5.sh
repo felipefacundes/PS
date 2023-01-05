@@ -174,8 +174,8 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 echo "TUDO dependerá do seu PROCESSADOR. Abaixo de 3GHz demorará BEM mais."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-"$Wtricks" -q dotnet35sp1 > /dev/null 2>&1
-"$Wtricks" -q dotnet48 > /dev/null 2>&1
+#"$Wtricks" -q dotnet35sp1 > /dev/null 2>&1
+#"$Wtricks" -q dotnet48 > /dev/null 2>&1
 "$Wtricks" -q corefonts d3dx9 xact d3dcompiler_43 d3dcompiler_47 d3dx10 d3dx10_43 d3dx11_42 d3dx11_43 gdiplus > /dev/null 2>&1
 "$Wtricks" -q fontsmooth=rgb > /dev/null 2>&1
 
@@ -251,8 +251,12 @@ Get "https://github.com/felipefacundes/desktop/blob/master/explorerpp_1.3.5_x64/
 cd ~/.PlayOnGit/setups/
 rm -f EpicGamesLauncherInstaller.msi
 Get "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/EpicGamesLauncherInstaller.msi" -O EpicGamesLauncherInstaller.msi
+Get "https://github.com/felipefacundes/WineBINS/releases/download/dotnet-sdk-3.1.420/dotnet-sdk-3.1.420-win-x64.exe" -O dotnet-sdk-3.1.420-win-x64.exe
+Get "https://github.com/felipefacundes/WineBINS/releases/download/dotnet-sdk-6.0.301-win-x64/dotnet-sdk-6.0.301-win-x64.exe" -O dotnet-sdk-6.0.301-win-x64.exe
 "$W"/bin/msiexec /i EpicGamesLauncherInstaller.msi /q > /dev/null 2>&1
-
+Wkill
+"$Wtricks" dotnet-sdk-3.1.420-win-x64.exe
+"$Wtricks" dotnet-sdk-6.0.301-win-x64.exe
 Wkill
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
