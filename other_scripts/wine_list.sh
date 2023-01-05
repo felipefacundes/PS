@@ -7,7 +7,8 @@ Wine_List=`
     --list --text 'What do you want to do?' \
     --radiolist --column 'Choice' \
     --column 'Action' \
-    TRUE "wine-staging-7.12-x86_64" \
+    TRUE "wine-staging-7.22-x86_64" \
+    FALSE "wine-staging-7.12-x86_64" \
     FALSE "wine-ge-custom-7.20.GE.1-1-x86_64" \
     FALSE "wine-staging-7.11-x86_64" \
     FALSE "wine-staging-7.10-x86_64" \
@@ -63,6 +64,10 @@ Wine_List=`
     FALSE "wine-staging-4.1-1-x86_64"
 `
 
+if [ "$Wine_List" = "wine-staging-7.22-x86_64" ]; then
+    touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+    echo "wine-staging-7.22-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
+fi
 if [ "$Wine_List" = "wine-staging-7.12-x86_64" ]; then
     touch ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
     echo "wine-staging-7.12-x86_64" > ~/.PlayOnGit/scripts/functions/PlayOnGit_NWV.txt
