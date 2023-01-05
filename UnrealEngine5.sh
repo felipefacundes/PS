@@ -258,7 +258,7 @@ Get "https://github.com/felipefacundes/WineBINS/releases/download/dotnet-sdk-6.0
 Wkill
 "$Wtricks" dotnet-sdk-3.1.420-win-x64.exe
 "$Wtricks" dotnet-sdk-6.0.301-win-x64.exe
-Wkill
+
 rm -rf ~/.local/share/applications/*wine*
 ######################### ########################## ##########################
 
