@@ -67,6 +67,14 @@ wine_list="$(
     FALSE 'wine-staging-4.1-1-x86_64'
 )"
 
+if [ "${wine_list}" = 'wine-staging-8.0-2-x86_64' ]; then
+    touch "${new_wine_version}"
+    echo 'wine-staging-8.0-2-x86_64' > "${new_wine_version}"
+fi
+if [ "${wine_list}" = 'wine-staging-8.0-1-x86_64' ]; then
+    touch "${new_wine_version}"
+    echo 'wine-staging-8.0-1-x86_64' > "${new_wine_version}"
+fi
 if [ "${wine_list}" = 'wine-staging-7.22-x86_64' ]; then
     touch "${new_wine_version}"
     echo 'wine-staging-7.22-x86_64' > "${new_wine_version}"
